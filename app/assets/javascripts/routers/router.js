@@ -25,7 +25,13 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   },
 
   tournamentsNew: function () {
-
+    var tournament = new TournaGen.Models.Tournament();
+    var view = new TournaGen.Views.TournamentForm({
+      model: tournament,
+      collection: this.collection
+    });
+    
+    this._swapView(view);
   },
 
   tournamentShow: function (id) {

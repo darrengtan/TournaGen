@@ -1,0 +1,17 @@
+<h2><%= tournament.isNew() ? 'New Tournament' : 'Edit Tournament' %></h2>
+
+<form class="tournament-form">
+  <label>
+    Title<br>
+    <input type="text" name="tournament[title]" value="">
+  </label>
+
+  <br>
+  <label>
+    Description (optional)<br>
+    <textarea name="tournament[description]" rows="8" cols="40"></textarea>
+  </label>
+
+  <br>
+  <input type="submit" class="submit-tournament-form" value="Submit">   
+</form>

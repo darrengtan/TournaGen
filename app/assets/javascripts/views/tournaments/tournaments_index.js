@@ -2,7 +2,7 @@ TournaGen.Views.TournamentsIndex = Backbone.CompositeView.extend({
   template: JST["tournaments/index"],
 
   initialize: function () {
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "sync add", this.render);
   },
 
   events: {
