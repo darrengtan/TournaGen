@@ -14,7 +14,8 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
-//= require tourney_journey
+//= require_tree ./utils
+//= require tourna_gen
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
