@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.create(email: "guest@aa.io", password: "tourneygen")
+Tournament.create(title: "Test Tournament", author_id: 1, description: "Welcome to the first tournament!")
