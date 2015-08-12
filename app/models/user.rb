@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :email, :session_token, uniqueness: true
 
   has_many :tournaments, foreign_key: :author_id
+  has_many :teams, foreign_key: :owner_id
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email);

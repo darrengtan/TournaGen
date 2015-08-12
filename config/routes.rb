@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
-    resources :tournaments
+    resources :tournaments, only: [:index, :show, :create, :update, :destroy]
+    resources :teams, only: [:index, :show, :create, :update, :destroy]
   end
 
   root to: "static_pages#root"

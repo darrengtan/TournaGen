@@ -5,7 +5,7 @@ class Api::TournamentsController < ApplicationController
   end
 
   def show
-    @tournament = Tournament.find(params[:id])
+    @tournament = Tournament.find(params[:id]) # include teams once you make joins table
     render :show
   end
 
