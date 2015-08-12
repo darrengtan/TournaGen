@@ -2,6 +2,8 @@ TournaGen.Collections.Teams = Backbone.Collection.extend({
   url: "api/teams",
   model: TournaGen.Models.Team,
 
+  comparator: "name",
+
   getOrFetch: function (id) {
     var team = this.get(id);
     if (!team) {

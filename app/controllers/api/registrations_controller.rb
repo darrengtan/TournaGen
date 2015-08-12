@@ -9,6 +9,7 @@ class Api::RegistrationsController < ApplicationController
 
   def create
     @registration = Registration.new(registration_params)
+    @registration.team_id = current_user.owned_team.id
     if @registration.save
       render json: @registration
     else
@@ -17,13 +18,13 @@ class Api::RegistrationsController < ApplicationController
   end
 
   def destroy
-    @registration = Registration.find(registration_params)
+    @registration = Registration.find(params[:id])
     @registration.destroy!
     render json: {}
   end
 
   private
   def registration_params
-    params.require(:registration).permit(:tournament_id, :team_id)
+    params.require(:registration).permit(:tournament_id)
   end
 end
