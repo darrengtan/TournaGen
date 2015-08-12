@@ -9,3 +9,4 @@
 User.create(email: "guest@aa.io", password: "tourneygen")
 Tournament.create(title: "Test Tournament", author_id: 1, description: "Welcome to the first tournament!")
 Team.create(name: "Beach Bums", owner_id: 1, description: "New Team!!!")
+Registration.create(tournament_id: 1, team_id: 1)
