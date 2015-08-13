@@ -1,1 +1,10 @@
-<%= team.escape("name") %>
+<h2><%= team.escape("title") %></h2>
+
+<p>
+  <strong>Description</strong>
+  <br>
+  <%= team.escape("description") %>
+</p>
+
+<strong>Registered Tournaments</strong><br>
+<ul class="tournaments-index"></ul>

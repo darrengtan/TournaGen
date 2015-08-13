@@ -2,7 +2,8 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.$leftSidebar = options.$leftSidebar;
-    this.collection = options.collection;
+    this.tournaments = options.tournaments;
+    this.teams = options.teams;
     this.root();
   },
 
@@ -10,7 +11,10 @@ TournaGen.Routers.Router = Backbone.Router.extend({
     "": "root",
     "tournaments": "tournamentsIndex",
     "tournaments/new": "tournamentsNew",
-    "tournaments/:id": "tournamentShow"
+    "tournaments/:id": "tournamentShow",
+    "teams": "teamsIndex",
+    "teams/new": "teamsNew",
+    "teams/:id": "teamShow"
   },
 
   root: function () {
@@ -18,9 +22,25 @@ TournaGen.Routers.Router = Backbone.Router.extend({
     this._currentView = null;
   },
 
+  teamsIndex: function () {
+    this.teams.fetch();
+    var view = new TournaGen.Views.TeamsIndex({ collection: this.teams });
+    this._swapView(view);
+  },
+
+  teamsNew: function () {
+
+  },
+
+  teamShow: function (id) {
+    var team = this.team.getOrFetch(id);
+    var view = new TournaGen.Views.TeamShow({ model: team });
+    this._swapView(view);
+  },
+
   tournamentsIndex: function () {
-    this.collection.fetch();
-    var view = new TournaGen.Views.TournamentsIndex({ collection: this.collection });
+    this.tournaments.fetch();
+    var view = new TournaGen.Views.TournamentsIndex({ collection: this.tournaments });
     this._swapView(view);
   },
 
@@ -28,14 +48,14 @@ TournaGen.Routers.Router = Backbone.Router.extend({
     var tournament = new TournaGen.Models.Tournament();
     var view = new TournaGen.Views.TournamentForm({
       model: tournament,
-      collection: this.collection
+      collection: this.tournaments
     });
-    
+
     this._swapView(view);
   },
 
   tournamentShow: function (id) {
-    var tournament = this.collection.getOrFetch(id);
+    var tournament = this.tournaments.getOrFetch(id);
     var view = new TournaGen.Views.TournamentShow({ model: tournament });
     this._swapView(view);
   },

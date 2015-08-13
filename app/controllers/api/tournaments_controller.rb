@@ -25,6 +25,6 @@ class Api::TournamentsController < ApplicationController
 
   private
   def tournament_params
-    params.require(:tournament).permit(:title, :description)
+    params.require(:tournament).permit(:title, :description, :max_teams)
   end
 end

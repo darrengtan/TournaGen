@@ -1,5 +1,5 @@
 class Tournament < ActiveRecord::Base
-  validates :title, :author, presence: true
+  validates :title, :author, :max_teams, presence: true
 
   belongs_to :author, class_name: :User, foreign_key: :author_id
   has_many :registrations, foreign_key: :tournament_id

@@ -3,18 +3,19 @@
 <form class="tournament-form">
   <label>
     Title<br>
-    <input type="text" name="tournament[title]" value="">
+    <input type="text" name="tournament[title]" class="form-control" placeholder="Title" value="">
   </label>
 
   <br>
   <label>
-    Max Number of Teams
+    Num. Teams (minimum: 4, maximum: 64)
+    <input type="number" name="tournament[max_teams]" class="form-control" value="" min="4" max="64">
   </label>
 
   <br>
   <label>
     Description (optional)<br>
-    <textarea name="tournament[description]" rows="8" cols="40"></textarea>
+    <textarea name="tournament[description]" rows="8" cols="40" class="form-control"></textarea>
   </label>
 
   <br>

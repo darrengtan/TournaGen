@@ -1,6 +1,5 @@
-TournaGen.Views.TeamShow = Backbone.View.extend({
+TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
   template: JST["teams/show"],
-  tagName: "li",
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);

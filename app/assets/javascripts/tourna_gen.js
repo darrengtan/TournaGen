@@ -6,11 +6,13 @@ window.TournaGen = {
   initialize: function() {
     var $rootEl = $("div#main-content");
     var $leftSidebar = $("div#left-sidebar");
-    var collection = new TournaGen.Collections.Tournaments();
+    var tournaments = new TournaGen.Collections.Tournaments();
+    var teams = new TournaGen.Collections.Teams();
     new TournaGen.Routers.Router({
       $rootEl: $rootEl,
       $leftSidebar: $leftSidebar,
-      collection: collection
+      tournaments: tournaments,
+      teams: teams
     });
 
     var $navbar = $("div#navbar");
