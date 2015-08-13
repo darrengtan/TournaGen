@@ -29,7 +29,7 @@ class Api::TeamsController < ApplicationController
   def destroy
     @team = Team.find(params[:id])
     @team.destroy!
-    render json: {}
+    render json: @team
   end
 
   private

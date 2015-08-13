@@ -13,23 +13,30 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   events: {
     "click .register-button": "teamAction"
   },
+  saveData: function(results){
+    // debugger;
+    // $.ajax
+    // model.set(results)
+    // model.save()
+  },
 
   testBracket: function () {
-
     var minimalData = {
       teams : [
         ["Team 1", "Team 2"], /* first matchup */
         ["Team 3", "Team 4"]  /* second matchup */
       ],
       results : [
-        [[1,2], [3,4]],       /* first round */
-        [[4,6], [2,1]]        /* second round */
+        [[1,2], [3,4]]       /* first round */
+        // [[4,6], [2,1]]        /* second round */
       ]
     };
 
     this.$('#minimal .demo').bracket({
-      init: minimalData /* data to initialize the bracket with */
+      init: minimalData,
+      save: this.saveData
     });
+//
 //     var saveData = {
 //       teams : [
 //         ["Team 1", "Team 2"], /* first matchup */
@@ -44,6 +51,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
 //  * userData: optional data given when bracket is created.
 //  */
 //     function saveFn(data, userData) {
+//       debugger;
 //       var json = jQuery.toJSON(data);
 //       $('#saveOutput').text('POST '+userData+' '+json);
 //       /* You probably want to do something like this
@@ -63,13 +71,38 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
 //
 //     /* You can also inquiry the current data */
 //     var data = container.bracket('data');
-//     $('#dataOutput').text(jQuery.toJSON(data));
+//     // $('#dataOutput').text(jQuery.toJSON(data));
   },
 
   addTeamName: function (registration) {
     registration.fetch();
     var view = new TournaGen.Views.RegistrationShow({ model: registration });
     this.addSubview("ul.teams-index", view);
+  },
+
+  checkAuthorized: function () {
+    if (this.get("authorized")) {
+      this.testBracket();
+    } else {
+      this.viewBracket();
+    }
+  },
+
+  viewBracket: function () {
+    var minimalData = {
+      teams : [
+        ["Team 1", "Team 2"], /* first matchup */
+        ["Team 3", "Team 4"]  /* second matchup */
+      ],
+      results : [
+        [[1,2], [3,4]]       /* first round */
+        // [[4,6], [2,1]]        /* second round */
+      ]
+    };
+
+    this.$('#minimal .demo').bracket({
+      init: minimalData
+    });
   },
 
   removeTeamName: function (registration) {
@@ -79,7 +112,11 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({ tournament: this.model }));
     this.attachSubviews();
-    this.testBracket();
+    if (this.model.get("authorized")) {
+      this.testBracket();
+    } else {
+      this.viewBracket();
+    }
     return this;
   },
 

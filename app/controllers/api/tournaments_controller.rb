@@ -20,7 +20,7 @@ class Api::TournamentsController < ApplicationController
   def destroy
     @tournament = Tournament.find(params[:id])
     @tournament.destroy!
-    render json: {}
+    render json: @tournament
   end
 
   private

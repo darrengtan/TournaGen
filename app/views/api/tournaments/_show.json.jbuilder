@@ -6,6 +6,7 @@ json.registrations do
   end
 end
 
+json.authorized tournament.author === current_user
 json.registered current_user.registered_tournaments.include?(tournament)
 
 if current_user.registered_tournaments.include?(tournament)
