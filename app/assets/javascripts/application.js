@@ -13,9 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require jquery.serializeJSON
 //= require underscore
 //= require backbone
+//= require jquery.serializeJSON
+//= require jquery.bracket.min
 //= require_tree ./utils
 //= require tourna_gen
 //= require_tree ../templates

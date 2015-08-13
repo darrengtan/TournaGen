@@ -4,7 +4,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.collection = this.model.registrations();
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.collection, "sync", this.render);
+    // this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "add", this.addTeamName);
     this.listenTo(this.collection, "remove", this.removeTeamName);
     this.renderTeams();
@@ -14,14 +14,56 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     "click .register-button": "teamAction"
   },
 
-  render: function () {
-    this.$el.html(this.template({ tournament: this.model }));
-    this.attachSubviews();
-    return this;
-  },
+  testBracket: function () {
 
-  renderTeams: function () {
-    this.collection.each(this.addTeamName.bind(this));
+    var minimalData = {
+      teams : [
+        ["Team 1", "Team 2"], /* first matchup */
+        ["Team 3", "Team 4"]  /* second matchup */
+      ],
+      results : [
+        [[1,2], [3,4]],       /* first round */
+        [[4,6], [2,1]]        /* second round */
+      ]
+    };
+
+    this.$('#minimal .demo').bracket({
+      init: minimalData /* data to initialize the bracket with */
+    });
+//     var saveData = {
+//       teams : [
+//         ["Team 1", "Team 2"], /* first matchup */
+//         ["Team 3", "Team 4"]  /* second matchup */
+//       ],
+//       results : [[1,0], [2,7]]
+//     };
+//
+// /* Called whenever bracket is modified
+//  *
+//  * data:     changed bracket object in format given to init
+//  * userData: optional data given when bracket is created.
+//  */
+//     function saveFn(data, userData) {
+//       var json = jQuery.toJSON(data);
+//       $('#saveOutput').text('POST '+userData+' '+json);
+//       /* You probably want to do something like this
+//       jQuery.ajax("rest/"+userData, {contentType: 'application/json',
+//                                     dataType: 'json',
+//                                     type: 'post',
+//                                     data: json})
+//       */
+//     }
+//
+//     var container = this.$('div#minimal .demo');
+//     container.bracket({
+//       init: saveData,
+//       save: saveFn,
+//       userData: "http://myapi"
+//     });
+//
+//     /* You can also inquiry the current data */
+//     var data = container.bracket('data');
+//     $('#dataOutput').text(jQuery.toJSON(data));
   },
 
   addTeamName: function (registration) {
@@ -34,13 +76,15 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.removeModelSubview("ul.teams-index", registration);
   },
 
-  teamAction: function (e) {
-    e.preventDefault();
-    if (!this.model.get("registered")) {
-      this.registerTeam();
-    } else {
-      this.unregisterTeam();
-    }
+  render: function () {
+    this.$el.html(this.template({ tournament: this.model }));
+    this.attachSubviews();
+    this.testBracket();
+    return this;
+  },
+
+  renderTeams: function () {
+    this.collection.each(this.addTeamName.bind(this));
   },
 
   registerTeam: function () {
@@ -57,12 +101,19 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     });
   },
 
+  teamAction: function (e) {
+    e.preventDefault();
+    if (!this.model.get("registered")) {
+      this.registerTeam();
+    } else {
+      this.unregisterTeam();
+    }
+  },
+
   unregisterTeam: function () {
-    // var registration = this.collection.getOrFetch(this.model.get("registrationId"));
-    // var registration = new TournaGen.Models.Registration({
-      // id: this.model.get("registrationId")
-    // });
-    var registration = this.collection.findWhere({'team_id': TournaGen.CURRENT_USER.teamId });
+    var registration = this.collection.findWhere({
+      'team_id': TournaGen.CURRENT_USER.teamId
+    });
 
     registration.destroy({
       success: function (model) {
