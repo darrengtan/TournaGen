@@ -1,10 +1,10 @@
 class Api::RegistrationsController < ApplicationController
   def index
-    @registrations = Registration.all
+    @registrations = Registration.includes(:team)
   end
 
   def show
-    @registration = Registration.find(params[:id])
+    @registration = Registration.includes(:team).find(params[:id])
   end
 
   def create
@@ -20,7 +20,7 @@ class Api::RegistrationsController < ApplicationController
   def destroy
     @registration = Registration.find(params[:id])
     @registration.destroy!
-    render json: {}
+    render json: @registration
   end
 
   private

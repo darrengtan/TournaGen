@@ -2,10 +2,12 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   template: JST["tournaments/show"],
 
   initialize: function () {
-    this.collection = this.model.teams();
+    this.collection = this.model.registrations();
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.collection, "sync add remove", this.render);
-    // this.listenTo(this.collection, "remove", this.removeTeam);
+    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "add", this.addTeamName);
+    this.listenTo(this.collection, "remove", this.removeTeamName);
+    this.renderTeams();
   },
 
   events: {
@@ -14,27 +16,22 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({ tournament: this.model }));
-    this.renderTeams();
-    // this.renderRegisterButton();
+    this.attachSubviews();
     return this;
   },
 
   renderTeams: function () {
-    this.collection.each(this.addTeam.bind(this));
+    this.collection.each(this.addTeamName.bind(this));
   },
 
-  // renderRegisterButton: function () {
-  //   var view = new TournaGen.Views.RegisterButton({ model: this.model });
-  //   this.addSubview("button.register-button", view);
-  // },
-
-  removeTeam: function (team) {
-    this.removeModelSubview("ul.teams-index", team);
-  },
-
-  addTeam: function (team) {
-    var view = new TournaGen.Views.TeamShow({ model: team });
+  addTeamName: function (registration) {
+    registration.fetch();
+    var view = new TournaGen.Views.RegistrationShow({ model: registration });
     this.addSubview("ul.teams-index", view);
+  },
+
+  removeTeamName: function (registration) {
+    this.removeModelSubview("ul.teams-index", registration);
   },
 
   teamAction: function (e) {
@@ -51,24 +48,27 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
       tournament_id: this.model.get("id")
     });
     registration.save({}, {
-      success: function () {
-        var team = new TournaGen.Models.Team({ id: registration.get("team_id") });
-        team.fetch();
-        this.collection.add(team);
+      success: function (regist) {
+        this.collection.add(regist);
+        $(".register-button").html("Unregister");
+        this.model.set("registered", true);
+        this.model.set("registrationId", regist.get("id"));
       }.bind(this)
     });
   },
 
   unregisterTeam: function () {
-    var registration = new TournaGen.Models.Registration({
-      id: this.model.get("registrationId")
-    });
-    registration.fetch({
-      success: function () {
-        team = this.collection.getOrFetch(registration.get("team_id"));
-        debugger;
-        this.collection.remove(team);
-        registration.destroy();
+    // var registration = this.collection.getOrFetch(this.model.get("registrationId"));
+    // var registration = new TournaGen.Models.Registration({
+      // id: this.model.get("registrationId")
+    // });
+    var registration = this.collection.findWhere({'team_id': TournaGen.CURRENT_USER.teamId });
+
+    registration.destroy({
+      success: function (model) {
+        this.collection.remove(registration);
+        $(".register-button").html("Register");
+        this.model.set("registered", false);
       }.bind(this)
     });
   }

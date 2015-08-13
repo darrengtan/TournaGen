@@ -2,19 +2,19 @@ TournaGen.Models.Tournament = Backbone.Model.extend({
   urlRoot: "api/tournaments",
 
   parse: function (response) {
-    if (response.teams) {
-      this.teams().set(response.teams, { parse: true });
-      delete response.teams;
+    if (response.registrations) {
+      this.registrations().set(response.registrations, { parse: true });
+      delete response.registrations;
     }
 
     return response;
   },
 
-  teams: function () {
-    if (!this._teams) {
-      this._teams = new TournaGen.Collections.Teams([], { tournament: this });
+  registrations: function () {
+    if (!this._registrations) {
+      this._registrations = new TournaGen.Collections.Registrations([], { tournament: this });
     }
 
-    return this._teams;
+    return this._registrations;
   }
 });
