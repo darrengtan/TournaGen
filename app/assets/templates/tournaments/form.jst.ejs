@@ -8,8 +8,15 @@
 
   <br>
   <label>
-    Num. Teams (minimum: 4, maximum: 64)
-    <input type="number" name="tournament[max_teams]" class="form-control" value="" min="4" max="64">
+    Num. Teams (max 64)
+    <select name="tournament[max_teams]">
+      <option value=""></option>
+      <option value="4">4</option>
+      <option value="8">8</option>
+      <option value="16">16</option>
+      <option value="32">32</option>
+      <option value="64">64</option>
+    </select>
   </label>
 
   <br>

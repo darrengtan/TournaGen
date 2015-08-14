@@ -5,9 +5,13 @@ class Tournament < ActiveRecord::Base
   has_many :registrations, foreign_key: :tournament_id
   has_many :registered_teams, through: :registrations, source: :team
 
+  def parse_results
+    JSON.parse(self.results)
+  end
+
   def seed_teams
     seeds = [1]
-    num_rounds = Math.log2(32).to_i + 1
+    num_rounds = Math.log2(self.max_teams).to_i + 1
     round = 1
     until round == num_rounds
       new_seeds = []

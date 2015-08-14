@@ -1,4 +1,5 @@
 json.extract! tournament, :id, :title, :description, :max_teams, :updated_at
+json.results tournament.parse_results
 
 json.registrations do
   json.array! tournament.registrations do |registration|

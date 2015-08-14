@@ -8,12 +8,24 @@ class Api::TournamentsController < ApplicationController
   end
 
   def create
-    @tournament = Tournament.new(tournament_params)
-    @tournament.author_id = current_user.id
+    @tournament = current_user.tournaments.new(tournament_params)
     if @tournament.save
       render :show
     else
-      render json: @board.errors.full_messages, status: :unprocessable_entity
+      render json: @tournament.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @tournament = Tournament.find(params[:id])
+    if params[:tournament][:results]
+      params[:tournament][:results] = JSON.generate(params[:tournament][:results])
+    end
+
+    if @tournament.update(tournament_params)
+      render :show
+    else
+      render json: @tournament.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -25,6 +37,6 @@ class Api::TournamentsController < ApplicationController
 
   private
   def tournament_params
-    params.require(:tournament).permit(:title, :description, :max_teams)
+    params.require(:tournament).permit(:title, :description, :max_teams, :results)
   end
 end

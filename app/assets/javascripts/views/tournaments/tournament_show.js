@@ -10,22 +10,23 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click .register-button": "teamAction"
+    "click .register-button": "registerAction"
   },
 
-  saveData: function (results) {
-    debugger;
+  saveResults: function (results) {
+    this.model.set("results", results.results);
+    this.model.save({});
   },
 
   changeBracket: function () {
     var data = {
       teams : this.model.get("seeds"),
-      results : []
+      results : this.model.get("results")
     };
 
     this.$('#bracket-container .bracket-body').bracket({
       init: data,
-      save: this.saveData
+      save: this.saveResults.bind(this)
     });
   },
 
@@ -46,7 +47,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   viewBracket: function () {
     var data = {
       teams : this.model.get("seeds"),
-      results : []
+      results : this.model.get("results")
     };
 
     this.$('#bracket-container .bracket-body').bracket({
@@ -75,6 +76,15 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.collection.each(this.addTeamName.bind(this));
   },
 
+  registerAction: function (e) {
+    e.preventDefault();
+    if (!this.model.get("registered")) {
+      this.registerTeam();
+    } else {
+      this.unregisterTeam();
+    }
+  },
+
   registerTeam: function () {
     var registration = new TournaGen.Models.Registration({
       tournament_id: this.model.get("id")
@@ -87,15 +97,6 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
         this.model.set("registrationId", regist.get("id"));
       }.bind(this)
     });
-  },
-
-  teamAction: function (e) {
-    e.preventDefault();
-    if (!this.model.get("registered")) {
-      this.registerTeam();
-    } else {
-      this.unregisterTeam();
-    }
   },
 
   unregisterTeam: function () {
