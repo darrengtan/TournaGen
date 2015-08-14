@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  validates :name, :owner, presence: true
+  validates :name, :captain, presence: true
 
   belongs_to :captain, class_name: :User, foreign_key: :owner_id
   has_many :registrations, foreign_key: :team_id
