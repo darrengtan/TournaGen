@@ -1,5 +1,5 @@
-TournaGen.Views.RegistrationShow = Backbone.View.extend({
-  template: JST["registrations/show"],
+TournaGen.Views.RegistrationTournamentShow = Backbone.View.extend({
+  template: JST["registrations/tournament_show"],
   tagName: "li",
   className: "list-group-item",
 

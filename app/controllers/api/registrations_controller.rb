@@ -1,10 +1,10 @@
 class Api::RegistrationsController < ApplicationController
   def index
-    @registrations = Registration.includes(:team)
+    @registrations = Registration.includes(:team, :tournament)
   end
 
   def show
-    @registration = Registration.includes(:team).find(params[:id])
+    @registration = Registration.includes(:team, :tournament).find(params[:id])
   end
 
   def create

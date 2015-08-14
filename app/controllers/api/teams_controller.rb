@@ -1,10 +1,10 @@
 class Api::TeamsController < ApplicationController
   def index
-    @teams = Team.includes(:captain)
+    @teams = Team.includes(:captain, :registrations)
   end
 
   def show
-    @team = Team.includes(:captain).find(params[:id])
+    @team = Team.includes(:captain, :registrations).find(params[:id])
   end
 
   def create

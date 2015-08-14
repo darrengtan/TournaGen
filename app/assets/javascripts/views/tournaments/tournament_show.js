@@ -13,9 +13,10 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     "click .register-button": "registerAction"
   },
 
-  saveResults: function (results) {
-    this.model.set("results", results.results);
-    this.model.save({});
+  addTeamName: function (registration) {
+    registration.fetch();
+    var view = new TournaGen.Views.RegistrationTeamShow({ model: registration });
+    this.addSubview("ul.teams-index", view);
   },
 
   changeBracket: function () {
@@ -28,12 +29,6 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
       init: data,
       save: this.saveResults.bind(this)
     });
-  },
-
-  addTeamName: function (registration) {
-    registration.fetch();
-    var view = new TournaGen.Views.RegistrationShow({ model: registration });
-    this.addSubview("ul.teams-index", view);
   },
 
   checkAuthorized: function () {
@@ -59,23 +54,6 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.removeModelSubview("ul.teams-index", registration);
   },
 
-  render: function () {
-    this.$el.html(this.template({ tournament: this.model }));
-    this.attachSubviews();
-    if (!this.model.get("max_teams")) {
-      this.waitForFetch();
-    } else if (this.model.get("authorized")) {
-      this.changeBracket();
-    } else {
-      this.viewBracket();
-    }
-    return this;
-  },
-
-  renderTeams: function () {
-    this.collection.each(this.addTeamName.bind(this));
-  },
-
   registerAction: function (e) {
     e.preventDefault();
     if (!this.model.get("registered")) {
@@ -99,6 +77,30 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     });
   },
 
+  render: function () {
+    this.$el.html(this.template({ tournament: this.model }));
+    this.attachSubviews();
+    
+    if (!this.model.get("max_teams")) {
+      return this;
+    } else if (this.model.get("authorized")) {
+      this.changeBracket();
+    } else {
+      this.viewBracket();
+    }
+
+    return this;
+  },
+
+  renderTeams: function () {
+    this.collection.each(this.addTeamName.bind(this));
+  },
+
+  saveResults: function (results) {
+    this.model.set("results", results.results);
+    this.model.save({});
+  },
+
   unregisterTeam: function () {
     var registration = this.collection.findWhere({
       'team_id': TournaGen.CURRENT_USER.teamId
@@ -111,9 +113,5 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
         this.model.set("registered", false);
       }.bind(this)
     });
-  },
-
-  waitForFetch: function () {
-    return;
   }
 });
