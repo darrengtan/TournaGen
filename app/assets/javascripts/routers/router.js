@@ -18,6 +18,8 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   },
 
   root: function () {
+    var view = new TournaGen.Views.FrontPage();
+    this.$leftSidebar.html(view.render().$el);
     this._currentView && this._currentView.remove();
     this._currentView = null;
   },

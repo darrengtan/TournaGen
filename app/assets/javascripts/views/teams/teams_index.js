@@ -5,10 +5,6 @@ TournaGen.Views.TeamsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync add", this.render);
   },
 
-  events: {
-    "click li.teams-index-item": "showTeam"
-  },
-
   addIndexItemSubview: function (team) {
     var view = new TournaGen.Views.TeamsIndexItem({ model: team });
     this.addSubview("ul.teams-index", view);
@@ -22,11 +18,5 @@ TournaGen.Views.TeamsIndex = Backbone.CompositeView.extend({
 
   renderTeams: function () {
     this.collection.each(this.addIndexItemSubview.bind(this));
-  },
-
-  showTeam: function (e) {
-    e.preventDefault();
-    var teamId = $(e.currentTarget).data("id");
-    Backbone.history.navigate("teams/" + teamId, { trigger: true });
   }
 });
