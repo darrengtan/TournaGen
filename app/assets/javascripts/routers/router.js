@@ -10,7 +10,7 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "root",
     "tournaments": "tournamentsIndex",
-    "tournaments/new": "tournamentsNew",
+    // "tournaments/new": "tournamentsNew",
     "tournaments/:id": "tournamentShow",
     "teams": "teamsIndex",
     "teams/new": "teamsNew",
@@ -18,7 +18,9 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   },
 
   root: function () {
-    var view = new TournaGen.Views.FrontPage();
+    var view = new TournaGen.Views.LeftSidebar({
+      collection: this.tournaments
+    });
     this.$leftSidebar.html(view.render().$el);
     this._currentView && this._currentView.remove();
     this._currentView = null;
@@ -45,16 +47,16 @@ TournaGen.Routers.Router = Backbone.Router.extend({
     var view = new TournaGen.Views.TournamentsIndex({ collection: this.tournaments });
     this._swapView(view);
   },
-
-  tournamentsNew: function () {
-    var tournament = new TournaGen.Models.Tournament();
-    var view = new TournaGen.Views.TournamentForm({
-      model: tournament,
-      collection: this.tournaments
-    });
-
-    this._swapView(view);
-  },
+  //
+  // tournamentsNew: function () {
+  //   var tournament = new TournaGen.Models.Tournament();
+  //   var view = new TournaGen.Views.TournamentForm({
+  //     model: tournament,
+  //     collection: this.tournaments
+  //   });
+  //
+  //   this._swapView(view);
+  // },
 
   tournamentShow: function (id) {
     var tournament = this.tournaments.getOrFetch(id);

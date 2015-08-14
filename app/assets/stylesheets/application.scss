@@ -15,10 +15,22 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+html {
+  background: -webkit-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* W3C */
+}
+
+h1, h2, h3 {
+  color: white;
+}
+
 #left-sidebar {
   float: left;
   display: block;
-  margin-right: 20px;
+  margin: 0 20px;
   width: 15%;
 }
 
@@ -31,4 +43,33 @@
 div#main-content div#bracket-container {
   max-height: 500px;
   overflow: auto;
+}
+
+.modal-background {
+  background: rgba(92, 88, 88, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.modal-content {
+  z-index: 1000000;
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  background-color: gray;
+  padding: 1pc;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+strong {
+  color: white;
+}
+
+p {
+  color: white;
 }

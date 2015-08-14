@@ -1,30 +1,35 @@
-<h2><%= tournament.isNew() ? 'New Tournament' : 'Edit Tournament' %></h2>
+<div class="modal-background"></div>
+<div class="modal-content">
+  <button class="close">&times;</button>
 
-<form class="tournament-form">
-  <label>
-    Title<br>
-    <input type="text" name="tournament[title]" class="form-control" placeholder="Title" value="">
-  </label>
+  <h2><%= tournament.isNew() ? 'New Tournament' : 'Edit Tournament' %></h2>
 
-  <br>
-  <label>
-    Num. Teams (max 64)
-    <select name="tournament[max_teams]">
-      <option value=""></option>
-      <option value="4">4</option>
-      <option value="8">8</option>
-      <option value="16">16</option>
-      <option value="32">32</option>
-      <option value="64">64</option>
-    </select>
-  </label>
+  <form>
+    <label>
+      Title<br>
+      <input type="text" name="tournament[title]" class="title-field form-control" placeholder="Title" value="">
+    </label>
 
-  <br>
-  <label>
-    Description (optional)<br>
-    <textarea name="tournament[description]" rows="8" cols="40" class="form-control"></textarea>
-  </label>
+    <br>
+    <label>
+      Num. Teams (max 64)
+      <select name="tournament[max_teams]">
+        <option value=""></option>
+        <option value="4">4</option>
+        <option value="8">8</option>
+        <option value="16">16</option>
+        <option value="32">32</option>
+        <option value="64">64</option>
+      </select>
+    </label>
 
-  <br>
-  <input type="submit" class="submit-tournament-form" value="Submit">
-</form>
+    <br>
+    <label>
+      Description (optional)<br>
+      <textarea name="tournament[description]" rows="8" cols="40" class="form-control" placeholder="Description"></textarea>
+    </label>
+
+    <br>
+    <input type="submit" class="btn btn-primary submit-tournament-form" value="Submit">
+  </form>
+</div>

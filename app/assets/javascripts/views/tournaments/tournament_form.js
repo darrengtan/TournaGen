@@ -1,13 +1,35 @@
 TournaGen.Views.TournamentForm = Backbone.View.extend({
   template: JST["tournaments/form"],
 
+  initialize: function () {
+    $(document).on("keyup", this.handleKey.bind(this));
+  },
+
   events: {
-    "submit form.tournament-form": "submit"
+    "submit form": "submit",
+    "click .close": "removeModal",
+    "click .modal-background": "remove"
+  },
+
+  handleKey: function (e) {
+    if (e.keycode === 27) {
+      this.remove();
+    }
+  },
+
+  onRender: function () {
+    this.$('.title-field').focus();
   },
 
   render: function () {
     this.$el.html(this.template({ tournament: this.model }));
+    this.onRender();
     return this;
+  },
+
+  removeModal: function (e) {
+    e.preventDefault();
+    this.remove();
   },
 
   submit: function (e) {
