@@ -6,23 +6,32 @@ class Tournament < ActiveRecord::Base
   has_many :registered_teams, through: :registrations, source: :team
 
   def test_bracket
-    matchups = self.seed_teams
+    template = BracketTree::Template::SingleElimination.by_size(32)
+  end
 
-    bracket = BracketTree::Bracket::SingleElimination.by_size(self.max_teams)
-    bracket.seed matchups
-    bracket
+  def starting_seeds
+    self.test_bracket.starting_seats
   end
 
   def seed_teams
-    matchups = []
-    seeds = (1..self.max_teams).to_a
-    midpoint = self.max_teams / 2
-    (0...midpoint).each do |n|
-      matchups << { name: "Team#{n + 1}", seed_value: n + 1}
-      matchups << { name: "Team#{self.max_teams - n}", seed_value: self.max_teams - n }
+    start = [1]
+    num_rounds = Math.log2(32).to_i + 1
+    round = 1
+    until round == num_rounds
+      new_start = []
+      start.each do |seed|
+        new_start << seed << (2 ** round + 1) - seed
+      end
+      start = new_start
+      round += 1
     end
 
-    matchups
+    pairs = [];
+    until start.empty?
+      pairs << start.shift(2)
+    end
+
+    pairs
   end
 
   def num_rounds

@@ -128,7 +128,8 @@ div.jQBracket .team.highlightLoser {
 }
 div.jQBracket .team.highlight {
     background-color: #3c0;
-    color: #000
+    color: #000;
+    transition: background-color 1s;
 }
 div.jQBracket .teamContainer {
     z-index: 1;
@@ -149,7 +150,7 @@ div.jQBracket .connector div.connector {
 }
 div.jQBracket .connector.highlightWinner,
 div.jQBracket .connector div.connector.highlightWinner {
-    border-color: #da0
+    border-color: #da0;
 }
 div.jQBracket .connector.highlightLoser,
 div.jQBracket .connector div.connector.highlightLoser {
@@ -157,7 +158,8 @@ div.jQBracket .connector div.connector.highlightLoser {
 }
 div.jQBracket .connector.highlight,
 div.jQBracket .connector div.connector.highlight {
-    border-color: #0c0
+    border-color: #0c0;
+    transition: border-color 1s;
 }
 div.jQBracket .np .connector,
 div.jQBracket .np .connector div.connector {

@@ -13,65 +13,19 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   events: {
     "click .register-button": "teamAction"
   },
-  saveData: function(results){
-    // debugger;
-    // $.ajax
-    // model.set(results)
-    // model.save()
-  },
+  saveData: function (results) {},
 
   testBracket: function () {
     var minimalData = {
-      teams : [
-        ["Team 1", "Team 2"], /* first matchup */
-        ["Team 3", "Team 4"]  /* second matchup */
-      ],
-      results : [
-        [[1,2], [3,4]]       /* first round */
-        // [[4,6], [2,1]]        /* second round */
-      ]
+      teams : this.model.get("seeds"),
+      results : []
     };
+    debugger;
 
     this.$('#minimal .demo').bracket({
       init: minimalData,
       save: this.saveData
     });
-//
-//     var saveData = {
-//       teams : [
-//         ["Team 1", "Team 2"], /* first matchup */
-//         ["Team 3", "Team 4"]  /* second matchup */
-//       ],
-//       results : [[1,0], [2,7]]
-//     };
-//
-// /* Called whenever bracket is modified
-//  *
-//  * data:     changed bracket object in format given to init
-//  * userData: optional data given when bracket is created.
-//  */
-//     function saveFn(data, userData) {
-//       debugger;
-//       var json = jQuery.toJSON(data);
-//       $('#saveOutput').text('POST '+userData+' '+json);
-//       /* You probably want to do something like this
-//       jQuery.ajax("rest/"+userData, {contentType: 'application/json',
-//                                     dataType: 'json',
-//                                     type: 'post',
-//                                     data: json})
-//       */
-//     }
-//
-//     var container = this.$('div#minimal .demo');
-//     container.bracket({
-//       init: saveData,
-//       save: saveFn,
-//       userData: "http://myapi"
-//     });
-//
-//     /* You can also inquiry the current data */
-//     var data = container.bracket('data');
-//     // $('#dataOutput').text(jQuery.toJSON(data));
   },
 
   addTeamName: function (registration) {
@@ -89,17 +43,16 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   viewBracket: function () {
+    return;
     var minimalData = {
-      teams : [
-        ["Team 1", "Team 2"], /* first matchup */
-        ["Team 3", "Team 4"],  /* second matchup */
-        ["Team 5", "Team 6"]
-      ],
+      teams : this.model.get("seeds"),
       results : [
-        [[1,2]]       /* first round */
+        // [[1,2]]       /* first round */
         // [[4,6], [2,1]]        /* second round */
       ]
     };
+
+    debugger;
 
     this.$('#minimal .demo').bracket({
       init: minimalData
