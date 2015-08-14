@@ -4,7 +4,6 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.collection = this.model.registrations();
     this.listenTo(this.model, "sync", this.render);
-    // this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "add", this.addTeamName);
     this.listenTo(this.collection, "remove", this.removeTeamName);
     this.renderTeams();
@@ -13,17 +12,19 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   events: {
     "click .register-button": "teamAction"
   },
-  saveData: function (results) {},
 
-  testBracket: function () {
-    var minimalData = {
+  saveData: function (results) {
+    debugger;
+  },
+
+  changeBracket: function () {
+    var data = {
       teams : this.model.get("seeds"),
       results : []
     };
-    debugger;
 
-    this.$('#minimal .demo').bracket({
-      init: minimalData,
+    this.$('#bracket-container .bracket-body').bracket({
+      init: data,
       save: this.saveData
     });
   },
@@ -36,26 +37,20 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
 
   checkAuthorized: function () {
     if (this.get("authorized")) {
-      this.testBracket();
+      this.changeBracket();
     } else {
       this.viewBracket();
     }
   },
 
   viewBracket: function () {
-    return;
-    var minimalData = {
+    var data = {
       teams : this.model.get("seeds"),
-      results : [
-        // [[1,2]]       /* first round */
-        // [[4,6], [2,1]]        /* second round */
-      ]
+      results : []
     };
 
-    debugger;
-
-    this.$('#minimal .demo').bracket({
-      init: minimalData
+    this.$('#bracket-container .bracket-body').bracket({
+      init: data
     });
   },
 
@@ -66,8 +61,10 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({ tournament: this.model }));
     this.attachSubviews();
-    if (this.model.get("authorized")) {
-      this.testBracket();
+    if (!this.model.get("max_teams")) {
+      this.waitForFetch();
+    } else if (this.model.get("authorized")) {
+      this.changeBracket();
     } else {
       this.viewBracket();
     }
@@ -113,5 +110,9 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
         this.model.set("registered", false);
       }.bind(this)
     });
+  },
+
+  waitForFetch: function () {
+    return;
   }
 });

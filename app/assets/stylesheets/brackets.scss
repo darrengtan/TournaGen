@@ -129,7 +129,7 @@ div.jQBracket .team.highlightLoser {
 div.jQBracket .team.highlight {
     background-color: #3c0;
     color: #000;
-    transition: background-color 1s;
+    transition: background-color 0.5s;
 }
 div.jQBracket .teamContainer {
     z-index: 1;
@@ -159,7 +159,7 @@ div.jQBracket .connector div.connector.highlightLoser {
 div.jQBracket .connector.highlight,
 div.jQBracket .connector div.connector.highlight {
     border-color: #0c0;
-    transition: border-color 1s;
+    transition: border-color 0.5s;
 }
 div.jQBracket .np .connector,
 div.jQBracket .np .connector div.connector {

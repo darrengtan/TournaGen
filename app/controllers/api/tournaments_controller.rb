@@ -5,7 +5,6 @@ class Api::TournamentsController < ApplicationController
 
   def show
     @tournament = Tournament.includes(:registrations).find(params[:id])
-    @seeds = @tournament.seed_teams
   end
 
   def create

@@ -14,3 +14,13 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+#left-sidebar {
+  float: left;
+  display: block;
+}
+
+#main-content {
+  float: left;
+  display: block;
+}

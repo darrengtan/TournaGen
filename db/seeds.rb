@@ -8,7 +8,8 @@
 
 user1 = User.create(email: "guest@aa.io", password: "tourneygen")
 user2 = User.create(email: "bob@aa.io", password: "weirdpassword")
-tourn1 = Tournament.create(title: "Test Tournament", author_id: user1.id, description: "Welcome to the first tournament!", max_teams: 8)
+tourn1 = Tournament.create(title: "Test Tournament", author_id: user1.id, description: "Welcome to the first tournament!", max_teams: 32)
+tourn2 = Tournament.create(title: "Test Tournament 2", author_id: user2.id, description: "Welcome to the second tournament!", max_teams: 16)
 team1 = Team.create(name: "Beach Bums", owner_id: user1.id, description: "First Team")
 team2 = Team.create(name: "Crouching Tigers", owner_id: user2.id, description: "Second Team")
 reg1 = Registration.create(tournament_id: tourn1.id, team_id: team2.id)

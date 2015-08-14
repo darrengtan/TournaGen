@@ -33,7 +33,7 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   },
 
   teamShow: function (id) {
-    var team = this.team.getOrFetch(id);
+    var team = this.teams.getOrFetch(id);
     var view = new TournaGen.Views.TeamShow({ model: team });
     this._swapView(view);
   },
