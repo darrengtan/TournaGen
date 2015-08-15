@@ -2,7 +2,7 @@ TournaGen.Views.TournamentForm = Backbone.View.extend({
   template: JST["tournaments/form"],
 
   initialize: function () {
-    $(document).on("keyup", this.handleKey.bind(this));
+    $(document).keyup(this.handleKey.bind(this));
   },
 
   events: {
@@ -12,7 +12,7 @@ TournaGen.Views.TournamentForm = Backbone.View.extend({
   },
 
   handleKey: function (e) {
-    if (e.keycode === 27) {
+    if (e.keyCode === 27) {
       this.remove();
     }
   },
