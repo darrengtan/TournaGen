@@ -23,6 +23,10 @@ html {
   background:         linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* W3C */
 }
 
+body {
+  background: rgba(92, 88, 88, 0.6);
+}
+
 h1, h2, h3 {
   color: white;
 }
@@ -56,10 +60,21 @@ div#main-content div#bracket-container {
 }
 
 .modal-content {
-  z-index: 1000000;
+  z-index: 1001;
   position: absolute;
   top: 15%;
   left: 30%;
+  background-color: gray;
+  padding: 1pc;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.user-session-container {
+  z-index: 1001;
+  position: absolute;
+  top: 15%;
+  left: 40%;
   background-color: gray;
   padding: 1pc;
   border: 1px solid;

@@ -1,18 +1,20 @@
-<h1>Log In!</h1>
+<div class="user-session-container">
+  <h1>Log In!</h1>
 
-<form action="<%= session_url %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <form action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <label>
-    Username or Email<br>
-    <input type="text" name="user[credential]" value="" placeholder="Username or Email">
-  </label>
-  <br>
-  <label>
-    Password<br>
-    <input type="password" name="user[password]" value="" placeholder="Password">
-  </label>
+    <label>
+      Username or Email<br>
+      <input type="text" name="user[credential]" value="" placeholder="Username or Email">
+    </label>
+    <br>
+    <label>
+      Password<br>
+      <input type="password" name="user[password]" value="" placeholder="Password">
+    </label>
 
-  <br>
-  <input type="submit" value="Submit">
-</form>
+    <br>
+    <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
+</div>
