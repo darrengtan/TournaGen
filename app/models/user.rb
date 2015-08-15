@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     if credential.include?("@")
       user = User.find_by_email(credential)
     else
-      user.find_by_username(credential)
+      user = User.find_by_username(credential)
     end
     user && user.is_password?(password) ? user : nil
   end

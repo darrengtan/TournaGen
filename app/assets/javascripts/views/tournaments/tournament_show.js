@@ -80,7 +80,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({ tournament: this.model }));
     this.attachSubviews();
-    
+
     if (!this.model.get("max_teams")) {
       return this;
     } else if (this.model.get("authorized")) {
@@ -102,9 +102,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   unregisterTeam: function () {
-    var registration = this.collection.findWhere({
-      'team_id': TournaGen.CURRENT_USER.teamId
-    });
+    var registration = this.collection.findWhere({"team_id": TournaGen.CURRENT_USER.teamId});
 
     registration.destroy({
       success: function (model) {

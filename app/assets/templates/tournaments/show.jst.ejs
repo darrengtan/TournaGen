@@ -1,12 +1,16 @@
+<a href="#tournaments">Back to Tournaments Index</a><br>
 <h2><%= tournament.escape("title") %></h2>
 
+<p>Hosted by <%= tournament.escape("host") %></p>
 <p>
   <strong>Description</strong>
   <br>
   <%= tournament.escape("description") %>
 </p>
 
-<a href="#tournaments">Back to Tournaments Index</a><br>
+<button class="register-button btn btn-primary">
+  <%= tournament.get("registered") ? "Unregister" : "Register" %>
+</button>
 
 <div id="bracket-container">
   <div class="bracket-body">
@@ -16,7 +20,3 @@
 
 <strong>Teams</strong><br>
 <ul class="teams-index group-list"></ul>
-
-<button class="register-button">
-  <%= tournament.get("registered") ? "Unregister" : "Register" %>
-</button>
