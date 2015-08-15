@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user1 = User.create(email: "guest@aa.io", password: "tourneygen")
-user2 = User.create(email: "bob@aa.io", password: "weirdpassword")
+user1 = User.create(email: "guest@aa.io", username: "Guest", password: "tourneygen")
+user2 = User.create(email: "bobby@aa.io", username: "Bobby", password: "weirdpassword")
 tourn1 = Tournament.create(title: "Test Tournament", author_id: user1.id, description: "Welcome to the first tournament!", max_teams: 32)
 tourn2 = Tournament.create(title: "Test Tournament 2", author_id: user2.id, description: "Welcome to the second tournament!", max_teams: 16)
 team1 = Team.create(name: "Beach Bums", owner_id: user1.id, description: "First Team")
