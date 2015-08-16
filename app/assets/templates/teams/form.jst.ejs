@@ -1,0 +1,31 @@
+<div class="modal-background"></div>
+<div class="modal-content">
+  <button class="close">&times;</button>
+
+  <h2><%= team.isNew() ? 'New Team' : 'Edit Team' %></h2>
+
+  <form>
+    <label>
+      Team Name<br>
+      <input
+        type="text"
+        name="team[name]"
+        class="title-field form-control"
+        value="<%= team.escape("name") %>"
+        placeholder="Name">
+    </label>
+
+    <br>
+    <label>
+      Description<br>
+      <textarea
+        name="team[description]"
+        rows="8" cols="40"
+        class="form-control"
+        placeholder="Description"><%= team.escape("description") %></textarea>
+    </label>
+
+    <br>
+    <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
+</div>

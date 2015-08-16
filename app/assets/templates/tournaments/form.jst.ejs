@@ -7,7 +7,11 @@
   <form>
     <label>
       Title<br>
-      <input type="text" name="tournament[title]" class="title-field form-control" placeholder="Title" value="">
+      <input type="text"
+        name="tournament[title]"
+        class="title-field form-control"
+        placeholder="Title"
+        value="<%= tournament.escape("title") %>">
     </label>
 
     <br>
@@ -26,10 +30,13 @@
     <br>
     <label>
       Description (optional)<br>
-      <textarea name="tournament[description]" rows="8" cols="40" class="form-control" placeholder="Description"></textarea>
+      <textarea name="tournament[description]"
+        rows="8" cols="40"
+        class="form-control"
+        placeholder="Description"><%= tournament.escape("description") %></textarea>
     </label>
 
     <br>
-    <input type="submit" class="btn btn-primary submit-tournament-form" value="Submit">
+    <input type="submit" class="btn btn-primary" value="Submit">
   </form>
 </div>

@@ -19,7 +19,8 @@ TournaGen.Routers.Router = Backbone.Router.extend({
 
   root: function () {
     var view = new TournaGen.Views.LeftSidebar({
-      collection: this.tournaments
+      tournaments: this.tournaments,
+      teams: this.teams
     });
     this.$leftSidebar.html(view.render().$el);
     this._currentView && this._currentView.remove();

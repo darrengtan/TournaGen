@@ -8,7 +8,7 @@
   $(document).ready(function(){
     TournaGen.CURRENT_USER = {
       username: "<%= current_user.username %>",
-      teamId: <%= current_user.owned_team ? current_user.owned_team.id : nil %>
+      teamId: <%= current_user.owned_team ? current_user.owned_team.id : -1 %>
     };
 
     TournaGen.initialize();

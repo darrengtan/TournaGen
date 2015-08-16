@@ -25,10 +25,28 @@ html {
 
 body {
   background: rgba(92, 88, 88, 0.6);
+  box-sizing: border-box;
 }
 
-h1, h2, h3 {
-  color: white;
+.navbar.navbar-default {
+  background: rgba(13, 0, 32, 0.74902);
+  color: rgb(222, 138, 67);
+  border-radius: 0px;
+  border-color: rgba(13, 0, 32, 0.74902);
+}
+
+#navbar a {
+  color: inherit;
+  background: inherit;
+}
+
+#navbar li.active {
+  background: rgba(222,134,66, 0.74902);
+  color: rgb(13, 0, 32);
+}
+
+li.active {
+  background: inherit;
 }
 
 #left-sidebar {
@@ -36,17 +54,27 @@ h1, h2, h3 {
   display: block;
   margin: 0 20px;
   width: 15%;
+  background: rgba(13, 0, 32, 0.74902);
+  border-radius: 5px;
+  padding: 10px;
+  color: rgb(222, 138, 67);
 }
 
-#main-content {
+#main-content > div{
+  background: rgba(222,134,66, 0.74902);
   float: left;
   display: block;
-  width: 80%;
+  width: 60%;
+  color: rgb(13, 0, 32);
+  border-radius: 5px;
+  padding: 10px;
 }
 
 div#main-content div#bracket-container {
   max-height: 500px;
   overflow: auto;
+  border-radius: 0px;
+  border-top: 1px solid rgb(13, 0, 32);
 }
 
 .modal-background {
@@ -64,7 +92,8 @@ div#main-content div#bracket-container {
   position: absolute;
   top: 15%;
   left: 30%;
-  background-color: gray;
+  background: rgba(13, 0, 32, 0.74902);
+  color: rgb(222,134,66);
   padding: 1pc;
   border: 1px solid;
   border-radius: 5px;
@@ -81,10 +110,28 @@ div#main-content div#bracket-container {
   border-radius: 5px;
 }
 
-strong {
-  color: white;
+a {
+  color: rgb(255,242,231)
 }
 
-p {
-  color: white;
+li {
+  left: 0px;
 }
+
+.list-group-item {
+  background-color: inherit;
+  border-color: inherit;
+}
+
+h1, h2, h3 {
+  margin-top: 0px;
+}
+
+// strong {
+//   color: rgb(222, 138, 67);
+// }
+//
+// p {
+//   color: white;
+// }
+//

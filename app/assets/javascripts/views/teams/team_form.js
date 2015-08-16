@@ -1,5 +1,5 @@
-TournaGen.Views.TournamentForm = Backbone.View.extend({
-  template: JST["tournaments/form"],
+TournaGen.Views.TeamForm = Backbone.View.extend({
+  template: JST["teams/form"],
 
   initialize: function () {
     $(document).keyup(this.handleKey.bind(this));
@@ -7,8 +7,8 @@ TournaGen.Views.TournamentForm = Backbone.View.extend({
 
   events: {
     "submit form": "submit",
-    "click .close": "removeModal",
-    "click .modal-background": "remove"
+    "click .modal-background": "remove",
+    "click .close": "removeModal"
   },
 
   handleKey: function (e) {
@@ -18,7 +18,7 @@ TournaGen.Views.TournamentForm = Backbone.View.extend({
   },
 
   onRender: function () {
-    this.$('.title-field').focus();
+    this.$('name-field').focus();
   },
 
   removeModal: function (e) {
@@ -27,19 +27,19 @@ TournaGen.Views.TournamentForm = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({ tournament: this.model }));
+    this.$el.html(this.template({ team: this.model }));
     this.onRender();
     return this;
   },
 
   submit: function (e) {
     e.preventDefault();
-    var attrs = $(e.currentTarget).serializeJSON().tournament;
+    var attrs = $(e.currentTarget).serializeJSON().team;
     this.model.set(attrs);
     this.model.save({}, {
       success: function () {
         this.collection.add(this.model, { merge: true });
-        Backbone.history.navigate("tournaments/" + this.model.escape("id"), { trigger: true });
+        Backbone.history.navigate("teams/" + this.model.escape("id"), { trigger: true });
         this.remove();
       }.bind(this)
     });

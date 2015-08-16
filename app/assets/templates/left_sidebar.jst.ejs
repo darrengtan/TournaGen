@@ -3,4 +3,8 @@
 <br>
 <a href="#tournaments">View all tournaments</a>
 <br>
+<% if (TournaGen.CURRENT_USER.teamId === -1) { %>
+  <a class="team-form" href="#">Make Your Own Team!</a>
+  <br>
+<% } %>
 <a class="tournament-form" href="#">Create New Tournament</a>
