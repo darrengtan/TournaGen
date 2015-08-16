@@ -48,20 +48,14 @@ TournaGen.Routers.Router = Backbone.Router.extend({
     var view = new TournaGen.Views.TournamentsIndex({ collection: this.tournaments });
     this._swapView(view);
   },
-  //
-  // tournamentsNew: function () {
-  //   var tournament = new TournaGen.Models.Tournament();
-  //   var view = new TournaGen.Views.TournamentForm({
-  //     model: tournament,
-  //     collection: this.tournaments
-  //   });
-  //
-  //   this._swapView(view);
-  // },
 
   tournamentShow: function (id) {
+    this.tournaments.fetch();
     var tournament = this.tournaments.getOrFetch(id);
-    var view = new TournaGen.Views.TournamentShow({ model: tournament });
+    var view = new TournaGen.Views.TournamentShow({
+      model: tournament,
+      tournaments: this.tournaments
+    });
     this._swapView(view);
   },
 

@@ -2,6 +2,11 @@
 <h2><%= tournament.escape("title") %></h2>
 
 <p>Hosted by <%= tournament.escape("host") %></p>
+
+<% if (tournament.get("authorized")) { %>
+  <button class="edit-button btn btn-primary">Edit Tournament Details</button>
+<% } %>
+
 <p>
   <strong>Description</strong>
   <br>

@@ -1,7 +1,8 @@
 TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   template: JST["tournaments/show"],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.tournaments = options.tournaments;
     this.collection = this.model.registrations();
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.collection, "add", this.addTeamName);
@@ -10,7 +11,8 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click .register-button": "registerAction"
+    "click .register-button": "registerAction",
+    "click .edit-button": "editTournament"
   },
 
   addTeamName: function (registration) {
@@ -37,6 +39,17 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     } else {
       this.viewBracket();
     }
+  },
+
+  editTournament: function (e) {
+    e.preventDefault();
+    var modal = new TournaGen.Views.TournamentForm({
+      model: this.model,
+      collection: this.tournaments
+    });
+
+    $('body').append(modal.$el);
+    modal.render();
   },
 
   viewBracket: function () {
