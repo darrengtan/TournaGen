@@ -19,11 +19,9 @@
       Num. Teams (max 64)
       <select name="tournament[max_teams]">
         <option value=""></option>
-        <option value="4">4</option>
-        <option value="8">8</option>
-        <option value="16">16</option>
-        <option value="32">32</option>
-        <option value="64">64</option>
+        <% for (var i = 2; i < 7; i++) { %>
+          <option value="<%= Math.pow(2, i) %>"><%= Math.pow(2, i) %></option>
+        <% } %>
       </select>
     </label>
 
