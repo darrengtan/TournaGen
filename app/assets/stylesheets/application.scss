@@ -39,6 +39,14 @@ body {
   background: rgb(13, 0, 32);
 }
 
+#navbar ul {
+  background: rgb(13, 0, 32);
+}
+
+#navbar li.divider {
+  background-color: rgb(222, 134, 66);
+}
+
 #navbar li:hover {
   border-color: rgb(222, 132, 66);
 }
@@ -118,24 +126,24 @@ a {
   color: rgb(255,242,231)
 }
 
-li {
+ul.group-list {
+  margin: 0px;
+  padding: 0px;
   left: 0px;
 }
 
-.list-group-item {
+ul.list-group li.list-group-item {
   background-color: inherit;
   border-color: inherit;
+  left: 0px;
+  padding-left: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 h1, h2, h3 {
   margin-top: 0px;
 }
-
-// strong {
-//   color: rgb(222, 138, 67);
-// }
-//
-// p {
-//   color: white;
-// }
-//
