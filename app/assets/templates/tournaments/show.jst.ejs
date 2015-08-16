@@ -13,10 +13,12 @@
 </button>
 <br><br>
 
-<div class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  You are the host of this tournament! To update the bracket, simply click the score area and input the score.
-</div>
+<% if (tournament.get("authorized")) { %>
+  <div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    You are the host of this tournament! To update the bracket, simply click the score area and input the score.
+  </div>
+<% } %>
 
 <div id="bracket-container">
   <div class="bracket-body"></div>
