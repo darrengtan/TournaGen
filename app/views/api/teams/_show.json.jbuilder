@@ -1,5 +1,5 @@
 json.extract! team, :id, :name, :description
-json.captain team.captain.email
+json.captain team.captain.username
 
 json.registrations do
   json.array! team.registrations do |registration|
