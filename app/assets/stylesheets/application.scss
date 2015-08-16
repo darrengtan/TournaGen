@@ -24,29 +24,28 @@ html {
 }
 
 body {
-  background: rgba(92, 88, 88, 0.6);
   box-sizing: border-box;
 }
 
-.navbar.navbar-default {
-  background: rgba(13, 0, 32, 0.74902);
+#navbar .navbar.navbar-default{
+  background: rgb(13, 0, 32);
   color: rgb(222, 138, 67);
   border-radius: 0px;
-  border-color: rgba(13, 0, 32, 0.74902);
+  border-color: rgb(13, 0, 32);
 }
 
 #navbar a {
-  color: inherit;
-  background: inherit;
+  color: rgb(222, 134, 66);
+  background: rgb(13, 0, 32);
+}
+
+#navbar li:hover {
+  border-color: rgb(222, 132, 66);
 }
 
 #navbar li.active {
   background: rgba(222,134,66, 0.74902);
   color: rgb(13, 0, 32);
-}
-
-li.active {
-  background: inherit;
 }
 
 #left-sidebar {
@@ -104,10 +103,15 @@ div#main-content div#bracket-container {
   position: absolute;
   top: 15%;
   left: 40%;
-  background-color: gray;
+  background: rgba(13, 0, 32, 0.74902);
+  color: rgb(222,134,66);
   padding: 1pc;
   border: 1px solid;
   border-radius: 5px;
+}
+
+.user-session-container input {
+  color: black;
 }
 
 a {
