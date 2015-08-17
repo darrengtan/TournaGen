@@ -10,7 +10,6 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "root",
     "tournaments": "tournamentsIndex",
-    // "tournaments/new": "tournamentsNew",
     "tournaments/:id": "tournamentShow",
     "teams": "teamsIndex",
     "teams/new": "teamsNew",
@@ -31,10 +30,6 @@ TournaGen.Routers.Router = Backbone.Router.extend({
     this.teams.fetch();
     var view = new TournaGen.Views.TeamsIndex({ collection: this.teams });
     this._swapView(view);
-  },
-
-  teamsNew: function () {
-
   },
 
   teamShow: function (id) {
