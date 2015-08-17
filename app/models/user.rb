@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   validates :email, :username, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :username, length: { minimum: 4 }
+  validates :username, length: { minimum: 4, maximum: 16 }
   validates :email, :session_token, uniqueness: true
 
   has_many :tournaments, foreign_key: :author_id
