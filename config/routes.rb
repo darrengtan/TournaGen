@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :tournaments, only: [:index, :show, :create, :update, :destroy]
     resources :teams, only: [:index, :show, :create, :update, :destroy]
     resources :registrations, only: [:index, :show, :create, :destroy]
+    resources :follows, only: [:index, :show, :create, :destroy]
   end
 
   root to: "static_pages#root"

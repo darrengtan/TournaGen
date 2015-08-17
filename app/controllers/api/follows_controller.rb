@@ -1,10 +1,10 @@
-class FollowsController < ApplicationController
+class Api::FollowsController < ApplicationController
   def index
-    @follows = Follow.all
+    @follows = Follow.includes(:tournament, :follower)
   end
 
   def show
-    @follow = Follow.find(params[:id])
+    @follow = Follow.includes(:tournament, :follower).find(params[:id])
   end
 
   def create
