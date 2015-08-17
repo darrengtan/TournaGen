@@ -30,16 +30,12 @@ class Tournament < ActiveRecord::Base
     until seeds_arr.empty?
       pairs << seeds_arr.shift(2)
     end
-
-    pairs.map { |pair| pair.map { |seed| "Team #{seed}" }}
-  end
-
-  def test_bracket
-    template = BracketTree::Template::SingleElimination.by_size(32)
-  end
-
-  def starting_seeds
-    self.test_bracket.starting_seats
+    pairs.map do |pair|
+      pair.map do |seed|
+        self.registered_teams[seed - 1] ?
+          "(#{seed}) #{self.registered_teams[seed - 1].name}" : "Team #{seed}"
+      end
+    end
   end
 
   def num_rounds
