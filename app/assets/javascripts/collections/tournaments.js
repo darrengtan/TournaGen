@@ -2,6 +2,8 @@ TournaGen.Collections.Tournaments = Backbone.Collection.extend({
   url: "api/tournaments",
   model: TournaGen.Models.Tournament,
 
+  comparator: "title",
+
   getOrFetch: function (id) {
     var tournament = this.get(id);
     if (!tournament) {
