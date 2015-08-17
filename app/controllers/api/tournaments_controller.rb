@@ -1,10 +1,10 @@
 class Api::TournamentsController < ApplicationController
   def index
-    @tournaments = Tournament.includes(:registrations, :author)
+    @tournaments = Tournament.includes(:registrations, :author, :follows)
   end
 
   def show
-    @tournament = Tournament.includes(:registrations, :author).find(params[:id])
+    @tournament = Tournament.includes(:registrations, :author, :follows).find(params[:id])
   end
 
   def create
