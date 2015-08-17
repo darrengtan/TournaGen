@@ -4,6 +4,8 @@ class Tournament < ActiveRecord::Base
   belongs_to :author, class_name: :User, foreign_key: :author_id
   has_many :registrations, foreign_key: :tournament_id
   has_many :registered_teams, through: :registrations, source: :team
+  has_many :follows
+  has_many :followers, through: :follows, source: :follower
 
   def parse_results
     JSON.parse(self.results)
