@@ -10,6 +10,7 @@ end
 
 json.authorized tournament.author === current_user
 json.registered current_user.registered_tournaments.include?(tournament)
+json.userTeam !!current_user.owned_team
 
 if current_user.registered_tournaments.include?(tournament)
   json.registrationId current_user.owned_team.registrations.find_by_tournament_id(tournament.id).id

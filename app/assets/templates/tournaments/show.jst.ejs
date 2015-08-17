@@ -13,10 +13,12 @@
   <%= tournament.escape("description") %>
 </p>
 
-<button class="register-button btn btn-primary">
-  <%= tournament.get("registered") ? "Unregister" : "Register" %>
-</button>
-<br><br>
+<% if (tournament.get("userTeam")) { %>
+  <button class="register-button btn btn-primary">
+    <%= tournament.get("registered") ? "Unregister" : "Register" %>
+  </button>
+  <br><br>
+<% } %>
 
 <% if (tournament.get("authorized")) { %>
   <div class="alert alert-warning alert-dismissible" role="alert">
