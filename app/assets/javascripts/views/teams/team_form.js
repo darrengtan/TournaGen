@@ -39,6 +39,7 @@ TournaGen.Views.TeamForm = Backbone.View.extend({
     this.model.save({}, {
       success: function () {
         this.collection.add(this.model, { merge: true });
+        location.reload(true);
         Backbone.history.navigate("teams/" + this.model.escape("id"), { trigger: true });
         this.remove();
       }.bind(this)
