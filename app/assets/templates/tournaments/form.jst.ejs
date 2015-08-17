@@ -20,7 +20,7 @@
       <select name="tournament[max_teams]">
         <option value=""></option>
         <% for (var i = 2; i < 7; i++) { %>
-          <option value="<%= Math.pow(2, i) %>"><%= Math.pow(2, i) %></option>
+          <option value="<%= Math.pow(2, i) %>" <%= tournament.get("max_teams") && tournament.get("max_teams") === Math.pow(2, i) ? "selected" : "" %>><%= Math.pow(2, i) %></option>
         <% } %>
       </select>
     </label>
