@@ -4,6 +4,10 @@
   <strong>Team Captain</strong>: <%= team.escape("captain") %>
 </p>
 
+<% if (team.escape("captain") === TournaGen.CURRENT_USER.username) { %>
+  <button class="edit-button btn btn-primary">Edit Team Information</button>
+<% } %>
+
 <p>
   <strong>Description</strong>
   <br>
