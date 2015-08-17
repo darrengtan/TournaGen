@@ -1,6 +1,10 @@
 TournaGen.Models.Tournament = Backbone.Model.extend({
   urlRoot: "api/tournaments",
 
+  numFollowers: function () {
+    return this.follows().length;
+  },
+
   parse: function (response) {
     if (response.follows) {
       this.follows().set(response.follows, { parse: true });

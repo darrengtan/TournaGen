@@ -3,11 +3,12 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.tournaments = options.tournaments;
-    this.collection = this.model.registrations();
+    this.follows = this.model.follows();
+    this.registrations = this.model.registrations();
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.collection, "add", this.addTeamName);
-    this.listenTo(this.collection, "remove", this.removeTeamName);
-    this.listenTo(this.collection, "add remove", this.bracketView);
+    this.listenTo(this.registrations, "add", this.addTeamName);
+    this.listenTo(this.registrations, "remove", this.removeTeamName);
+    this.listenTo(this.registrations, "add remove", this.bracketView);
     this.renderTeams();
   },
 
@@ -95,8 +96,8 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     });
     registration.save({}, {
       success: function (regist) {
-        this.collection.add(regist);
-        $(".register-button").html("Unregister");
+        this.registrations.add(regist);
+        $(".register-button").html("Unregister From Tournament");
         this.model.set("registered", true);
         this.model.set("registrationId", regist.get("id"));
       }.bind(this)
@@ -113,7 +114,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   renderTeams: function () {
-    this.collection.each(this.addTeamName.bind(this));
+    this.registrations.each(this.addTeamName.bind(this));
   },
 
   saveResults: function (results) {
@@ -122,12 +123,12 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   unregisterTeam: function () {
-    var registration = this.collection.findWhere({ "team_id": TournaGen.CURRENT_USER.teamId });
+    var registration = this.registrations.findWhere({ "team_id": TournaGen.CURRENT_USER.teamId });
 
     registration.destroy({
       success: function (model) {
-        this.collection.remove(registration);
-        $(".register-button").html("Register");
+        this.registrations.remove(registration);
+        $(".register-button").html("Register For Tournament");
         this.model.set("registered", false);
       }.bind(this)
     });

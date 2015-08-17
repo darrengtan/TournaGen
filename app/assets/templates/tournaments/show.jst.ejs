@@ -1,6 +1,11 @@
 <a href="#tournaments">Back to Tournaments Index</a><br>
 <h2><%= tournament.escape("title") %></h2>
 
+Followers: <%= tournament.numFollowers() %>
+<button class="follow-button btn btn-primary">
+  <%= tournament.get("following") ? "Unfollow" : "Follow" %>
+</button>
+
 <p>Hosted by <%= tournament.escape("host") %></p>
 
 <% if (tournament.get("authorized")) { %>
@@ -15,7 +20,7 @@
 
 <% if (tournament.get("userTeam")) { %>
   <button class="register-button btn btn-primary">
-    <%= tournament.get("registered") ? "Unregister" : "Register" %>
+    <%= tournament.get("registered") ? "Unregister From " : "Register For " %>Tournament
   </button>
   <br><br>
 <% } %>

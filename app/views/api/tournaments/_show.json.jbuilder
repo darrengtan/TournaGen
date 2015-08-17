@@ -3,10 +3,15 @@ json.results tournament.parse_results
 json.host tournament.author.username
 json.authorized tournament.author === current_user
 json.registered current_user.registered_tournaments.include?(tournament)
+json.following current_user.followed_tournaments.include?(tournament)
 json.userTeam !!current_user.owned_team
 
 if current_user.registered_tournaments.include?(tournament)
   json.registrationId current_user.owned_team.registrations.find_by_tournament_id(tournament.id).id
+end
+
+if current_user.followed_tournaments.include?(tournament)
+  json.followId current_user.follows.find_by_tournament_id(tournament.id).id
 end
 
 json.registrations do
