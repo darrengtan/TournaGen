@@ -29,7 +29,8 @@ div.jQBracket .finals {
     position: relative
 }
 div.jQBracket .bracket {
-    float: right;
+  width: 1000px;
+    float: left;
     clear: left
 }
 div.jQBracket .loserBracket {
@@ -39,9 +40,9 @@ div.jQBracket .loserBracket {
 }
 div.jQBracket .round {
     position: relative;
-    width: 100px;
+    width: 150px;
     margin-right: 40px;
-    float: left
+    float: left;
 }
 div.jQBracket .match {
     position: relative
@@ -54,7 +55,8 @@ div.jQBracket .team {
     z-index: 1;
     float: left;
     background-color: #eee;
-    width: 100px;
+    width: 150px;
+    // height: 38px;
     cursor: default
 }
 div.jQBracket .team:first-child {
@@ -70,11 +72,12 @@ div.jQBracket .team input {
 div.jQBracket .team div.label {
     padding: 3px;
     position: absolute;
-    width: 70px;
-    height: 22px;
-    white-space: nowrap;
+    width: 80%;
+    height: 100%;
+    white-space: inherit;
     overflow: hidden;
     color: black;
+    line-height: 22px;
 }
 div.jQBracket .team div.label[disabled] {
     cursor: default
@@ -84,7 +87,8 @@ div.jQBracket .team div.score {
     padding: 3px;
     background-color: rgba(255, 255, 255, .3);
     text-align: center;
-    width: 20px
+    width: 20%;
+    height: 100%;
 }
 div.jQBracket .team div.score[disabled] {
     color: #999;

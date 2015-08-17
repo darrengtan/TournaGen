@@ -7,6 +7,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.collection, "add", this.addTeamName);
     this.listenTo(this.collection, "remove", this.removeTeamName);
+    this.listenTo(this.collection, "add remove", this.bracketView);
     this.renderTeams();
   },
 
@@ -21,7 +22,18 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.addSubview("ul.teams-index", view);
   },
 
+  bracketView: function () {
+    if (!this.model.get("max_teams")) {
+      return this;
+    } else if (this.model.get("authorized")) {
+      this.changeBracket();
+    } else {
+      this.viewBracket();
+    }
+  },
+
   changeBracket: function () {
+    this.$('#bracket-container .bracket-body').empty();
     var data = {
       teams : this.model.get("seeds"),
       results : this.model.get("results")
@@ -53,6 +65,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   viewBracket: function () {
+    this.$('#bracket-container .bracket-body').empty();
     var data = {
       teams : this.model.get("seeds"),
       results : this.model.get("results")
@@ -94,13 +107,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.$el.html(this.template({ tournament: this.model }));
     this.attachSubviews();
 
-    if (!this.model.get("max_teams")) {
-      return this;
-    } else if (this.model.get("authorized")) {
-      this.changeBracket();
-    } else {
-      this.viewBracket();
-    }
+    this.bracketView();
 
     return this;
   },
