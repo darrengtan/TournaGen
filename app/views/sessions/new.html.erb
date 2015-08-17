@@ -16,8 +16,16 @@
 
     <br>
     <input type="submit" class="btn btn-primary" value="Submit">
-    
+
     <br><br>
     <%= link_to "Create New Account", new_user_url %>
+  </form>
+
+  <form action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="user[credential]" value="guest@aa.io">
+    <input type="hidden" name="user[password]" value="tourneygen">
+    <input type="submit" class="btn btn-primary" value="Guest Login">
+
   </form>
 </div>
