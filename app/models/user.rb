@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :registered_tournaments, through: :owned_team, source: :registered_tournaments
   has_many :follows, foreign_key: :follower_id
   has_many :followed_tournaments, through: :follows, source: :tournament
+  has_many :team_memberships
+  has_many :registered_teams, through: :team_memberships, source: :team
 
   def self.find_by_credentials(credential, password)
     if credential.include?("@")
