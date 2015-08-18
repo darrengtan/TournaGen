@@ -41,7 +41,6 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
 
   joinTeam: function () {
     var teamMembership = new TournaGen.Models.TeamMembership({ "team_id": this.model.get("id") });
-    debugger;
     teamMembership.save({}, {
       success: function (tm) {
         this.teamMemberships.add(tm);
@@ -54,7 +53,6 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
 
   leaveTeam: function () {
     var teamMembership = this.teamMemberships.findWhere({ "id": this.model.get("tmId") });
-    debugger;
     teamMembership.destroy({
       success: function () {
         this.teamMemberships.remove(teamMembership);
