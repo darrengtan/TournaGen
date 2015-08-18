@@ -56,6 +56,7 @@ foll10 = Follow.create(tournament_id: tourn2.id, follower_id: user3.id)
 foll11 = Follow.create(tournament_id: tourn2.id, follower_id: user4.id)
 foll12 = Follow.create(tournament_id: tourn2.id, follower_id: user5.id)
 
+tm1 = TeamMembership.create(team_id: team2.id, user_id: user1.id)
 tm2 = TeamMembership.create(team_id: team2.id, user_id: user2.id)
 tm3 = TeamMembership.create(team_id: team3.id, user_id: user3.id)
 tm3 = TeamMembership.create(team_id: team4.id, user_id: user4.id)

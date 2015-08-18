@@ -8,7 +8,7 @@ class Api::TeamMembershipsController < ApplicationController
   end
 
   def create
-    @team_membership = TeamMembership.new(team_membership_params)
+    @team_membership = current_user.team_memberships.new(team_membership_params)
     if @team_membership.save
       render json: @team_membership
     else

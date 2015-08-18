@@ -9,12 +9,14 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     this.listenTo(this.registrations, "add", this.addTournamentTitle);
     this.listenTo(this.registrations, "remove", this.removeTournamentTitle);
     this.listenTo(this.teamMemberships, "add", this.addMemberName);
+    this.listenTo(this.teamMemberships, "remove", this.removeMemberName);
     this.renderTeamMembers();
     this.renderTournaments();
   },
 
   events: {
-    "click .edit-button": "editTeam"
+    "click .edit-button": "editTeam",
+    "click .join-button": "joinAction"
   },
 
   editTeam: function (e) {
@@ -26,6 +28,40 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
 
     $('body').append(modal.$el);
     modal.render();
+  },
+
+  joinAction: function (e) {
+    e.preventDefault();
+    if (this.model.get("is_team_member")) {
+      this.leaveTeam();
+    } else {
+      this.joinTeam();
+    }
+  },
+
+  joinTeam: function () {
+    var teamMembership = new TournaGen.Models.TeamMembership({ "team_id": this.model.get("id") });
+    debugger;
+    teamMembership.save({}, {
+      success: function (tm) {
+        this.teamMemberships.add(tm);
+        this.$('.join-button').html("Leave This Team");
+        this.model.set("is_team_member", true);
+        this.model.set("tmId", tm.id);
+      }.bind(this)
+    });
+  },
+
+  leaveTeam: function () {
+    var teamMembership = this.teamMemberships.findWhere({ "id": this.model.get("tmId") });
+    debugger;
+    teamMembership.destroy({
+      success: function () {
+        this.teamMemberships.remove(teamMembership);
+        $(".join-button").html("Join This Team");
+        this.model.set("is_team_member", false);
+      }.bind(this)
+    });
   },
 
   render: function () {
@@ -46,6 +82,10 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     teamMembership.fetch();
     var view = new TournaGen.Views.MemberShow({ model: teamMembership });
     this.addSubview("ul.team-members-index", view);
+  },
+
+  removeMemberName: function (teamMembership) {
+    this.removeModelSubview("ul.team-members-index", teamMembership);
   },
 
   addTournamentTitle: function (registration) {

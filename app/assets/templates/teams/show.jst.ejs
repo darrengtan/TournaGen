@@ -15,7 +15,13 @@
   <%= team.escape("description") %>
 </p>
 
-<strong>Team Members</strong><br>
+<button class="join-button btn btn-primary">
+  <%= team.get("is_team_member") ? "Leave" : "Join" %> This team
+</button>
+<br><br>
+
+<strong>Team Members</strong>
+<br>
 <ul class="team-members-index list-group">
   None
 </ul><br>
