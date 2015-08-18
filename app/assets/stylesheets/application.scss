@@ -27,6 +27,10 @@ body {
   box-sizing: border-box;
 }
 
+@for $i from 3 through 12 {
+  .bracket.total-#{$i} { width: (150px * $i) + 60  }
+}
+
 #navbar .navbar.navbar-default{
   background: rgb(13, 0, 32);
   color: rgb(222, 138, 67);

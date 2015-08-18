@@ -54,6 +54,8 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
       init: data,
       save: this.saveResults.bind(this)
     });
+
+    this.$('.bracket').addClass("total-" + Math.floor(Math.log2(this.model.get("max_teams")) + 1));
   },
 
   checkAuthorized: function () {
@@ -142,5 +144,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.$('#bracket-container .bracket-body').bracket({
       init: data
     });
+
+    this.$('.bracket').addClass("total-" + Math.log2(this.model.get("max_teams") + 1));
   }
 });

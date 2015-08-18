@@ -29,14 +29,13 @@ div.jQBracket .finals {
     position: relative
 }
 div.jQBracket .bracket {
-  width: 1000px;
     float: left;
     clear: left
 }
 div.jQBracket .loserBracket {
     float: right;
     clear: left;
-    position: relative
+    position: relative;
 }
 div.jQBracket .round {
     position: relative;
@@ -45,7 +44,7 @@ div.jQBracket .round {
     float: left;
 }
 div.jQBracket .match {
-    position: relative
+    position: relative;
 }
 div.jQBracket .editable {
     cursor: pointer
@@ -56,7 +55,6 @@ div.jQBracket .team {
     float: left;
     background-color: #eee;
     width: 150px;
-    // height: 38px;
     cursor: default
 }
 div.jQBracket .team:first-child {
