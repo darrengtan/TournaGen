@@ -16,7 +16,8 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
 
   events: {
     "click .edit-button": "editTeam",
-    "click .join-button": "joinAction"
+    "click .join-button": "joinAction",
+    "click .delete-button": "deleteTeam"
   },
 
   editTeam: function (e) {
@@ -28,6 +29,16 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
 
     $('body').append(modal.$el);
     modal.render();
+  },
+
+  deleteTeam: function (e) {
+    e.preventDefault();
+    this.model.destroy({
+      success: function () {
+        this.remove();
+        Backbone.history.navigate("teams", { trigger: true });
+      }.bind(this)
+    });
   },
 
   joinAction: function (e) {

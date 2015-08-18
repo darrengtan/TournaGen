@@ -23,10 +23,14 @@
 <strong>Team Members</strong>
 <br>
 <ul class="team-members-index list-group">
-  None
+  <li class="list-group-item">None</li>
 </ul><br>
 
 <strong>Registered Tournaments</strong><br>
 <ul class="tournaments-index list-group">
-  None
+  <li class="list-group-item">None</li>
 </ul>
+
+<% if (team.escape("captain") === TournaGen.CURRENT_USER.username) { %>
+  <button class="delete-button btn btn-primary">Disband Team</button>
+<% } %>
