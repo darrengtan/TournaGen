@@ -7,12 +7,12 @@ class User < ActiveRecord::Base
   validates :username, length: { minimum: 4, maximum: 16 }
   validates :email, :session_token, uniqueness: true
 
-  has_many :tournaments, foreign_key: :author_id
-  has_one :owned_team, foreign_key: :owner_id, class_name: :Team
+  has_many :tournaments, foreign_key: :author_id, dependent: :destroy
+  has_one :owned_team, foreign_key: :owner_id, class_name: :Team, dependent: :destroy
   has_many :registered_tournaments, through: :owned_team, source: :registered_tournaments
-  has_many :follows, foreign_key: :follower_id
+  has_many :follows, foreign_key: :follower_id, dependent: :destroy
   has_many :followed_tournaments, through: :follows, source: :tournament
-  has_many :team_memberships
+  has_many :team_memberships, dependent: :destroy
   has_many :registered_teams, through: :team_memberships, source: :team
 
   def self.find_by_credentials(credential, password)

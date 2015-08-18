@@ -2,9 +2,9 @@ class Tournament < ActiveRecord::Base
   validates :title, :author, :max_teams, presence: true
 
   belongs_to :author, class_name: :User, foreign_key: :author_id
-  has_many :registrations, foreign_key: :tournament_id
+  has_many :registrations, foreign_key: :tournament_id, dependent: :destroy
   has_many :registered_teams, through: :registrations, source: :team
-  has_many :follows
+  has_many :follows, :dependent: :destroy
   has_many :followers, through: :follows, source: :follower
 
   def parse_results
