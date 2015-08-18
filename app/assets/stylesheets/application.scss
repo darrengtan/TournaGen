@@ -27,7 +27,7 @@ body {
   box-sizing: border-box;
 }
 
-@for $i from 3 through 12 {
+@for $i from 3 through 15 {
   .bracket.total-#{$i} { width: (150px * $i) + 60  }
 }
 
