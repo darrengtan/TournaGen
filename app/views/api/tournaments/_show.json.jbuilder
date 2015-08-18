@@ -1,4 +1,5 @@
 json.extract! tournament, :id, :title, :description, :max_teams, :updated_at
+json.numRounds tournament.num_rounds
 json.results tournament.parse_results
 json.host tournament.author.username
 json.authorized tournament.author === current_user
