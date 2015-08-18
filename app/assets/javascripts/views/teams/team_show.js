@@ -3,10 +3,13 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.teams = options.teams;
-    this.collection = this.model.registrations();
+    this.registrations = this.model.registrations();
+    this.teamMemberships = this.model.teamMemberships();
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.collection, "add", this.addTournamentTitle);
-    this.listenTo(this.collection, "remove", this.removeTournamentTitle);
+    this.listenTo(this.registrations, "add", this.addTournamentTitle);
+    this.listenTo(this.registrations, "remove", this.removeTournamentTitle);
+    this.listenTo(this.teamMemberships, "add", this.addMemberName);
+    this.renderTeamMembers();
     this.renderTournaments();
   },
 
@@ -31,8 +34,18 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     return this;
   },
 
+  renderTeamMembers: function () {
+    this.teamMemberships.each(this.addMemberName.bind(this));
+  },
+
   renderTournaments: function () {
-    this.collection.each(this.addTournamentTitle.bind(this));
+    this.registrations.each(this.addTournamentTitle.bind(this));
+  },
+
+  addMemberName: function (teamMembership) {
+    teamMembership.fetch();
+    var view = new TournaGen.Views.MemberShow({ model: teamMembership });
+    this.addSubview("ul.team-members-index", view);
   },
 
   addTournamentTitle: function (registration) {
