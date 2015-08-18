@@ -42,3 +42,7 @@
 <ul class="teams-index list-group">
   None
 </ul>
+
+<% if (tournament.get("authorized")) { %>
+  <button class="delete-button btn btn-primary">Delete Tournament</button>
+<% } %>
