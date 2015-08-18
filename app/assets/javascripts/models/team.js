@@ -7,6 +7,11 @@ TournaGen.Models.Team = Backbone.Model.extend({
       delete response.registrations;
     }
 
+    if (response.team_memberships) {
+      this.teamMemberships().set(response.team_memberships, { parse: true });
+      delete response.team_memberships;
+    }
+
     return response;
   },
 
@@ -16,5 +21,13 @@ TournaGen.Models.Team = Backbone.Model.extend({
     }
 
     return this._registrations;
+  },
+
+  teamMemberships: function () {
+    if (!this._teamMemberships) {
+      this._teamMemberships = new TournaGen.Collections.TeamMemberships([], { team: this });
+    }
+
+    return this._teamMemberships;
   }
 });
