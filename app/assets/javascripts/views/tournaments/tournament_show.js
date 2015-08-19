@@ -61,6 +61,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     }
 
     this.$('.jQBracket').addClass("total-" + this.model.get("numRounds"));
+    this.$('.label').unbind().removeClass("editable");
   },
 
   checkAuthorized: function () {
