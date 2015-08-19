@@ -116,6 +116,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
         $(".register-button").html("Unregister From Tournament");
         this.model.set("registered", true);
         this.model.set("registrationId", regist.get("id"));
+        this.model.fetch();
       }.bind(this)
     });
   },
@@ -146,6 +147,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
         this.registrations.remove(registration);
         $(".register-button").html("Register For Tournament");
         this.model.set("registered", false);
+        this.model.fetch();
       }.bind(this)
     });
   },
