@@ -25,9 +25,7 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   },
 
   root: function () {
-    this.followTournaments.fetch({ data: { type: "follow" }, success: function () {
-      debugger;
-    }.bind(this) });
+    this.followTournaments.fetch({ data: { type: "follow" }});
     this.hostTournaments.fetch({ data: { type: "host" }});
     var view = new TournaGen.Views.TournamentFeedView({
       follows: this.followTournaments,

@@ -2,6 +2,7 @@ TournaGen.Views.TournamentFollows = Backbone.View.extend({
   template: JST["follows/num_follows"],
 
   initialize: function () {
+    this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.collection, "sync add remove", this.render);
   },
 
