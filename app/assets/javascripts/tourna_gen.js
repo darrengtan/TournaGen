@@ -18,6 +18,7 @@ window.TournaGen = {
     var $navbar = $("div#navbar");
     var navbarView = new TournaGen.Views.Navbar({
       router: router,
+      teams: teams,
       tournaments: tournaments
     });
     $navbar.html(navbarView.render().$el);

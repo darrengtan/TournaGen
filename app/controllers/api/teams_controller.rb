@@ -1,6 +1,11 @@
 class Api::TeamsController < ApplicationController
   def index
-    @teams = Team.includes(:captain, :registrations)
+    if params[:search]
+      @teams = Team.includes(:captain, :registrations)
+                   .where("name LIKE ?", params[:search])
+    else
+      @teams = Team.includes(:captain, :registrations)
+    end
   end
 
   def show

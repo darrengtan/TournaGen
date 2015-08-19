@@ -2,6 +2,7 @@ TournaGen.Views.Navbar = Backbone.View.extend({
   template: JST["navbar"],
 
   initialize: function (options) {
+    this.teams = options.teams;
     this.tournaments = options.tournaments;
     this.router = options.router;
     this.listenTo(this.router, "route", this.handleRoute);
@@ -36,6 +37,15 @@ TournaGen.Views.Navbar = Backbone.View.extend({
   search: function (e) {
     e.preventDefault();
     var search = this.$("input.form-control").val();
+    this.$("input.form-control").val("");
+    this.teams.fetch({ data: { search: "%" + search + "%" }});
     this.tournaments.fetch({ data: { search: "%" + search + "%" }});
+    var view = new TournaGen.Views.SearchResults({
+      params: search,
+      teams: this.teams,
+      tournaments: this.tournaments
+    });
+
+    this.router._swapView(view);
   }
 });
