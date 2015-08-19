@@ -3,6 +3,7 @@ TournaGen.Views.TournamentForm = Backbone.View.extend({
 
   initialize: function () {
     $(document).keyup(this.handleKey.bind(this));
+    debugger;
   },
 
   events: {

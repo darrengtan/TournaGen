@@ -8,7 +8,7 @@ window.TournaGen = {
     var $leftSidebar = $("div#left-sidebar");
     var tournaments = new TournaGen.Collections.Tournaments();
     var teams = new TournaGen.Collections.Teams();
-    new TournaGen.Routers.Router({
+    var router = new TournaGen.Routers.Router({
       $rootEl: $rootEl,
       $leftSidebar: $leftSidebar,
       tournaments: tournaments,
@@ -16,7 +16,10 @@ window.TournaGen = {
     });
 
     var $navbar = $("div#navbar");
-    var navbarView = new TournaGen.Views.Navbar({});
+    var navbarView = new TournaGen.Views.Navbar({
+      router: router,
+      tournaments: tournaments
+    });
     $navbar.html(navbarView.render().$el);
 
     Backbone.history.start();

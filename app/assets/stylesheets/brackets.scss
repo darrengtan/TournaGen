@@ -6,9 +6,7 @@ div.jQBracket {
     position: relative
 }
 div.jQBracket .tools {
-    position: absolute;
-    top: 0;
-    color: #fff
+    display: none;
 }
 div.jQBracket .tools span {
     cursor: pointer;

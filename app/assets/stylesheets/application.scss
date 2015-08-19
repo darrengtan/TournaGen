@@ -28,7 +28,7 @@ body {
 }
 
 @for $i from 3 through 15 {
-  #main-content div.jQBracket.lr.total-#{$i}[style] { width: ((150px * $i) + 80) !important; }
+  #main-content div.jQBracket.total-#{$i}[style] { width: ((150px * $i) + 80) !important; }
 }
 
 #navbar .navbar.navbar-default{
@@ -36,11 +36,20 @@ body {
   color: rgb(222, 138, 67);
   border-radius: 0px;
   border-color: rgb(13, 0, 32);
+  font-size: 16px;
 }
 
 #navbar a {
   color: rgb(222, 134, 66);
   background: rgb(13, 0, 32);
+}
+
+#navbar a.navbar-brand {
+  font-size: 24px;
+}
+
+#navbar li a:hover {
+  text-shadow: 0px 0px 15px rgb(222, 134, 66);
 }
 
 #navbar ul {
@@ -55,9 +64,10 @@ body {
   border-color: rgb(222, 132, 66);
 }
 
-#navbar li.active {
-  background: rgba(222,134,66, 0.74902);
-  color: rgb(13, 0, 32);
+#navbar li.active a {
+  font-weight: bold;
+  text-shadow: 0px 0px 15px rgb(221, 170, 0);
+  color: rgb(221, 170, 0);
 }
 
 #left-sidebar {
@@ -94,7 +104,7 @@ div#main-content div#bracket-container {
 
 .modal-background {
   background: rgba(92, 88, 88, 0.6);
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -104,14 +114,18 @@ div#main-content div#bracket-container {
 
 .modal-content {
   z-index: 1001;
-  position: absolute;
+  position: fixed;
   top: 15%;
   left: 30%;
-  background: rgba(13, 0, 32, 0.74902);
+  background: rgb(13, 0, 32);
   color: rgb(222,134,66);
   padding: 1pc;
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 5px;
+}
+
+select {
+  color: black;
 }
 
 .user-session-container {

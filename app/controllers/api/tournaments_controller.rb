@@ -7,6 +7,10 @@ class Api::TournamentsController < ApplicationController
     elsif params[:type] == "host"
       @tournaments = Tournament.includes(:registrations, :author, :follows)
                                .where("author_id = ?", current_user.id)
+    elsif params[:search]
+      @tournaments = Tournament.includes(:registrations, :author, :follows)
+                               .where("title LIKE ?", params[:search])
+      fail
     else
       @tournaments = Tournament.includes(:registrations, :author, :follows)
     end

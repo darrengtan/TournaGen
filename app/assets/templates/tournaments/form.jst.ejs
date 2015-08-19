@@ -14,25 +14,27 @@
         value="<%= tournament.escape("title") %>">
     </label>
 
-    <br>
-    <label>
-      Num. Teams (max 128)
-      <select name="tournament[max_teams]">
-        <option value=""></option>
-        <% for (var i = 2; i < 8; i++) { %>
-          <option value="<%= Math.pow(2, i) %>" <%= tournament.get("max_teams") && tournament.get("max_teams") === Math.pow(2, i) ? "selected" : "" %>><%= Math.pow(2, i) %></option>
-        <% } %>
-      </select>
-    </label>
-      Tournament Type
-      <select name="tournament[double_elim]">
-        <option value="false" <%= tournament.get("isDoubleElim") ? "" : "selected" %>>Single Elimination</option>
-        <option value="true" <%= tournament.get("isDoubleElim") ? "selected" : "" %>>Double Elimination</option>
-      </select>
-    <br>
-    <label>
+    <% if (tournament.isNew() || JSON.stringify(tournament.get("results")) === "[]") { %>
+      <br>
+      <label>
+        Num. Teams (max 128)
+        <select name="tournament[max_teams]">
+          <option value=""></option>
+          <% for (var i = 2; i < 8; i++) { %>
+            <option value="<%= Math.pow(2, i) %>" <%= tournament.get("max_teams") && tournament.get("max_teams") === Math.pow(2, i) ? "selected" : "" %>><%= Math.pow(2, i) %></option>
+          <% } %>
+        </select>
+      </label>
 
-    </label>
+      <br>
+      <label>
+        Tournament Type
+        <select name="tournament[double_elim]">
+          <option value="false" <%= tournament.get("isDoubleElim") ? "" : "selected" %>>Single Elimination</option>
+          <option value="true" <%= tournament.get("isDoubleElim") ? "selected" : "" %>>Double Elimination</option>
+        </select>
+      </label>
+    <% } %>
 
     <br>
     <label>
