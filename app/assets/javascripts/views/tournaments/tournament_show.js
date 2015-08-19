@@ -55,12 +55,12 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
       init: data,
       save: this.saveResults.bind(this)
     });
-    
+
     if (this.model.get("isDoubleElim")) {
       this.$('.doubleElimination').trigger("click");
     }
 
-    this.$('.bracket').addClass("total-" + this.model.get("numRounds"));
+    this.$('.jQBracket').addClass("total-" + this.model.get("numRounds"));
   },
 
   checkAuthorized: function () {
@@ -160,6 +160,6 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
       init: data
     });
 
-    this.$('.bracket').addClass("total-" + this.model.get("numRounds"));
+    this.$('.jQBracket').addClass("total-" + this.model.get("numRounds"));
   }
 });

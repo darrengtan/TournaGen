@@ -9,6 +9,7 @@ class Api::TournamentsController < ApplicationController
 
   def create
     @tournament = current_user.tournaments.new(tournament_params)
+    @tournament.results = "[]"
     if @tournament.save
       render :show
     else
@@ -18,9 +19,8 @@ class Api::TournamentsController < ApplicationController
 
   def update
     @tournament = Tournament.find(params[:id])
-    if params[:tournament][:results]
-      params[:tournament][:results] = JSON.generate(params[:tournament][:results])
-    end
+    params[:tournament][:results] ||= []
+    params[:tournament][:results] = JSON.generate(params[:tournament][:results])
 
     if @tournament.update(tournament_params)
       render :show

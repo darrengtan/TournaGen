@@ -28,7 +28,7 @@ body {
 }
 
 @for $i from 3 through 15 {
-  .bracket.total-#{$i} { width: (150px * $i) + 60  }
+  #main-content div.jQBracket.lr.total-#{$i}[style] { width: ((150px * $i) + 80) !important; }
 }
 
 #navbar .navbar.navbar-default{
