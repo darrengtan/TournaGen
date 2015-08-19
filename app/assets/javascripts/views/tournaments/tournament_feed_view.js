@@ -1,13 +1,23 @@
 TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
   template: JST["tournaments/feed_index"],
 
-  initialize: function () {
-    this.listenTo(this.collection, "sync", this.render);
+  initialize: function (options) {
+    this.follows = options.follows;
+    this.hosts = options.hosts;
+    this.listenTo(this.follows, "sync", this.render);
+    this.listenTo(this.follows, "add", this.addFollowIndexItemSubview);
+    this.listenTo(this.hosts, "sync", this.render);
+    this.listenTo(this.hosts, "add", this.addFollowIndexItemSubview);
   },
 
-  addIndexItemSubview: function (tournament) {
+  addFollowIndexItemSubview: function (tournament) {
     var view = new TournaGen.Views.TournamentsIndexItem({ model: tournament });
-    this.addSubview("ul.tournaments-index", view);
+    this.addSubview("ul.follow-tournaments-index", view);
+  },
+
+  addHostIndexItemSubview: function (tournament) {
+    var view = new TournaGen.Views.TournamentsIndexItem({ model: tournament });
+    this.addSubview("ul.host-tournaments-index", view);
   },
 
   render: function () {
@@ -17,6 +27,7 @@ TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
   },
 
   renderTournaments: function () {
-    this.collection.each(this.addIndexItemSubview.bind(this));
+    this.follows.each(this.addFollowIndexItemSubview.bind(this));
+    this.hosts.each(this.addHostIndexItemSubview.bind(this));
   }
 });

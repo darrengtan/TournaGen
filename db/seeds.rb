@@ -19,6 +19,7 @@ user8 = User.create(email: "chucknorris@aa.io", username: "ChuckNorris", passwor
 
 tourn1 = Tournament.create(title: "1st Tournament Tutorial", author_id: user1.id, description: "Welcome to the first tournament ever hosted on TournaGen! This is an example of a tournament starting from scratch. Take a look around!", max_teams: 32, results: tourn1_results)
 tourn2 = Tournament.create(title: "If You can Dodge a Wrench", author_id: user2.id, description: "Welcome to the official dogeball tournament for TournaGen!", max_teams: 8)
+tourn3 = Tournament.create(title: "If You can Dodge a Hammer", author_id: user1.id, description: "Welcome to the official dogeball tournament for TournaGen!", max_teams: 8)
 
 team2 = Team.create(name: "Crouching Tigers", owner_id: user2.id, description: "No growth without assistance. No action without reaction. No desire without restraint. Now give yourself up and find yourself again.")
 team3 = Team.create(name: "Hidden Dragons", owner_id: user3.id, description: "Fighters have rules, too. Friendship, trust, integrity. Always keep your promise. Without rules we wouldn't survive long.")
@@ -55,6 +56,7 @@ foll9 = Follow.create(tournament_id: tourn2.id, follower_id: user2.id)
 foll10 = Follow.create(tournament_id: tourn2.id, follower_id: user3.id)
 foll11 = Follow.create(tournament_id: tourn2.id, follower_id: user4.id)
 foll12 = Follow.create(tournament_id: tourn2.id, follower_id: user5.id)
+foll13 = Follow.create(tournament_id: tourn3.id, follower_id: user1.id)
 
 tm1 = TeamMembership.create(team_id: team2.id, user_id: user1.id)
 tm2 = TeamMembership.create(team_id: team2.id, user_id: user2.id)

@@ -1,6 +1,15 @@
 class Api::TournamentsController < ApplicationController
   def index
-    @tournaments = Tournament.includes(:registrations, :author, :follows)
+    if params[:type] == "follow"
+      @tournaments = Tournament.includes(:registrations, :author, :follows)
+                               .references(:follows)
+                               .where("follows.follower_id = ? AND author_id != ?", current_user.id, current_user.id)
+    elsif params[:type] == "host"
+      @tournaments = Tournament.includes(:registrations, :author, :follows)
+                               .where("author_id = ?", current_user.id)
+    else
+      @tournaments = Tournament.includes(:registrations, :author, :follows)
+    end
   end
 
   def show

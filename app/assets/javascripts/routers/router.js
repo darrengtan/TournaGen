@@ -4,7 +4,15 @@ TournaGen.Routers.Router = Backbone.Router.extend({
     this.$leftSidebar = options.$leftSidebar;
     this.tournaments = options.tournaments;
     this.teams = options.teams;
+    this.followTournaments = new TournaGen.Collections.Tournaments();
+    this.hostTournaments = new TournaGen.Collections.Tournaments();
     this.root();
+
+    var view = new TournaGen.Views.LeftSidebar({
+      tournaments: this.tournaments,
+      teams: this.teams
+    });
+    this.$leftSidebar.html(view.render().$el);
   },
 
   routes: {
@@ -17,22 +25,16 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   },
 
   root: function () {
-    var view = new TournaGen.Views.LeftSidebar({
-      tournaments: this.tournaments,
-      teams: this.teams
+    this.followTournaments.fetch({ data: { type: "follow" }, success: function () {
+      debugger;
+    }.bind(this) });
+    this.hostTournaments.fetch({ data: { type: "host" }});
+    var view = new TournaGen.Views.TournamentFeedView({
+      follows: this.followTournaments,
+      hosts: this.hostTournaments
     });
-    this.$leftSidebar.html(view.render().$el);
 
-    this.tournaments.fetch({
-      success: function () {
-        var feedTournaments = this.tournaments.where({ "host": TournaGen.CURRENT_USER.username });
-        var feedCollection = new TournaGen.Collections.Tournaments(feedTournaments);
-        var feedView = new TournaGen.Views.TournamentFeedView({
-          collection: feedCollection
-        });
-        this._swapView(feedView);
-      }.bind(this)
-    });
+    this._swapView(view);
   },
 
   teamsIndex: function () {
