@@ -22,8 +22,17 @@ TournaGen.Routers.Router = Backbone.Router.extend({
       teams: this.teams
     });
     this.$leftSidebar.html(view.render().$el);
-    this._currentView && this._currentView.remove();
-    this._currentView = null;
+
+    this.tournaments.fetch({
+      success: function () {
+        var feedTournaments = this.tournaments.where({ "host": TournaGen.CURRENT_USER.username });
+        var feedCollection = new TournaGen.Collections.Tournaments(feedTournaments);
+        var feedView = new TournaGen.Views.TournamentFeedView({
+          collection: feedCollection
+        });
+        this._swapView(feedView);
+      }.bind(this)
+    });
   },
 
   teamsIndex: function () {
