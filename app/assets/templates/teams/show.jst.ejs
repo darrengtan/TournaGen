@@ -15,10 +15,12 @@
   <%= team.escape("description") %>
 </p>
 
-<button class="join-button btn btn-primary">
-  <%= team.get("is_team_member") ? "Leave" : "Join" %> This team
-</button>
-<br><br>
+<% if (team.get("captain") !== TournaGen.CURRENT_USER.username) { %>
+  <button class="join-button btn btn-primary">
+    <%= team.get("is_team_member") ? "Leave" : "Join" %> This team
+  </button>
+  <br><br>
+<% } %>
 
 <strong>Team Members</strong>
 <br>

@@ -131,7 +131,13 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   renderTeams: function () {
-    this.registrations.each(this.addTeamName.bind(this));
+    if (this.registrations.length === 0) {
+      var noViews = $("<li>");
+      noViews.addClass("list-group-item").html("None");
+      this.$('ul.teams-index').html(noViews);
+    } else {
+      this.registrations.each(this.addTeamName.bind(this));
+    }
   },
 
   saveResults: function (results) {

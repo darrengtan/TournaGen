@@ -36,7 +36,7 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     this.model.destroy({
       success: function () {
         this.remove();
-        Backbone.history.navigate("teams", { trigger: true });
+        window.location = "";
       }.bind(this)
     });
   },
