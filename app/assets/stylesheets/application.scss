@@ -148,7 +148,7 @@ body {
 }
 
 #navbar div.search-results {
-  position: fixed;
+  position: absolute;
   top: 50px;
   right: 110px;
   max-height: 500px;
@@ -161,15 +161,18 @@ body {
 
 div.search-results .teams-results {
   float: left;
-  border-right: 1px solid rgb(222, 134, 66);
-  margin-right: 5px;
-  padding-right: 5px;
   text-align: center;
+  margin-right: 3px;
 }
 
 div.search-results .tournaments-results {
   float: left;
   text-align: center;
+  margin-left: 3px;
+}
+
+div.search-results a {
+  margin: 0 auto;
 }
 
 div.search-results .empty {
@@ -181,7 +184,7 @@ div.search-results .empty {
   display: block;
   margin: 0 20px;
   width: 15%;
-  background: rgba(13, 0, 32, 0.74902);
+  background: rgb(13, 0, 32);
   border-radius: 5px;
   padding: 10px;
   color: rgb(222, 138, 67);
