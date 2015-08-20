@@ -21,7 +21,8 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
   events: {
     "click .edit-button": "editTeam",
     "click .join-button": "joinAction",
-    "click .delete-button": "deleteTeam"
+    "click .delete-button": "deleteTeam",
+    "click .upload-button": "upload"
   },
 
   addImage: function (image) {
@@ -123,5 +124,24 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
 
   removeTournamentTitle: function (registration) {
     this.removeModelSubview("ul.tournaments-index", registration);
+  },
+
+  upload: function (e) {
+    e.preventDefault();
+    var image = new TournaGen.Models.Image();
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result) {
+      var data = result[0];
+      image.set({
+        url: data.url,
+        thumb_url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/" + data.path,
+        imageable_id: this.model.get("id"),
+        imageable_type: "Team"
+      });
+      image.save({}, {
+        success: function () {
+          this.images.add(image);
+        }.bind(this)
+      });
+    }.bind(this));
   }
 });

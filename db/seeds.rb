@@ -67,4 +67,4 @@ tm3 = TeamMembership.create(team_id: team6.id, user_id: user6.id)
 tm3 = TeamMembership.create(team_id: team7.id, user_id: user7.id)
 tm3 = TeamMembership.create(team_id: team8.id, user_id: user8.id)
 
-image1 = team2.images.create(url: "http://animalia-life.com/data_images/cat/cat7.jpg")
+# image1 = team2.images.create(url: "http://animalia-life.com/data_images/cat/cat7.jpg")

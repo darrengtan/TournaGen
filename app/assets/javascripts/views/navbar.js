@@ -20,7 +20,6 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
 
   handleKey: function (e) {
     if (e.keyCode === 27) {
-      this.eachSubview(function (subview) { subview.remove(); });
       this.hideSearch();
     }
   },
