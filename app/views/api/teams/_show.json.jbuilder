@@ -18,8 +18,8 @@ json.team_memberships do
   end
 end
 
-json.images do
-  json.array! team.images do |image|
-    json.partial! "api/images/show", image: image
+unless team.image.nil?
+  json.image do
+    json.partial! "api/images/show", image: team.image
   end
 end

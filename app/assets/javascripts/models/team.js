@@ -2,9 +2,9 @@ TournaGen.Models.Team = Backbone.Model.extend({
   urlRoot: "api/teams",
 
   parse: function (response) {
-    if (response.images) {
-      this.images().set(response.images, { parse: true });
-      delete response.images;
+    if (response.image) {
+      this.image().set(response.image, { parse: true });
+      delete response.image;
     }
 
     if (response.registrations) {
@@ -20,12 +20,12 @@ TournaGen.Models.Team = Backbone.Model.extend({
     return response;
   },
 
-  images: function () {
-    if (!this._images) {
-      this._images = new TournaGen.Collections.Images([], { team: this });
+  image: function () {
+    if (!this._image) {
+      this._image = new TournaGen.Models.Image({ team: this });
     }
 
-    return this._images;
+    return this._image;
   },
 
   registrations: function () {

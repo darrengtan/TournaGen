@@ -3,7 +3,7 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.teams = options.teams;
-    this.images = this.model.images();
+    this.image = this.model.image();
     this.registrations = this.model.registrations();
     this.teamMemberships = this.model.teamMemberships();
     this.listenTo(this.model, "sync", this.render);
@@ -15,7 +15,7 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     this.listenTo(this.images, "remove", this.removeImage);
     this.renderTeamMembers();
     this.renderTournaments();
-    this.renderImages();
+    this.addImage();
   },
 
   events: {
@@ -25,10 +25,10 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     "click .upload-button": "upload"
   },
 
-  addImage: function (image) {
-    image.fetch();
-    var view = new TournaGen.Views.ImageTeamShow({ model: image });
-    this.addSubview("ul.images-index", view);
+  addImage: function () {
+    this.image.fetch();
+    var view = new TournaGen.Views.ImageTeamShow({ model: this.model.image() });
+    this.addSubview("div.team-logo", view);
   },
 
   addMemberName: function (teamMembership) {
@@ -102,10 +102,6 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     return this;
   },
 
-  renderImages: function () {
-    this.images.each(this.addImage.bind(this));
-  },
-
   renderTeamMembers: function () {
     this.teamMemberships.each(this.addMemberName.bind(this));
   },
@@ -128,18 +124,18 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
 
   upload: function (e) {
     e.preventDefault();
-    var image = new TournaGen.Models.Image();
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result) {
       var data = result[0];
-      image.set({
+      this.image.set({
         url: data.url,
         thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/" + data.path,
         imageable_id: this.model.get("id"),
         imageable_type: "Team"
       });
-      image.save({}, {
+      debugger;
+      this.image.save({}, {
         success: function () {
-          this.images.add(image);
+          this.model.fetch();
         }.bind(this)
       });
     }.bind(this));

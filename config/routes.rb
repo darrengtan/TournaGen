@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :registrations, only: [:index, :show, :create, :destroy]
     resources :follows, only: [:index, :show, :create, :destroy]
     resources :team_memberships, only: [:index, :show, :create, :destroy]
-    resources :images, only: [:index, :show, :create, :destroy]
+    resources :images, only: [:index, :show, :create, :update, :destroy]
   end
 
   root to: "static_pages#root"

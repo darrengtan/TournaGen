@@ -3,12 +3,12 @@ class Api::TeamsController < ApplicationController
     if params[:search]
       @teams = (params[:search] == "" ? [] : Team.search(params[:search]))
     else
-      @teams = Team.includes(:captain, :registrations, :images)
+      @teams = Team.includes(:captain, :registrations, :image)
     end
   end
 
   def show
-    @team = Team.includes(:captain, :registrations).find(params[:id])
+    @team = Team.includes(:captain, :registrations, :image).find(params[:id])
   end
 
   def create
