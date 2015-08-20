@@ -17,3 +17,9 @@ json.team_memberships do
     json.partial! "api/team_memberships/show", team_membership: team_membership
   end
 end
+
+json.images do
+  json.array! team.images do |image|
+    json.partial! "api/images/show", image: image
+  end
+end

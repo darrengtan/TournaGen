@@ -3,7 +3,7 @@ class Api::TeamsController < ApplicationController
     if params[:search]
       @teams = Team.search(params[:search])
     else
-      @teams = Team.includes(:captain, :registrations)
+      @teams = Team.includes(:captain, :registrations, :images)
     end
   end
 

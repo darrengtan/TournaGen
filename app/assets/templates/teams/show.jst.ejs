@@ -1,5 +1,9 @@
 <h2><%= team.escape("name") %></h2>
 
+<% if (team.escape("captain") === TournaGen.CURRENT_USER.username) { %>
+  <button class="upload-button btn btn-primary">Upload Image</button>
+<% } %>
+
 <p>
   <strong>Team Captain</strong>: <%= team.escape("captain") %>
 </p>

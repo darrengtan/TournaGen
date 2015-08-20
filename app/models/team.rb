@@ -10,7 +10,7 @@ class Team < ActiveRecord::Base
 
   def self.search(search_params)
     search_term = "%#{search_params}%".downcase
-    self.includes(:captain, :registrations)
+    self.includes(:captain, :registrations, :images)
         .where("LOWER(name) LIKE ?", search_term)
   end
 end
