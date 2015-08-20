@@ -21,15 +21,20 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
   handleKey: function (e) {
     if (e.keyCode === 27) {
       this.eachSubview(function (subview) { subview.remove(); });
-      this.$('.teams-results').addClass("empty");
-      this.$('.tournaments-results').addClass("empty");
-      this.$('input.form-control').val("");
+      this.hideSearch();
     }
   },
 
   handleRoute: function (routeName, params) {
     this.$el.find(".active").removeClass("active");
     this.$el.find("." + routeName).addClass("active");
+  },
+
+  hideSearch: function () {
+    this.eachSubview(function (subview) { subview.remove(); });
+    this.$('.teams-results').addClass("empty");
+    this.$('.tournaments-results').addClass("empty");
+    this.$('input.form-control').val("");
   },
 
   logOut: function (e) {
@@ -44,10 +49,7 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
   },
 
   removeSearch: function (e) {
-    this.eachSubview(function (subview) { subview.remove(); });
-    this.$('.teams-results').addClass("empty");
-    this.$('.tournaments-results').addClass("empty");
-    this.$('input').val("");
+    this.hideSearch();
   },
 
   render: function () {
@@ -73,11 +75,6 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
       } else {
         this.$('.tournaments-results').addClass("empty");
       }
-
-      // this.$('.teams-results').removeClass("empty");
-      // this.teams.each(this.addTeamName.bind(this));
-      // this.$('.tournaments-results').removeClass("empty");
-      // this.tournaments.each(this.addTournamentTitle.bind(this));
     }
   },
 
@@ -99,9 +96,7 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
       this.tournaments.fetch({ data: { search: search }});
       this.renderResults();
     } else {
-      this.eachSubview(function (subview) { subview.remove(); });
-      this.$('.teams-results').addClass("empty");
-      this.$('.tournaments-results').addClass("empty");
+      this.hideSearch();
     }
   }
 });
