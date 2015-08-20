@@ -41,6 +41,22 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
     if (this.teams.length === 0 && this.tournaments.length === 0) {
       this.$('.empty').removeClass("empty").addClass("empty");
     } else {
+      // if (this.teams.length !== 0) {
+      //   this.$('.teams-results').removeClass("empty");
+      //   this.teams.each(this.addTeamName.bind(this));
+      // } else {
+      //   debugger;
+      //   this.$('.teams-results').addClass("empty");
+      // }
+      //
+      // if (this.tournaments.length !== 0) {
+      //   this.$('.tournaments-results').removeClass("empty");
+      //   this.tournaments.each(this.addTournamentTitle.bind(this));
+      // } else {
+      //   debugger;
+      //   this.$('.tournaments-results').addClass("empty");
+      // }
+
       this.$('.teams-results').removeClass("empty");
       this.teams.each(this.addTeamName.bind(this));
       this.$('.tournaments-results').removeClass("empty");
