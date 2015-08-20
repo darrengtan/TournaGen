@@ -3,6 +3,7 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.teams = options.teams;
+    this.images = this.model.images();
     this.registrations = this.model.registrations();
     this.teamMemberships = this.model.teamMemberships();
     this.listenTo(this.model, "sync", this.render);
@@ -10,14 +11,35 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     this.listenTo(this.registrations, "remove", this.removeTournamentTitle);
     this.listenTo(this.teamMemberships, "add", this.addMemberName);
     this.listenTo(this.teamMemberships, "remove", this.removeMemberName);
+    this.listenTo(this.images, "add", this.addImage);
+    this.listenTo(this.images, "remove", this.removeImage);
     this.renderTeamMembers();
     this.renderTournaments();
+    this.renderImages();
   },
 
   events: {
     "click .edit-button": "editTeam",
     "click .join-button": "joinAction",
     "click .delete-button": "deleteTeam"
+  },
+
+  addImage: function (image) {
+    image.fetch();
+    var view = new TournaGen.Views.ImageTeamShow({ model: image });
+    this.addSubview("ul.images-index", view);
+  },
+
+  addMemberName: function (teamMembership) {
+    teamMembership.fetch();
+    var view = new TournaGen.Views.MemberShow({ model: teamMembership });
+    this.addSubview("ul.team-members-index", view);
+  },
+
+  addTournamentTitle: function (registration) {
+    registration.fetch();
+    var view = new TournaGen.Views.RegistrationTournamentShow({ model: registration });
+    this.addSubview("ul.tournaments-index", view);
   },
 
   editTeam: function (e) {
@@ -79,6 +101,10 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     return this;
   },
 
+  renderImages: function () {
+    this.images.each(this.addImage.bind(this));
+  },
+
   renderTeamMembers: function () {
     this.teamMemberships.each(this.addMemberName.bind(this));
   },
@@ -87,20 +113,12 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     this.registrations.each(this.addTournamentTitle.bind(this));
   },
 
-  addMemberName: function (teamMembership) {
-    teamMembership.fetch();
-    var view = new TournaGen.Views.MemberShow({ model: teamMembership });
-    this.addSubview("ul.team-members-index", view);
+  removeImage: function (image) {
+    this.removeModelSubview("ul.images-index", image);
   },
 
   removeMemberName: function (teamMembership) {
     this.removeModelSubview("ul.team-members-index", teamMembership);
-  },
-
-  addTournamentTitle: function (registration) {
-    registration.fetch();
-    var view = new TournaGen.Views.RegistrationTournamentShow({ model: registration });
-    this.addSubview("ul.tournaments-index", view);
   },
 
   removeTournamentTitle: function (registration) {
