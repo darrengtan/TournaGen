@@ -6,6 +6,7 @@ class Team < ActiveRecord::Base
   has_many :registered_tournaments, through: :registrations, source: :tournament
   has_many :team_memberships, dependent: :destroy
   has_many :team_members, through: :team_memberships, source: :user
+  has_many :images, as: :imageable
 
   def self.search(search_params)
     search_term = "%#{search_params}%".downcase

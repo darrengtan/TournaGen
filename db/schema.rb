@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818230415) do
+ActiveRecord::Schema.define(version: 20150820172515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20150818230415) do
   add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
   add_index "follows", ["tournament_id", "follower_id"], name: "index_follows_on_tournament_id_and_follower_id", unique: true, using: :btree
   add_index "follows", ["tournament_id"], name: "index_follows_on_tournament_id", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.string   "url"
+    t.string   "thumb_url"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
 
   create_table "registrations", force: :cascade do |t|
     t.integer  "tournament_id", null: false
