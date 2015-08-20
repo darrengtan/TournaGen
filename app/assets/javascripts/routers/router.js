@@ -17,21 +17,11 @@ TournaGen.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "root",
-    "search": "search",
     "tournaments": "tournamentsIndex",
     "tournaments/:id": "tournamentShow",
     "teams": "teamsIndex",
     "teams/new": "teamsNew",
     "teams/:id": "teamShow"
-  },
-
-  search: function () {
-    var view = new TournaGen.Views.SearchResults({
-      teams: this.teams,
-      tournaments: this.tournaments
-    });
-
-    this._swapView(view);
   },
 
   root: function () {
