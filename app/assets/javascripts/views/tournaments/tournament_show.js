@@ -132,11 +132,6 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   renderTeams: function () {
-    this.subviews("ul.teams-index").each(function (subview) {
-      subview.remove();
-    });
-
-    this._subviews["ul.teams-index"] = _([]);
     if (this.registrations.length === 0) {
       var noViews = $("<li>");
       noViews.addClass("list-group-item").html("None");

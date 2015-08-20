@@ -7,6 +7,12 @@ class Tournament < ActiveRecord::Base
   has_many :follows, dependent: :destroy
   has_many :followers, through: :follows, source: :follower
 
+  def self.search(search_params)
+    search_term = "%#{search_params}%".downcase
+    self.includes(:author, :follows, :registrations)
+        .where("LOWER(title) LIKE ?", search_term)
+  end
+
   def parse_results
     JSON.parse(self.results)
   end

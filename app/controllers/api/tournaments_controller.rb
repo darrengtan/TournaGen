@@ -8,8 +8,7 @@ class Api::TournamentsController < ApplicationController
       @tournaments = Tournament.includes(:registrations, :author, :follows)
                                .where("author_id = ?", current_user.id)
     elsif params[:search]
-      @tournaments = Tournament.includes(:registrations, :author, :follows)
-                               .where("title LIKE ?", params[:search])
+      @tournaments = Tournament.search(params[:search])
     else
       @tournaments = Tournament.includes(:registrations, :author, :follows)
     end

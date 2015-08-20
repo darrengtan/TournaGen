@@ -1,4 +1,4 @@
-TournaGen.Views.Navbar = Backbone.View.extend({
+TournaGen.Views.Navbar = Backbone.CompositeView.extend({
   template: JST["navbar"],
 
   initialize: function (options) {
@@ -6,11 +6,13 @@ TournaGen.Views.Navbar = Backbone.View.extend({
     this.tournaments = options.tournaments;
     this.router = options.router;
     this.listenTo(this.router, "route", this.handleRoute);
+    this.listenTo(this.teams, "sync", this.renderResults);
+    this.listenTo(this.tournaments, "sync", this.renderResults);
   },
 
   events: {
     "click .log-out": "logOut",
-    "submit form": "search"
+    "input input[type=text]": "search"
   },
 
   handleRoute: function (routeName, params) {
@@ -34,18 +36,37 @@ TournaGen.Views.Navbar = Backbone.View.extend({
     return this;
   },
 
+  renderResults: function () {
+    this.eachSubview(function (subview) { subview.remove(); });
+    if (this.teams.length === 0 && this.tournaments.length === 0) {
+      this.$('.empty').removeClass("empty").addClass("empty");
+    } else {
+      this.$('.teams-results').removeClass("empty");
+      this.teams.each(this.addTeamName.bind(this));
+      this.$('.tournaments-results').removeClass("empty");
+      this.tournaments.each(this.addTournamentTitle.bind(this));
+    }
+  },
+
+  addTeamName: function (team) {
+    var view = new TournaGen.Views.TeamsIndexItem({ model: team });
+    this.addSubview("ul.teams-results", view);
+  },
+
+  addTournamentTitle: function (tournament) {
+    var view = new TournaGen.Views.TournamentsIndexItem({ model: tournament });
+    this.addSubview("ul.tournaments-results", view);
+  },
+
   search: function (e) {
     e.preventDefault();
     var search = this.$("input.form-control").val();
-    this.$("input.form-control").val("");
-    this.teams.fetch({ data: { search: "%" + search + "%" }});
-    this.tournaments.fetch({ data: { search: "%" + search + "%" }});
-    var view = new TournaGen.Views.SearchResults({
-      params: search,
-      teams: this.teams,
-      tournaments: this.tournaments
-    });
-
-    this.router._swapView(view);
+    if (search !== "") {
+      this.teams.fetch({ data: { search: search }});
+      this.tournaments.fetch({ data: { search: search }});
+      this.renderResults();
+    } else {
+      this.eachSubview(function (subview) { subview.remove(); });
+    }
   }
 });

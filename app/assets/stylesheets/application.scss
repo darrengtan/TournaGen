@@ -65,9 +65,24 @@ body {
 }
 
 #navbar li.active a {
-  font-weight: bold;
   text-shadow: 0px 0px 15px rgb(221, 170, 0);
   color: rgb(221, 170, 0);
+}
+
+#navbar div.search-results {
+  position: fixed;
+  top: 50px;
+  right: 110px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+div.search-results .teams-results {
+  float: left;
+}
+
+div.search-results .tournaments-results {
+  float: left;
 }
 
 #left-sidebar {
