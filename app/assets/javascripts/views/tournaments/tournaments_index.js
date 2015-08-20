@@ -2,7 +2,10 @@ TournaGen.Views.TournamentsIndex = Backbone.CompositeView.extend({
   template: JST["tournaments/index"],
 
   initialize: function () {
-    this.listenTo(this.collection, "sync add", this.render);
+    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "add", this.addIndexItemSubview);
+    this.listenTo(this.collection, "remove", this.removeIndexItemSubview);
+    this.renderTournaments();
   },
 
   addIndexItemSubview: function (tournament) {
@@ -10,9 +13,13 @@ TournaGen.Views.TournamentsIndex = Backbone.CompositeView.extend({
     this.addSubview("ul.tournaments-index", view);
   },
 
+  removeIndexItemSubview: function (tournament) {
+    this.removeModelSubview("ul.tournaments-index", tournament);
+  },
+
   render: function () {
     this.$el.html(this.template({ tournaments: this.collection }));
-    this.renderTournaments();
+    this.attachSubviews();
     return this;
   },
 

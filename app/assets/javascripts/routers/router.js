@@ -6,7 +6,6 @@ TournaGen.Routers.Router = Backbone.Router.extend({
     this.teams = options.teams;
     this.followTournaments = new TournaGen.Collections.Tournaments();
     this.hostTournaments = new TournaGen.Collections.Tournaments();
-    this.root();
 
     var view = new TournaGen.Views.LeftSidebar({
       tournaments: this.tournaments,
@@ -58,7 +57,6 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   },
 
   tournamentShow: function (id) {
-    this.tournaments.fetch();
     var tournament = this.tournaments.getOrFetch(id);
     var view = new TournaGen.Views.TournamentShow({
       model: tournament,

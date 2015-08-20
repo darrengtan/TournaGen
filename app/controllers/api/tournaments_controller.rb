@@ -5,10 +5,9 @@ class Api::TournamentsController < ApplicationController
                                .references(:follows)
                                .where("follows.follower_id = ? AND author_id != ?", current_user.id, current_user.id)
     elsif params[:type] == "host"
-      @tournaments = Tournament.includes(:registrations, :author, :follows)
-                               .where("author_id = ?", current_user.id)
+      @tournaments = current_user.tournaments.includes(:registrations, :author, :follows)
     elsif params[:search]
-      @tournaments = Tournament.search(params[:search])
+      @tournaments = (params[:search] == "" ? [] : Tournament.search(params[:search]))
     else
       @tournaments = Tournament.includes(:registrations, :author, :follows)
     end

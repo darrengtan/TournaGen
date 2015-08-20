@@ -7,10 +7,10 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.registrations = this.model.registrations();
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.registrations, "add", this.addTeamName);
-    this.listenTo(this.registrations, "remove", this.renderTeams);
+    this.listenTo(this.registrations, "remove", this.removeTeamName);
     this.listenTo(this.registrations, "add remove", this.bracketView);
+    this.registrations.each(this.addTeamName.bind(this));
     this.addNumFollows();
-    this.renderTeams();
   },
 
   events: {
@@ -62,14 +62,6 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
 
     this.$('.jQBracket').addClass("total-" + this.model.get("numRounds"));
     this.$('.label').unbind().removeClass("editable");
-  },
-
-  checkAuthorized: function () {
-    if (this.get("authorized")) {
-      this.changeBracket();
-    } else {
-      this.viewBracket();
-    }
   },
 
   deleteTournament: function (e) {
@@ -124,20 +116,18 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({ tournament: this.model }));
     this.attachSubviews();
-    this.renderTeams();
+    this.checkTeamsLength();
 
     this.bracketView();
 
     return this;
   },
 
-  renderTeams: function () {
+  checkTeamsLength: function () {
     if (this.registrations.length === 0) {
       var noViews = $("<li>");
       noViews.addClass("list-group-item").html("None");
       this.$('ul.teams-index').html(noViews);
-    } else {
-      this.registrations.each(this.addTeamName.bind(this));
     }
   },
 

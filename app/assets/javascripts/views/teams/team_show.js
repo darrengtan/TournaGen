@@ -133,7 +133,7 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
       var data = result[0];
       image.set({
         url: data.url,
-        thumb_url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/" + data.path,
+        thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/" + data.path,
         imageable_id: this.model.get("id"),
         imageable_type: "Team"
       });
