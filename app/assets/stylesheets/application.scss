@@ -211,6 +211,13 @@ div#main-content div#bracket-container {
   border-top: 1px solid rgb(13, 0, 32);
 }
 
+.following, .host {
+  float: left;
+  width: 49%;
+  margin: 0 3px;
+  text-align: center;
+}
+
 .modal-background {
   background: rgba(92, 88, 88, 0.6);
   position: fixed;
@@ -231,6 +238,14 @@ div#main-content div#bracket-container {
   padding: 1pc;
   border: 2px solid;
   border-radius: 5px;
+}
+
+.transparent-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 select {

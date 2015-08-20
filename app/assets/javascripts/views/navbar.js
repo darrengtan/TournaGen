@@ -14,7 +14,8 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
   events: {
     "click .log-out": "logOut",
     "input input[type=text]": "search",
-    "click a": "removeSearch"
+    "click a": "removeSearch",
+    "click .transparent-background": "removeSearch"
   },
 
   handleKey: function (e) {
