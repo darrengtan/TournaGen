@@ -115,6 +115,11 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({ tournament: this.model }));
+    if (this.model.fetching) {
+      this.$el.html(JST["loading_spinner"]());
+      this.model.fetching = false;
+      return this;
+    }
     this.attachSubviews();
     this.checkTeamsLength();
 

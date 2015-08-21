@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require backbone
+//= require fetch_event
 //= require jquery.serializeJSON
 //= require jquery.bracket.min
 //= require_tree ./utils
