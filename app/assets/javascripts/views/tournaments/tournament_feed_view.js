@@ -32,6 +32,12 @@ TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template());
+    if (this.hosts.fetching || this.follows.fetching) {
+      this.$el.html(JST["loading_spinner"]());
+      this.hosts.fetching = false;
+      this.follows.fetching = false;
+      return this;
+    }
     this.renderTournaments();
     return this;
   },

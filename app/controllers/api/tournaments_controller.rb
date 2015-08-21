@@ -3,7 +3,8 @@ class Api::TournamentsController < ApplicationController
     if params[:type] == "follow"
       @tournaments = Tournament.includes(:registrations, :author, :follows)
                                .references(:follows)
-                               .where("follows.follower_id = ? AND author_id != ?",
+                               .where(
+                                 "follows.follower_id = ? AND author_id != ?",
                                  current_user.id,
                                  current_user.id
                                )
