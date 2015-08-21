@@ -367,3 +367,30 @@ li.list-group-item a:hover:before {
 h1, h2, h3 {
   margin-top: 0px;
 }
+
+details {
+  display: block;
+  overflow: hidden;
+}
+
+details img {
+  float: left;
+}
+
+details div {
+  width: 65%;
+  float: left;
+  margin-left: 20px;
+  border-left: 1px solid rgb(13, 0, 32);
+  padding-left: 15px;
+  font-size: 14px;
+  height: 150px;
+}
+
+details summary:hover {
+  cursor: pointer;
+}
+
+details summary:focus {
+  outline: none;
+}

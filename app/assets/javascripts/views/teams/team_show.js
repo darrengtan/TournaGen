@@ -135,7 +135,6 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
         imageable_id: this.model.get("id"),
         imageable_type: "Team"
       });
-      debugger;
       this.image.save({}, {
         success: function () {
           this.model.fetch();
