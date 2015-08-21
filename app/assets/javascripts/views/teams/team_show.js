@@ -11,8 +11,6 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     this.listenTo(this.registrations, "remove", this.removeTournamentTitle);
     this.listenTo(this.teamMemberships, "add", this.addMemberName);
     this.listenTo(this.teamMemberships, "remove", this.removeMemberName);
-    this.listenTo(this.images, "add", this.addImage);
-    this.listenTo(this.images, "remove", this.removeImage);
     this.renderTeamMembers();
     this.renderTournaments();
     this.addImage();
@@ -98,6 +96,11 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({ team: this.model }));
+    if (this.model.fetching) {
+      this.$el.html(JST["loading_spinner"]());
+      this.model.fetching = false;
+      return this;
+    }
     this.attachSubviews();
     return this;
   },
