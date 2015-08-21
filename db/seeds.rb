@@ -59,12 +59,3 @@ foll12 = Follow.create(tournament_id: tourn2.id, follower_id: user5.id)
 foll13 = Follow.create(tournament_id: tourn3.id, follower_id: user1.id)
 
 tm1 = TeamMembership.create(team_id: team2.id, user_id: user1.id)
-tm2 = TeamMembership.create(team_id: team2.id, user_id: user2.id)
-tm3 = TeamMembership.create(team_id: team3.id, user_id: user3.id)
-tm3 = TeamMembership.create(team_id: team4.id, user_id: user4.id)
-tm3 = TeamMembership.create(team_id: team5.id, user_id: user5.id)
-tm3 = TeamMembership.create(team_id: team6.id, user_id: user6.id)
-tm3 = TeamMembership.create(team_id: team7.id, user_id: user7.id)
-tm3 = TeamMembership.create(team_id: team8.id, user_id: user8.id)
-
-# image1 = team2.images.create(url: "http://animalia-life.com/data_images/cat/cat7.jpg")

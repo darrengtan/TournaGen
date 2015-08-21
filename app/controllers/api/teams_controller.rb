@@ -15,7 +15,6 @@ class Api::TeamsController < ApplicationController
     @team = Team.new(team_params)
     @team.owner_id = current_user.id
     if @team.save
-      TeamMembership.create!(user_id: current_user.id, team_id: @team.id)
       render :show
     else
       render json: @team.errors.full_messages, status: :unprocessable_entity
