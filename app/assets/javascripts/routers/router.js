@@ -51,6 +51,7 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   },
 
   tournamentsIndex: function () {
+    this.tournaments.collectionFetchListen();
     this.tournaments.fetch();
     var view = new TournaGen.Views.TournamentsIndex({ collection: this.tournaments });
     this._swapView(view);

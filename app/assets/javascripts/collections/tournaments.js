@@ -8,7 +8,7 @@ TournaGen.Collections.Tournaments = Backbone.Collection.extend({
     var tournament = this.get(id);
     if (!tournament) {
       tournament = new TournaGen.Models.Tournament({ id: id });
-      this.fetchListen(tournament);
+      this.tournamentFetchListen(tournament);
       this.add(tournament);
       tournament.fetch({
         error: function () {
@@ -16,14 +16,20 @@ TournaGen.Collections.Tournaments = Backbone.Collection.extend({
         }.bind(this)
       });
     } else {
-      this.fetchListen(tournament);
+      this.tournamentFetchListen(tournament);
       tournament.fetch();
     }
 
     return tournament;
   },
 
-  fetchListen: function (tournament) {
+  collectionFetchListen: function () {
+    this.on("fetch", function () {
+      this.fetching = true;
+    }.bind(this));
+  },
+
+  tournamentFetchListen: function (tournament) {
     tournament.listenTo(tournament, "fetch", function () {
       this.fetching = true;
     }.bind(tournament));
