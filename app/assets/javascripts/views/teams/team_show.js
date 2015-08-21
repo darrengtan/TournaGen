@@ -99,7 +99,6 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     if (this.model.fetching) {
       this.$el.html(JST["loading_spinner"]());
       this.model.fetching = false;
-      return this;
     }
     this.attachSubviews();
     return this;
@@ -137,9 +136,10 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
       });
       this.image.save({}, {
         success: function () {
-          this.model.fetch();
+          this.render();
         }.bind(this)
       });
     }.bind(this));
+    this.$el.html(JST["loading_spinner"]);
   }
 });
