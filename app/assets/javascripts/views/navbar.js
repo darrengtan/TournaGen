@@ -18,8 +18,8 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
   events: {
     "click .log-out": "logOut",
     "input input[type=text]": "search",
-    "click a": "removeSearch",
-    "click .transparent-background": "removeSearch"
+    "click a": "hideSearch",
+    "click .transparent-background": "hideSearch"
   },
 
   handleKey: function (e) {
@@ -48,10 +48,6 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
         window.location = "/session/new";
       }
     });
-  },
-
-  removeSearch: function (e) {
-    this.hideSearch();
   },
 
   render: function () {
