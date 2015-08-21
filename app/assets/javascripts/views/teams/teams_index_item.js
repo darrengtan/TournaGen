@@ -7,6 +7,7 @@ TournaGen.Views.TeamsIndexItem = Backbone.View.extend({
   },
 
   render: function () {
+    debugger;
     this.$el.html(this.template({ team: this.model }));
     return this;
   }

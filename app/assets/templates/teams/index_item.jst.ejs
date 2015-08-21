@@ -1,1 +1,10 @@
-<a href="<%= "#teams/" + team.escape("id") %>"><%= team.escape("name") %></a>
+<details>
+  <summary>
+    <a href="<%= "#teams/" + team.escape("id") %>">
+      <%= team.escape("name") %>
+    </a>
+  </summary>
+  <img src="<%= team.image().get("thumb_url") %>" alt="" />
+  <h3><%= team.escape("name") %></h3>
+  <%= team.escape("description") %>
+</details>

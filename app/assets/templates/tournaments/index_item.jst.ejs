@@ -1,1 +1,8 @@
-<a href="<%= "#tournaments/" + tournament.escape("id") %>"><%= tournament.escape("title") %></a>
+<details>
+  <summary>
+    <a href="<%= "#tournaments/" + tournament.escape("id") %>">
+      <%= tournament.escape("title") %>
+    </a>
+  </summary>
+  <%= tournament.escape("description") %>
+</details>
