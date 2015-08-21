@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
                   :owned_team,
                   :registered_tournaments,
                   :followed_tournaments,
-                  :follows
+                  :follows,
+                  :team_memberships
                 ).find_by_session_token(session[:session_token])
   end
 
