@@ -1,1 +1,1 @@
-json.partial! "show", tournament: @tournament
+json.partial! "show", tournament: @tournament, user: @user

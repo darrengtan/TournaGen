@@ -3,7 +3,10 @@ class Api::TournamentsController < ApplicationController
     if params[:type] == "follow"
       @tournaments = Tournament.includes(:registrations, :author, :follows)
                                .references(:follows)
-                               .where("follows.follower_id = ? AND author_id != ?", current_user.id, current_user.id)
+                               .where("follows.follower_id = ? AND author_id != ?",
+                                 current_user.id,
+                                 current_user.id
+                               )
     elsif params[:type] == "host"
       @tournaments = current_user.tournaments.includes(:registrations, :author, :follows)
     elsif params[:search]
@@ -14,7 +17,8 @@ class Api::TournamentsController < ApplicationController
   end
 
   def show
-    @tournament = Tournament.includes(:registrations, :author, :follows).find(params[:id])
+    @tournament = Tournament.includes(:registrations, :author, :follows)
+                            .find(params[:id])
   end
 
   def create
@@ -23,7 +27,8 @@ class Api::TournamentsController < ApplicationController
     if @tournament.save
       render :show
     else
-      render json: @tournament.errors.full_messages, status: :unprocessable_entity
+      render json: @tournament.errors.full_messages,
+                     status: :unprocessable_entity
     end
   end
 
@@ -35,7 +40,8 @@ class Api::TournamentsController < ApplicationController
     if @tournament.update(tournament_params)
       render :show
     else
-      render json: @tournament.errors.full_messages, status: :unprocessable_entity
+      render json: @tournament.errors.full_messages,
+                     status: :unprocessable_entity
     end
   end
 
@@ -47,6 +53,12 @@ class Api::TournamentsController < ApplicationController
 
   private
   def tournament_params
-    params.require(:tournament).permit(:title, :description, :max_teams, :results, :double_elim)
+    params.require(:tournament).permit(
+      :title,
+      :description,
+      :max_teams,
+      :results,
+      :double_elim
+    )
   end
 end
