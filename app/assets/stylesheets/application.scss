@@ -27,7 +27,7 @@ body {
   box-sizing: border-box;
 }
 
-@for $i from 3 through 15 {
+@for $i from 3 through 17 {
   #main-content div.jQBracket.total-#{$i}[style] { width: ((150px * $i) + 80) !important; }
 }
 
