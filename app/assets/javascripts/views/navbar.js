@@ -70,12 +70,12 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
   },
 
   addTeamName: function (team) {
-    var view = new TournaGen.Views.TeamsIndexItem({ model: team });
+    var view = new TournaGen.Views.TeamsSearchItem({ model: team });
     this.addSubview("ul.teams-results", view);
   },
 
   addTournamentTitle: function (tournament) {
-    var view = new TournaGen.Views.TournamentsIndexItem({ model: tournament });
+    var view = new TournaGen.Views.TournamentsSearchItem({ model: tournament });
     this.addSubview("ul.tournaments-results", view);
   },
 
