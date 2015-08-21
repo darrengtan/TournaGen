@@ -42,6 +42,17 @@ TournaGen.Views.TeamForm = Backbone.View.extend({
         location.reload(true);
         Backbone.history.navigate("teams/" + this.model.escape("id"), { trigger: true });
         this.remove();
+      }.bind(this),
+
+      error: function (team, error) {
+        var $errorsList = $("<ul>");
+        error.responseJSON.forEach(function (error) {
+          var $errorItem = $("<li>");
+          $errorItem.html(error);
+          $errorsList.append($errorItem);
+        });
+
+        this.$(".errors").removeClass("empty").html($errorsList);
       }.bind(this)
     });
   }

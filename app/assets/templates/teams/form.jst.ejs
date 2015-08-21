@@ -4,6 +4,8 @@
 
   <h2><%= team.isNew() ? 'New Team' : 'Edit Team' %></h2>
 
+  <div class="errors alert alert-danger empty"></div>
+
   <form>
     <label>
       Team Name<br>
@@ -17,7 +19,7 @@
 
     <br>
     <label>
-      Description<br>
+      Description (optional)<br>
       <textarea
         name="team[description]"
         rows="8" cols="40"

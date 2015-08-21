@@ -52,7 +52,7 @@ TournaGen.Views.TournamentForm = Backbone.View.extend({
         });
 
         this.$(".errors").removeClass("empty").html($errorsList);
-      }
+      }.bind(this)
     });
   }
 });
