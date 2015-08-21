@@ -174,7 +174,7 @@ div.search-results a {
   margin: 0 auto;
 }
 
-div.search-results .empty {
+.empty {
   display: none;
 }
 
@@ -304,6 +304,16 @@ select {
 
 a {
   color: rgb(13, 0, 32);
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  left: 0px;
+}
+
+li {
+  list-style-type: none;
 }
 
 ul.list-group {

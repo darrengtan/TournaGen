@@ -41,7 +41,18 @@ TournaGen.Views.TournamentForm = Backbone.View.extend({
         this.collection.add(this.model, { merge: true });
         Backbone.history.navigate("tournaments/" + this.model.escape("id"), { trigger: true });
         this.remove();
-      }.bind(this)
+      }.bind(this),
+
+      error: function (tournament, error) {
+        var $errorsList = $("<ul>");
+        error.responseJSON.forEach(function (error) {
+          var $errorItem = $("<li>");
+          $errorItem.html(error);
+          $errorsList.append($errorItem);
+        });
+
+        this.$(".errors").removeClass("empty").html($errorsList);
+      }
     });
   }
 });
