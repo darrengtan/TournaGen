@@ -6,6 +6,10 @@ TournaGen.Routers.Router = Backbone.Router.extend({
     this.teams = options.teams;
     this.followTournaments = new TournaGen.Collections.Tournaments();
     this.hostTournaments = new TournaGen.Collections.Tournaments();
+    this.tournaments.collectionFetchListen();
+    this.teams.collectionFetchListen();
+    this.followTournaments.collectionFetchListen();
+    this.hostTournaments.collectionFetchListen();
 
     var view = new TournaGen.Views.LeftSidebar({
       tournaments: this.tournaments,
@@ -24,8 +28,6 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   },
 
   root: function () {
-    this.followTournaments.collectionFetchListen();
-    this.hostTournaments.collectionFetchListen();
     this.followTournaments.fetch({ data: { type: "follow" }});
     this.hostTournaments.fetch({ data: { type: "host" }});
     var view = new TournaGen.Views.TournamentFeedView({
@@ -37,7 +39,6 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   },
 
   teamsIndex: function () {
-    this.teams.collectionFetchListen();
     this.teams.fetch();
     var view = new TournaGen.Views.TeamsIndex({ collection: this.teams });
     this._swapView(view);
@@ -53,7 +54,6 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   },
 
   tournamentsIndex: function () {
-    this.tournaments.collectionFetchListen();
     this.tournaments.fetch();
     var view = new TournaGen.Views.TournamentsIndex({ collection: this.tournaments });
     this._swapView(view);
