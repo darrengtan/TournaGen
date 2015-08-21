@@ -21,10 +21,14 @@ class Team < ActiveRecord::Base
   end
 
   def ensure_logo
-    Image.create!(imageable_id: self.id, imageable_type: :Team)
+    if self.image.nil?
+      Image.create!(imageable_id: self.id, imageable_type: :Team)
+    end
   end
 
   def ensure_team_membership
-    TeamMembership.create!(user_id: self.captain.id, team_id: self.id)
+    if self.team_memberships.find_by_user_id(self.captain.id).nil?
+      TeamMembership.create!(user_id: self.captain.id, team_id: self.id)
+    end
   end
 end

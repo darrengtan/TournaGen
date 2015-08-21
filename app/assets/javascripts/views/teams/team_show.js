@@ -6,7 +6,7 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     this.image = this.model.image();
     this.registrations = this.model.registrations();
     this.teamMemberships = this.model.teamMemberships();
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync change", this.render);
     this.listenTo(this.registrations, "add", this.addTournamentTitle);
     this.listenTo(this.registrations, "remove", this.removeTournamentTitle);
     this.listenTo(this.teamMemberships, "add", this.addMemberName);

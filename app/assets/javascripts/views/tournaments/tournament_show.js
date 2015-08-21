@@ -5,7 +5,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.tournaments = options.tournaments;
     this.follows = this.model.follows();
     this.registrations = this.model.registrations();
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync change", this.render);
     this.listenTo(this.registrations, "add", this.addTeamName);
     this.listenTo(this.registrations, "remove", this.removeTeamName);
     this.listenTo(this.registrations, "add remove", this.bracketView);
@@ -29,6 +29,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   addTeamName: function (registration) {
+    debugger;
     registration.fetch();
     var view = new TournaGen.Views.RegistrationTeamShow({ model: registration });
     this.addSubview("ul.teams-index", view);
@@ -86,6 +87,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   removeTeamName: function (registration) {
+    debugger;
     this.removeModelSubview("ul.teams-index", registration);
   },
 
@@ -116,6 +118,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({ tournament: this.model }));
     if (this.model.fetching) {
+      debugger;
       this.$el.html(JST["loading_spinner"]());
       this.model.fetching = false;
       return this;
