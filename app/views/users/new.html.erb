@@ -1,6 +1,8 @@
 <div class="user-session-container">
   <h1>Sign Up!</h1>
 
+  <div class="errors alert alert-danger"></div>
+
   <form action="<%= users_url %>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 

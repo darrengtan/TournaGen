@@ -27,8 +27,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
-  def log_out!
-    current_user.reset_token!
+  def log_out!(user)
+    user.reset_token!
     session[:session_token] = nil
   end
 

@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out!
+    @user = User.find_by_session_token(session[:session_token])
+    log_out!(@user)
     render json: {};
   end
 end
