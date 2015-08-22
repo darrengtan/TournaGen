@@ -61,4 +61,13 @@ class Tournament < ActiveRecord::Base
       rounds == 7 ? rounds + 2 : rounds + 1
     end
   end
+
+  def completion
+    results = self.parse_results.flatten
+    return 0 if results.empty?
+    total = results.length
+    completed = results.select { |el| !el.nil? }.length
+    completed = completed.even? ? completed : completed - 1
+    (completed.to_f / total * 100).to_i
+  end
 end
