@@ -66,8 +66,8 @@ class Tournament < ActiveRecord::Base
     results = self.parse_results.flatten
     return 0 if results.empty?
     total = results.length
-    completed = results.select { |el| !el.nil? }.length
-    completed = completed.even? ? completed : completed - 1
+    entered = results.select { |el| !el.nil? }.length
+    completed = entered.even? ? entered : entered - 1
     (completed.to_f / total * 100).to_i
   end
 end
