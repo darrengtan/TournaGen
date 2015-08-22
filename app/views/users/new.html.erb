@@ -1,7 +1,15 @@
 <div class="user-session-container">
   <h1>Sign Up!</h1>
 
-  <div class="errors alert alert-danger"></div>
+  <% if flash[:errors] %>
+    <div class="errors alert alert-danger">
+      <ul>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <form action="<%= users_url %>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
