@@ -14,7 +14,7 @@ class Tournament < ActiveRecord::Base
       :author,
       { registrations: [:team, :tournament]},
       { follows: [:follower, :tournament]}
-    )
+    ).order(:title)
   end
 
   def self.search(search_params)

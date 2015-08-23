@@ -18,7 +18,7 @@ class Team < ActiveRecord::Base
       :image,
       :team_members,
       {team_memberships: [:team, :user]}
-    )
+    ).order(:name)
   end
 
   def self.search(search_params)
