@@ -399,10 +399,21 @@ details div {
   padding-left: 15px;
   font-size: 14px;
   height: 150px;
+  text-align: left;
 }
 
 details summary:hover {
   cursor: pointer;
+}
+
+.following details div {
+  width: 100%;
+  height: auto;
+}
+
+.host details div {
+  width: 100%;
+  height: auto;
 }
 
 details summary:focus {
