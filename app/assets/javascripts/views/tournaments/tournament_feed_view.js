@@ -43,16 +43,18 @@ TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
   },
 
   renderTournaments: function () {
-    var noViews = $("<li>");
-    noViews.addClass("list-group-item").html("None");
+    var noViews1 = $("<li>");
+    noViews1.addClass("list-group-item").html("None");
+    var noViews2 = $("<li>");
+    noViews2.addClass("list-group-item").html("None");
     if (this.follows.length === 0) {
-      this.$('ul.follow-tournaments-index').html(noViews);
+      this.$('ul.follow-tournaments-index').html(noViews1);
     } else {
       this.follows.each(this.addFollowIndexItemSubview.bind(this));
     }
 
     if (this.hosts.length === 0) {
-      this.$('ul.host-tournaments-index').html(noViews);
+      this.$('ul.host-tournaments-index').html(noViews2);
     } else {
       this.hosts.each(this.addHostIndexItemSubview.bind(this));
     }
