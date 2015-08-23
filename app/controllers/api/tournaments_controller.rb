@@ -1,7 +1,7 @@
 class Api::TournamentsController < ApplicationController
   def index
     if params[:type] == "follow"
-      @tournaments = Tournament.includes(:registrations, :author, { follows: [:follower, :tournament]})
+      @tournaments = Tournament.inclusion
                                .references(:follows)
                                .where(
                                  "follows.follower_id = ? AND tournaments.author_id != ?",
@@ -9,17 +9,20 @@ class Api::TournamentsController < ApplicationController
                                  current_user.id
                                )
     elsif params[:type] == "host"
-      @tournaments = current_user.tournaments.includes(:registrations, :author, :follows)
+      @tournaments = current_user.tournaments.includes(
+        {registrations: [:team, :tournament]},
+        :author,
+        follows: [:follower, :tournament]
+      )
     elsif params[:search]
       @tournaments = (params[:search] == "" ? [] : Tournament.search(params[:search]))
     else
-      @tournaments = Tournament.includes(:registrations, :author, :follows)
+      @tournaments = Tournament.inclusion
     end
   end
 
   def show
-    @tournament = Tournament.includes({ registrations: [:team, :tournament]}, { follows: [:follower, :tournament]}, :author)
-                            .find(params[:id])
+    @tournament = Tournament.inclusion.find(params[:id])
   end
 
   def create

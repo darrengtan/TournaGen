@@ -7,9 +7,17 @@ class Tournament < ActiveRecord::Base
   has_many :follows, dependent: :destroy
   has_many :followers, through: :follows, source: :follower
 
+  def self.inclusion
+    self.includes(
+      :author,
+      { registrations: [:team, :tournament]},
+      { follows: [:follower, :tournament]}
+    )
+  end
+
   def self.search(search_params)
     search_term = "%#{search_params}%".downcase
-    self.includes(:author, :follows, :registrations)
+    self.inclusion
         .where("LOWER(title) LIKE ?", search_term)
   end
 

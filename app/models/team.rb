@@ -9,15 +9,19 @@ class Team < ActiveRecord::Base
   has_many :team_members, through: :team_memberships, source: :user
   has_one :image, as: :imageable, dependent: :destroy
 
+  def self.inclusion
+    self.includes(
+      :captain,
+      {registrations: [:team, :tournament]},
+      :image,
+      :team_members,
+      {team_memberships: [:team, :user]}
+    )
+  end
+
   def self.search(search_params)
     search_term = "%#{search_params}%".downcase
-    self.includes(
-          :captain,
-          :registrations,
-          :image,
-          :team_members,
-          :team_memberships
-        ).where("LOWER(name) LIKE ?", search_term)
+    self.inclusion.where("LOWER(name) LIKE ?", search_term)
   end
 
   def ensure_logo
