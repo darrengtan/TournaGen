@@ -26,16 +26,17 @@
 }
 
 html {
-  background: -webkit-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* W3C */
+  // background: -webkit-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* Chrome 10+, Saf5.1+ */
+  // background:    -moz-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* FF3.6+ */
+  // background:     -ms-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* IE10 */
+  // background:      -o-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* Opera 11.10+ */
+  // background:         linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* W3C */
 }
 
 body {
   box-sizing: border-box;
   font-size: 16px;
+  background-image: url("http://nextlevelfitness.org/wp-content/uploads/revslider/The7-homepage/abstract-orange-background-23285-hd-wallpapers.jpg")
 }
 
 @for $i from 3 through 17 {

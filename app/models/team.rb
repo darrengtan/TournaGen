@@ -9,6 +9,8 @@ class Team < ActiveRecord::Base
   has_many :team_members, through: :team_memberships, source: :user
   has_one :image, as: :imageable, dependent: :destroy
 
+  max_paginates_per 20
+
   def self.inclusion
     self.includes(
       :captain,
@@ -23,12 +25,6 @@ class Team < ActiveRecord::Base
     search_term = "%#{search_params}%".downcase
     self.inclusion.where("LOWER(name) LIKE ?", search_term)
   end
-
-  # def ensure_logo
-  #   if self.image.nil?
-  #     Image.create!(imageable_id: self.id, imageable_type: :Team)
-  #   end
-  # end
 
   def ensure_team_membership
     if self.team_memberships.find_by_user_id(self.captain.id).nil?

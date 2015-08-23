@@ -7,6 +7,8 @@ class Tournament < ActiveRecord::Base
   has_many :follows, dependent: :destroy
   has_many :followers, through: :follows, source: :follower
 
+  max_paginates_per 20
+
   def self.inclusion
     self.includes(
       :author,

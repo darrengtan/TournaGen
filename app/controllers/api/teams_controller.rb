@@ -3,7 +3,17 @@ class Api::TeamsController < ApplicationController
     if params[:search]
       @teams = (params[:search] == "" ? [] : Team.search(params[:search]))
     else
-      @teams = Team.inclusion
+      @teams = Team.inclusion.page(params[:page])
+    end
+    respond_to do |format|
+      format.html { render :index }
+      format.json do
+        render json: {
+          models: @teams,
+          page_number: params[:page],
+          total_pages: @teams.total_pages
+        }
+      end
     end
   end
 
