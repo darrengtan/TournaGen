@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 tourn1_results = "[[[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1]],[[2,1],[1,2]]]]"
 
 user1 = User.create(email: "guest@aa.io", username: "Guest", password: "tourneygen")
@@ -19,7 +11,7 @@ user8 = User.create(email: "chucknorris@aa.io", username: "ChuckNorris", passwor
 
 tourn1 = Tournament.create(title: "1st Tournament Tutorial", author_id: user1.id, description: "Welcome to the first tournament ever hosted on TournaGen! This is an example of a tournament starting from scratch. Take a look around!", max_teams: 32, results: tourn1_results)
 tourn2 = Tournament.create(title: "If You can Dodge a Wrench", author_id: user2.id, description: "Welcome to the official dogeball tournament for TournaGen!", max_teams: 8)
-tourn3 = Tournament.create(title: "If You can Dodge a Hammer", author_id: user1.id, description: "Welcome to the official dogeball tournament for TournaGen!", max_teams: 8)
+tourn3 = Tournament.create(title: "May Madness", author_id: user1.id, description: "It's the 31st annual May Madness tournament! Live out your predictions for March Madness here. Disclaimer: None of these teams are actually the NCAA teams they're portraying.", max_teams: 8)
 
 team2 = Team.create(name: "Crouching Tigers", owner_id: user2.id, description: "No growth without assistance. No action without reaction. No desire without restraint. Now give yourself up and find yourself again.")
 team3 = Team.create(name: "Hidden Dragons", owner_id: user3.id, description: "Fighters have rules, too. Friendship, trust, integrity. Always keep your promise. Without rules we wouldn't survive long.")
@@ -28,6 +20,15 @@ team5 = Team.create(name: "Purple Cobras", owner_id: user5.id, description: "You
 team6 = Team.create(name: "The Patches", owner_id: user6.id, description: "Devastated by the loss of Patches in the movie Dodgeball, a group of fanatics have teamed up to pay their respects to Patches with one last tournament.")
 team7 = Team.create(name: "Legends", owner_id: user7.id, description: "The Man, The Myth, The Legend has graced the tournament floor. Do you dare stand in his way to glory?")
 team8 = Team.create(name: "Chuck Norris", owner_id: user8.id, description: "Fear of spiders is called arachnophobia, fear of tight spaces is called claustrophobia, fear of Chuck Norris is called logic.")
+
+img2 = Image.create(url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440296455/dlm1nl0gjnktjtto3mmn.jpg", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440296455/dlm1nl0gjnktjtto3mmn.jpg", imageable_id: team2.id, imageable_type: :Team)
+img3 = Image.create(url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440296658/z1jhnctvhaayzz4hij7w.jpg", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440296658/z1jhnctvhaayzz4hij7w.jpg", imageable_id: team3.id, imageable_type: :Team)
+img4 = Image.create(url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440296678/nthu3cr9faf1zvgn9jkb.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440296678/nthu3cr9faf1zvgn9jkb.png", imageable_id: team4.id, imageable_type: :Team)
+img5 = Image.create(url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440296844/xyweb4kp7bbz8zxzvpa8.jpg", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440296844/xyweb4kp7bbz8zxzvpa8.jpg", imageable_id: team5.id, imageable_type: :Team)
+img6 = Image.create(url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440296268/naslsnz01rlqswwbsmsr.jpg", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440296268/naslsnz01rlqswwbsmsr.jpg", imageable_id: team6.id, imageable_type: :Team)
+img7 = Image.create(url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440296946/r0aqpdylbq37m1bpn9ds.jpg", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440296946/r0aqpdylbq37m1bpn9ds.jpg", imageable_id: team7.id, imageable_type: :Team)
+img8 = Image.create(url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440297049/xtasoavag0e7d1tfg2rq.jpg", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440297049/xtasoavag0e7d1tfg2rq.jpg", imageable_id: team8.id, imageable_type: :Team)
+
 
 reg1 = Registration.create(tournament_id: tourn1.id, team_id: team2.id)
 reg2 = Registration.create(tournament_id: tourn1.id, team_id: team3.id)

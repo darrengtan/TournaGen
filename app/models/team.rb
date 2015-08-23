@@ -1,6 +1,6 @@
 class Team < ActiveRecord::Base
   validates :name, :captain, presence: true
-  after_save :ensure_logo, :ensure_team_membership
+  after_create :ensure_team_membership
 
   belongs_to :captain, class_name: :User, foreign_key: :owner_id
   has_many :registrations, foreign_key: :team_id, dependent: :destroy
@@ -24,11 +24,11 @@ class Team < ActiveRecord::Base
     self.inclusion.where("LOWER(name) LIKE ?", search_term)
   end
 
-  def ensure_logo
-    if self.image.nil?
-      Image.create!(imageable_id: self.id, imageable_type: :Team)
-    end
-  end
+  # def ensure_logo
+  #   if self.image.nil?
+  #     Image.create!(imageable_id: self.id, imageable_type: :Team)
+  #   end
+  # end
 
   def ensure_team_membership
     if self.team_memberships.find_by_user_id(self.captain.id).nil?

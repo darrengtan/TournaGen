@@ -15,6 +15,7 @@ class Api::TeamsController < ApplicationController
     @team = Team.new(team_params)
     @team.owner_id = current_user.id
     if @team.save
+      Image.create!(imageable_id: @team.id, imageable_type: :Team)
       render :show
     else
       render json: @team.errors.full_messages, status: :unprocessable_entity
