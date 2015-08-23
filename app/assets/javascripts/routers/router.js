@@ -2,6 +2,7 @@ TournaGen.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.$leftSidebar = options.$leftSidebar;
+    this.images = options.images;
     this.tournaments = options.tournaments;
     this.teams = options.teams;
     this.followTournaments = new TournaGen.Collections.Tournaments();
@@ -40,6 +41,7 @@ TournaGen.Routers.Router = Backbone.Router.extend({
 
   teamsIndex: function () {
     this.teams.fetch({ data: { page: 1 }});
+    this.images.fetch();
     var view = new TournaGen.Views.TeamsIndex({ collection: this.teams });
     this._swapView(view);
   },

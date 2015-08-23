@@ -5,8 +5,8 @@ TournaGen.Collections.Teams = Backbone.Collection.extend({
   comparator: "name",
 
   parse: function (response) {
-    this.page_number = response.page_number;
-    this.total_pages = response.total_pages;
+    this.page_number = parseInt(response.page_number);
+    this.total_pages = parseInt(response.total_pages);
     return response.models;
   },
 

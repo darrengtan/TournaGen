@@ -6,7 +6,7 @@ TournaGen.Views.TeamsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addIndexItemSubview);
     this.listenTo(this.collection, "remove", this.removeIndexItemSubview);
     this.collection.each(this.addIndexItemSubview.bind(this));
-    // this.listenForScroll();
+    this.listenForScroll();
   },
 
   addIndexItemSubview: function (team) {
@@ -14,37 +14,43 @@ TournaGen.Views.TeamsIndex = Backbone.CompositeView.extend({
     this.addSubview("ul.teams-index", view);
   },
 
-  // listenForScroll: function () {
-  //   this.$el.off("scroll");
-  //   var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
-  //   this.$el.on("scroll", throttledCallback);
-  // },
-  //
-  // nextPage: function () {
-  //   var view = this;
-  //   if (this.$el.scrollTop() > $(document).height() - $(window).height() - 50) {
-  //     if (view.collection.page_number < view.collection.total_pages) {
-  //       view.collection.fetch({
-  //         data: { page: view.collection.page_number + 1 },
-  //         remove: false
-  //       });
-  //     }
-  //   }
-  // },
+  listenForScroll: function () {
+    $(window).off("scroll");
+    var throttledCallback = _.throttle(this.fetchMoreTeams.bind(this), 200);
+    $(window).on("scroll", throttledCallback);
+  },
+
+  fetchMoreTeams: function (e) {
+    if ($(window).scrollTop() === $(document).height() - $(window).height()) {
+      debugger;
+      if (this.collection.page_number < this.collection.total_pages) {
+        this.collection.fetch({
+          data: { page: this.collection.page_number + 1 },
+          remove: false,
+          success: function () {
+            debugger;
+            this.render();
+          }.bind(this)
+        });
+      }
+    }
+  },
 
   removeIndexItemSubview: function (team) {
     this.removeModelSubview("ul.teams-index", team);
   },
 
   render: function () {
+    debugger;
     this.$el.html(this.template({ teams: this.collection }));
     if (this.collection.fetching) {
+      debugger;
       this.$("ul.teams-index").html(JST["loading_spinner"]());
       this.collection.fetching = false;
       return this;
     }
+    debugger;
     this.attachSubviews();
-    // this.listenForScroll();
     return this;
   }
 });

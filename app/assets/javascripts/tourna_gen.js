@@ -8,9 +8,11 @@ window.TournaGen = {
     var $leftSidebar = $("div#left-sidebar");
     var tournaments = new TournaGen.Collections.Tournaments();
     var teams = new TournaGen.Collections.Teams();
+    var images = new TournaGen.Collections.Images();
     var router = new TournaGen.Routers.Router({
       $rootEl: $rootEl,
       $leftSidebar: $leftSidebar,
+      images: images,
       tournaments: tournaments,
       teams: teams
     });
