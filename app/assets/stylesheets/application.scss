@@ -400,6 +400,7 @@ details div {
   font-size: 14px;
   height: 150px;
   text-align: left;
+  word-wrap: break-word;
 }
 
 details summary:hover {
@@ -407,12 +408,17 @@ details summary:hover {
 }
 
 .following details div {
-  width: 100%;
+  width: 90%;
   height: auto;
 }
 
 .host details div {
-  width: 100%;
+  width: 90%;
+  height: auto;
+}
+
+.tournaments-index details div {
+  width: 90%;
   height: auto;
 }
 
