@@ -1,5 +1,5 @@
 User.create!([
-  {email: "guest@aa.io", password_digest: "$2a$10$EO4r9eC8nTXRnRlwGBRgXOD0PHj9rtEFqX7bOFOZcdfUvzJlJ/ata", session_token: "NcQh-shQN7RurB_-4FXY_Q", username: "Guest"},
+  {email: "guest@aa.io", password_digest: "$2a$10$EO4r9eC8nTXRnRlwGBRgXOD0PHj9rtEFqX7bOFOZcdfUvzJlJ/ata", session_token: "1iwMMfCSKrsCw2W8uLT6yQ", username: "Guest"},
   {email: "lmb@aa.io", password_digest: "$2a$10$Cjtca8/cCt0hxltKO/ZOAOiuiilVFxR3oo0GkbgYB0oCIWCUOKoxS", session_token: "ObTYuEwHm3WVX3r1vNWJtA", username: "LiMuBai"},
   {email: "ysl@aa.io", password_digest: "$2a$10$1vKhDY792H0IqluE970yFeypGtufILNFvI78SXZP7odkW.9cHiaHW", session_token: "QbW0tLK6HiFVYTS0Wl3OYQ", username: "YuShuLien"},
   {email: "plf@aa.io", password_digest: "$2a$10$Es6Sfs7Env.hVv7kF8.yOuOC4ETGj8D11v00cPXPoLxGajeOyWvWO", session_token: "A9bdmFIijq87ega6hNJEAA", username: "PeteLaFleur"},
@@ -32,7 +32,7 @@ Image.create!([
 Tournament.create!([
   {author_id: 1, title: "1st Tournament Tutorial", description: "Welcome to the first tournament ever hosted on TournaGen! This is an example of a tournament starting from scratch. Take a look around!", max_teams: 32, results: "[[[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1]],[[2,1],[1,2]]]]", double_elim: false},
   {author_id: 2, title: "If You can Dodge a Wrench", description: "Welcome to the official dogeball tournament for TournaGen!", max_teams: 8, results: "[]", double_elim: false},
-  {author_id: 1, title: "May Madness", description: "It's the 31st annual May Madness tournament! Live out your predictions for March Madness here. Disclaimer: None of these teams are actually the NCAA teams they're portraying.", max_teams: 8, results: "[]", double_elim: false}
+  {author_id: 1, title: "May Madness", description: "It's the 31st annual May Madness tournament! Live out your predictions for March Madness here. Disclaimer: None of these teams are actually the NCAA teams they're portraying.", max_teams: 64, results: "[]", double_elim: false}
 ])
 
 Follow.create!([

@@ -60,13 +60,13 @@ class Tournament < ActiveRecord::Base
       case rounds
       when 2
         rounds * 2 + 1
-      when 7
+      when 6 || 7
         rounds * 2 + 3
       else
         rounds * 2 + 2
       end
     else
-      rounds == 7 ? rounds + 2 : rounds + 1
+      rounds >= 6 ? rounds + 2 : rounds + 1
     end
   end
 
