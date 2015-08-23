@@ -18,7 +18,7 @@ TournaGen.Views.TeamForm = Backbone.View.extend({
   },
 
   onRender: function () {
-    this.$('name-field').focus();
+    this.$('.name-field').focus();
   },
 
   removeModal: function (e) {
