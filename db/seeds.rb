@@ -1,5 +1,5 @@
 User.create!([
-  {email: "guest@aa.io", password_digest: "$2a$10$EO4r9eC8nTXRnRlwGBRgXOD0PHj9rtEFqX7bOFOZcdfUvzJlJ/ata", session_token: "shzLlyS9PfPCKZj9rtEpEQ", username: "Guest"},
+  {email: "guest@aa.io", password_digest: "$2a$10$EO4r9eC8nTXRnRlwGBRgXOD0PHj9rtEFqX7bOFOZcdfUvzJlJ/ata", session_token: "YY3SqQYR7B0LZJXDGAExng", username: "Guest"},
   {email: "lmb@aa.io", password_digest: "$2a$10$Cjtca8/cCt0hxltKO/ZOAOiuiilVFxR3oo0GkbgYB0oCIWCUOKoxS", session_token: "ObTYuEwHm3WVX3r1vNWJtA", username: "LiMuBai"},
   {email: "ysl@aa.io", password_digest: "$2a$10$1vKhDY792H0IqluE970yFeypGtufILNFvI78SXZP7odkW.9cHiaHW", session_token: "QbW0tLK6HiFVYTS0Wl3OYQ", username: "YuShuLien"},
   {email: "plf@aa.io", password_digest: "$2a$10$Es6Sfs7Env.hVv7kF8.yOuOC4ETGj8D11v00cPXPoLxGajeOyWvWO", session_token: "A9bdmFIijq87ega6hNJEAA", username: "PeteLaFleur"},
@@ -15,7 +15,19 @@ User.create!([
   {email: "a@aa.io", password_digest: "$2a$10$qQjsMwEn6Un6v5JRM01Yde0Na5CSMr2calfTWFtb1fRYEhxDhNa4y", session_token: "E3diBrj7H6ZGuK9ysiYqqg", username: "Arizona"},
   {email: "g@aa.io", password_digest: "$2a$10$U9/dDQMRJ1prYBUWJ9zsFO42DJvd0CMG6BfEBtjmVSy/KtLAEivE2", session_token: "oeCihGImIlWFdnD1u38JBg", username: "Gonzaga"},
   {email: "ka@aa.io", password_digest: "$2a$10$0erljmJt94G8N.m7pBbHyepDMIKDN3aMijOJtCepr1Mm4vft6d5Jy", session_token: "ac6Pp16gEsCeb8zWh_tDGg", username: "Kansas"},
-  {email: "is@aa.io", password_digest: "$2a$10$iEsiOxdnHw0HK14oxBO/kuIEeJk90om.xl7GugyN6.tosiMSYzvGy", session_token: "po5cF5O-94J7j_ZMEfUT6Q", username: "IowaState"}
+  {email: "is@aa.io", password_digest: "$2a$10$iEsiOxdnHw0HK14oxBO/kuIEeJk90om.xl7GugyN6.tosiMSYzvGy", session_token: "po5cF5O-94J7j_ZMEfUT6Q", username: "IowaState"},
+  {email: "b@aa.io", password_digest: "$2a$10$eOmSlYcWljPV9KINyenId.LSNt/IqFWSnyoTQIs2o86ITLuBYlOUa", session_token: "k_8zmCeagjUiP2Pwh4MgRw", username: "Baylor"},
+  {email: "o@aa.io", password_digest: "$2a$10$P/WhU7yZX3WBYS8Jm/P96eIMemznIOFgA1tATNM6Qswa4kgsbu4CO", session_token: "R3-sk7LGpG28RPGGi7rUBw", username: "Oklahoma"},
+  {email: "nd@aa.io", password_digest: "$2a$10$Y3Hq.YYPaQFv5Oojm/hLPu1BwPs4fb0VglU9V48ywy/Em6YW5jAw.", session_token: "uQb549WCm4KGHUplSYKMOw", username: "NotreDame"},
+  {email: "nc@aa.io", password_digest: "$2a$10$wxu7eF802B4eBehQXkO8i.N9LGCZlz6eyy1xNqB3jkPHVUEUoh9Im", session_token: "pqZ5PXwbPixRxLSO6tp2Rg", username: "NorthCarolina"},
+  {email: "m@aa.io", password_digest: "$2a$10$b.JUfoGj8z.rCkEnqviKTeeNHHNBiHcsDHEJphAhn6HsqM7PZt.nC", session_token: "CD0iZTQ8Nm-Y5jv-ylBX1g", username: "Maryland"},
+  {email: "l@aa.io", password_digest: "$2a$10$VDmz/Wco2dbWjN2hxry5L.ytL7kxr0P/.Rqzr7Asl1fIvC1na5ioi", session_token: "h9gfxxVvk7JWekTvCp6f9A", username: "Louisville"},
+  {email: "gt@aa.io", password_digest: "$2a$10$YNKVKu5qfGlKCbaA85Gn1OJLuG1.jATZ.B6NGSiWe73yHlBBqKq9C", session_token: "EOmTAvh2ZbLG4_llGcTAaw", username: "Georgetown"},
+  {email: "u@aa.io", password_digest: "$2a$10$nlDgHa5/cuYaYoz96zoxD.G9ssABjAShq5Jd8sTQO3T7mDx9lYcX6", session_token: "uTbVSh5cm_xpUyH_Yjf1qA", username: "Utah"},
+  {email: "ark@aa.io", password_digest: "$2a$10$6ukOk.BbOU9i0COzrk9I7OzvFwapY17GCdLe4eRbDd8lrOg7eesi2", session_token: "2oywxExFaqve3rh0beJxRg", username: "Arkansas"},
+  {email: "wv@aa.io", password_digest: "$2a$10$gB7Kqrnlogzd86bofMiFou9/vHdaszbNU47MIwQuuBkmqM6H5FWK.", session_token: "ngBiCe1zTKwMWU2sU6HsAA", username: "WestVirginia"},
+  {email: "uni@aa.io", password_digest: "$2a$10$Sq9ePN3/ip8EWpXI9YnuG.6/UPhrnebrRwJ280msxUZwT9nIzzm8G", session_token: "y3BqpSqhEgScvd_IBGZYjA", username: "UNIowa"},
+  {email: "smu@aa.io", password_digest: "$2a$10$7DeTjYYQgYiRPeLfyYWnve1Y1hPPMj1y45J5mI822p4m/c4ZZteIm", session_token: "p6xQpmi5kZw6Xp2Q4gbGCA", username: "SMUniversity"}
 ])
 
 Team.create!([
@@ -34,7 +46,19 @@ Team.create!([
   {owner_id: 14, name: "Arizona", description: ""},
   {owner_id: 15, name: "Gonzaga", description: ""},
   {owner_id: 16, name: "Kansas", description: ""},
-  {owner_id: 17, name: "Iowa State", description: ""}
+  {owner_id: 17, name: "Iowa State", description: ""},
+  {owner_id: 18, name: "Baylor", description: ""},
+  {owner_id: 19, name: "Oklahoma", description: ""},
+  {owner_id: 20, name: "Notre Dame", description: ""},
+  {owner_id: 21, name: "North Carolina", description: ""},
+  {owner_id: 22, name: "Maryland", description: ""},
+  {owner_id: 23, name: "Louisville", description: ""},
+  {owner_id: 24, name: "Georgetown", description: ""},
+  {owner_id: 25, name: "Utah", description: ""},
+  {owner_id: 26, name: "Arkansas", description: ""},
+  {owner_id: 27, name: "West Virginia", description: ""},
+  {owner_id: 28, name: "UNI", description: ""},
+  {owner_id: 29, name: "SMU", description: ""}
 ])
 
 Image.create!([
@@ -53,7 +77,19 @@ Image.create!([
   {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440301831/f2ixevfshvlir1yg3hs6.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440301831/f2ixevfshvlir1yg3hs6.png", imageable_id: 13, imageable_type: "Team"},
   {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440301930/dgy4m0uo8ih26uo8fe5y.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440301930/dgy4m0uo8ih26uo8fe5y.png", imageable_id: 14, imageable_type: "Team"},
   {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440302043/vmumgt0sfnzbhewjv2sa.jpg", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440302043/vmumgt0sfnzbhewjv2sa.jpg", imageable_id: 15, imageable_type: "Team"},
-  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440302135/pcjb6kse5aeie1a2oz9z.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440302135/pcjb6kse5aeie1a2oz9z.png", imageable_id: 16, imageable_type: "Team"}
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440302135/pcjb6kse5aeie1a2oz9z.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440302135/pcjb6kse5aeie1a2oz9z.png", imageable_id: 16, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440303225/aevx0szw5feb6fklwyya.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440303225/aevx0szw5feb6fklwyya.png", imageable_id: 17, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440303305/t2x1cizd0sjlmn0zckg5.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440303305/t2x1cizd0sjlmn0zckg5.png", imageable_id: 18, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440303403/rqfjxcmizpknksnh4ekm.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440303403/rqfjxcmizpknksnh4ekm.png", imageable_id: 19, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440303476/lykpc3iexv7omz5q8ekm.jpg", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440303476/lykpc3iexv7omz5q8ekm.jpg", imageable_id: 20, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440303550/l7wxzagofltkjnvbp61v.gif", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440303550/l7wxzagofltkjnvbp61v.gif", imageable_id: 21, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440303768/xvwauhqtfp8eje5olylb.jpg", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440303768/xvwauhqtfp8eje5olylb.jpg", imageable_id: 22, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440303864/jze8i0w5lwt4qfmam12a.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440303864/jze8i0w5lwt4qfmam12a.png", imageable_id: 23, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440303934/ff3amz4jzpigg8fdzuo8.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440303934/ff3amz4jzpigg8fdzuo8.png", imageable_id: 24, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440304062/zrxi6u6ajrx8ssobap4c.jpg", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440304062/zrxi6u6ajrx8ssobap4c.jpg", imageable_id: 25, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440304136/hocinmes1pxduzjhu7mh.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440304136/hocinmes1pxduzjhu7mh.png", imageable_id: 26, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440304278/jz1zzer5q5x557csvkrc.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440304278/jz1zzer5q5x557csvkrc.png", imageable_id: 27, imageable_type: "Team"},
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440304856/afbvclhwh3u95fubyics.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440304856/afbvclhwh3u95fubyics.png", imageable_id: 28, imageable_type: "Team"}
 ])
 
 Tournament.create!([
@@ -84,7 +120,19 @@ Follow.create!([
   {tournament_id: 3, follower_id: 14},
   {tournament_id: 3, follower_id: 15},
   {tournament_id: 3, follower_id: 16},
-  {tournament_id: 3, follower_id: 17}
+  {tournament_id: 3, follower_id: 17},
+  {tournament_id: 3, follower_id: 18},
+  {tournament_id: 3, follower_id: 19},
+  {tournament_id: 3, follower_id: 20},
+  {tournament_id: 3, follower_id: 21},
+  {tournament_id: 3, follower_id: 22},
+  {tournament_id: 3, follower_id: 23},
+  {tournament_id: 3, follower_id: 24},
+  {tournament_id: 3, follower_id: 25},
+  {tournament_id: 3, follower_id: 26},
+  {tournament_id: 3, follower_id: 27},
+  {tournament_id: 3, follower_id: 28},
+  {tournament_id: 3, follower_id: 29}
 ])
 
 Registration.create!([
@@ -110,7 +158,19 @@ Registration.create!([
   {tournament_id: 3, team_id: 13},
   {tournament_id: 3, team_id: 14},
   {tournament_id: 3, team_id: 15},
-  {tournament_id: 3, team_id: 16}
+  {tournament_id: 3, team_id: 16},
+  {tournament_id: 3, team_id: 17},
+  {tournament_id: 3, team_id: 18},
+  {tournament_id: 3, team_id: 19},
+  {tournament_id: 3, team_id: 20},
+  {tournament_id: 3, team_id: 21},
+  {tournament_id: 3, team_id: 22},
+  {tournament_id: 3, team_id: 23},
+  {tournament_id: 3, team_id: 24},
+  {tournament_id: 3, team_id: 25},
+  {tournament_id: 3, team_id: 26},
+  {tournament_id: 3, team_id: 27},
+  {tournament_id: 3, team_id: 28}
 ])
 
 TeamMembership.create!([
