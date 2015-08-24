@@ -32,7 +32,7 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
       Backbone.history.navigate("", { trigger: true });
     }
 
-    introJs().setOption("disableInteraction", "false").start();
+    introJs().start();
   },
 
   tournamentsIndex: function (e) {

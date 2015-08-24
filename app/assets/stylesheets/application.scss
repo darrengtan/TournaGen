@@ -15,6 +15,15 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ .close {
+   color: rgb(221, 170, 0);
+   opacity: 1.0;
+ }
+
+ .close:hover {
+   color: rgb(221, 170, 0);
+ }
+
 button.tutorial-button {
   margin-top: 8px;
   margin-left: 10px;
@@ -78,7 +87,7 @@ body {
 
 #navbar .navbar.navbar-default{
   background: rgb(13, 0, 32);
-  color: rgb(222, 138, 67);
+  color: rgb(221, 170, 0);
   border-radius: 0px;
   border-color: rgb(13, 0, 32);
   font-size: 16px;
@@ -100,7 +109,7 @@ body {
 }
 
 #navbar li a:hover {
-  color: rgb(222, 134, 66);
+  color: rgb(221, 170, 0);
 }
 
 #navbar li a:before {
@@ -110,7 +119,7 @@ body {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: rgb(222, 134, 66);
+  background-color: rgb(221, 170, 0);
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -156,7 +165,7 @@ body {
 }
 
 #left-sidebar a:hover {
-  color: rgb(222, 134, 66);
+  color: rgb(221, 170, 0);
 }
 
 #left-sidebar a:before {
@@ -166,7 +175,7 @@ body {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: rgb(222, 134, 66);
+  background-color: rgb(221, 170, 0);
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -185,11 +194,11 @@ body {
 }
 
 #navbar li.divider {
-  background-color: rgb(222, 134, 66);
+  background-color: rgb(221, 170, 0);
 }
 
 #navbar li:hover {
-  border-color: rgb(222, 132, 66);
+  border-color: rgb(221, 170, 0);
 }
 
 #navbar div.search-results {
@@ -283,7 +292,7 @@ div#main-content div#bracket-container {
   top: 15%;
   left: 30%;
   background: rgb(13, 0, 32);
-  color: rgb(222,134,66);
+  color: rgb(221, 170, 0);
   padding: 1pc;
   border: 2px solid;
   border-radius: 5px;
@@ -308,7 +317,7 @@ select {
   top: 15%;
   left: 40%;
   background: rgb(13, 0, 32);
-  color: rgb(222,134,66);
+  color: rgb(221, 170, 0);
   padding: 1pc;
   border: 2px solid;
   border-radius: 5px;
@@ -326,12 +335,12 @@ select {
 
 .user-session-container a {
   position: relative;
-  color: rgb(222, 134, 66);
+  color: rgb(221, 170, 0);
   text-decoration: none;
 }
 
 .user-session-container a:hover {
-  color: rgb(222, 134, 66);
+  color: rgb(221, 170, 0);
 }
 
 .user-session-container a:before {
@@ -341,7 +350,7 @@ select {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: rgb(222, 134, 66);
+  background-color: rgb(221, 170, 0);
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);

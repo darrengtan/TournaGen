@@ -1,15 +1,14 @@
 <div class="right-side">
   <div class="num-follows-container"></div>
   <% if (tournament.get("userTeam")) { %>
-    <button class="register-button btn btn-primary"><%= tournament.get("registered") ? "Unregister From " : "Register For " %>Tournament</button>
+    <button class="register-button btn btn-info"><%= tournament.get("registered") ? "Unregister From " : "Register For " %>Tournament</button>
     <br>
   <% } %>
 
   <% if (tournament.get("authorized")) { %>
-    <button class="edit-button btn btn-primary">Edit Tournament Details</button>
+    <button class="edit-button btn btn-info">Edit Tournament Details</button>
   <% } %>
 </div>
-<a href="#tournaments">Back to Tournaments Index</a><br>
 <h2><%= tournament.escape("title") %></h2>
 
 
@@ -52,5 +51,5 @@
 </ul>
 
 <% if (tournament.get("authorized")) { %>
-  <button class="delete-button btn btn-primary">Delete Tournament</button>
+  <button class="delete-button btn btn-info">Delete Tournament</button>
 <% } %>

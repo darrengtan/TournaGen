@@ -1,10 +1,10 @@
 <div class="right-side">
   <% if (team.escape("captain") === TournaGen.CURRENT_USER.username) { %>
-    <button class="edit-button btn btn-primary">Edit Team Information</button>
+    <button class="edit-button btn btn-info">Edit Team Information</button>
     <br><br>
   <% } %>
 <% if (team.get("captain") !== TournaGen.CURRENT_USER.username) { %>
-  <button class="join-button btn btn-primary">
+  <button class="join-button btn btn-info">
     <%= team.get("is_team_member") ? "Leave" : "Join" %> This team
   </button>
   <br><br>
@@ -27,7 +27,7 @@
 <div class="team-logo"></div>
 
 <% if (team.escape("captain") === TournaGen.CURRENT_USER.username) { %>
-  <button class="upload-button btn btn-primary">Upload New Logo</button>
+  <button class="upload-button btn btn-info">Upload New Logo</button>
 <% } %>
 
 <div class="team-associations">
@@ -43,6 +43,6 @@
   </ul>
 
   <% if (team.escape("captain") === TournaGen.CURRENT_USER.username) { %>
-    <button class="delete-button btn btn-primary">Disband Team</button>
+    <button class="delete-button btn btn-info">Disband Team</button>
   <% } %>
 </div>
