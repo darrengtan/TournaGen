@@ -15,7 +15,25 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ div.team-associations {
+   width: 100%;
+   display: block;
+   float: left;
+ }
+
+ div.team-details {
+   width: 60%;
+   display: block;
+   float: right;
+ }
+
+ div.team-profile {
+   display: block;
+   float: left;
+ }
+
  div.right-side {
+   margin-left: 10px;
    float: right;
    text-align: right;
  }
@@ -415,6 +433,14 @@ details div {
 }
 
 details div.progress {
+  padding-left: 0px;
+  margin: 0px;
+  border-left: 0px;
+}
+
+details div.progress .progress-bar {
+  margin-left: 0px;
+  border-left: 0px;
   padding-left: 0px;
 }
 

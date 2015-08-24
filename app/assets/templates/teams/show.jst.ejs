@@ -1,4 +1,28 @@
-<h2><%= team.escape("name") %></h2>
+<div class="right-side">
+  <% if (team.escape("captain") === TournaGen.CURRENT_USER.username) { %>
+    <button class="edit-button btn btn-primary">Edit Team Information</button>
+    <br><br>
+  <% } %>
+<% if (team.get("captain") !== TournaGen.CURRENT_USER.username) { %>
+  <button class="join-button btn btn-primary">
+    <%= team.get("is_team_member") ? "Leave" : "Join" %> This team
+  </button>
+  <br><br>
+<% } %>
+</div>
+
+<div class="team-details">
+  <h2><%= team.escape("name") %></h2>
+  <p>
+    <strong>Team Captain</strong>: <%= team.escape("captain") %>
+  </p>
+
+  <p>
+    <strong>Description</strong>
+    <br>
+    <%= team.escape("description") %>
+  </p>
+</div>
 
 <div class="team-logo"></div>
 
@@ -6,39 +30,19 @@
   <button class="upload-button btn btn-primary">Upload New Logo</button>
 <% } %>
 
-<p>
-  <strong>Team Captain</strong>: <%= team.escape("captain") %>
-</p>
-
-<% if (team.escape("captain") === TournaGen.CURRENT_USER.username) { %>
-  <button class="edit-button btn btn-primary">Edit Team Information</button>
-  <br><br>
-<% } %>
-
-<p>
-  <strong>Description</strong>
+<div class="team-associations">
+  <strong>Team Members</strong>
   <br>
-  <%= team.escape("description") %>
-</p>
+  <ul class="team-members-index list-group">
+    <li class="list-group-item">None</li>
+  </ul><br>
 
-<% if (team.get("captain") !== TournaGen.CURRENT_USER.username) { %>
-  <button class="join-button btn btn-primary">
-    <%= team.get("is_team_member") ? "Leave" : "Join" %> This team
-  </button>
-  <br><br>
-<% } %>
+  <strong>Registered Tournaments</strong><br>
+  <ul class="tournaments-index list-group">
+    <li class="list-group-item">None</li>
+  </ul>
 
-<strong>Team Members</strong>
-<br>
-<ul class="team-members-index list-group">
-  <li class="list-group-item">None</li>
-</ul><br>
-
-<strong>Registered Tournaments</strong><br>
-<ul class="tournaments-index list-group">
-  <li class="list-group-item">None</li>
-</ul>
-
-<% if (team.escape("captain") === TournaGen.CURRENT_USER.username) { %>
-  <button class="delete-button btn btn-primary">Disband Team</button>
-<% } %>
+  <% if (team.escape("captain") === TournaGen.CURRENT_USER.username) { %>
+    <button class="delete-button btn btn-primary">Disband Team</button>
+  <% } %>
+</div>
