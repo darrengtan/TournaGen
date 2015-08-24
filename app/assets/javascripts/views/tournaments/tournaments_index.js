@@ -5,12 +5,33 @@ TournaGen.Views.TournamentsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "add", this.addIndexItemSubview);
     this.listenTo(this.collection, "remove", this.removeIndexItemSubview);
-    this.renderTournaments();
+    this.collection.each(this.addIndexItemSubview.bind(this));
+    this.listenForScroll();
   },
 
   addIndexItemSubview: function (tournament) {
     var view = new TournaGen.Views.TournamentsIndexItem({ model: tournament });
     this.addSubview("ul.tournaments-index", view);
+  },
+
+  listenForScroll: function () {
+    $(window).off("scroll");
+    var throttledCallback = _.throttle(this.fetchMoreTournaments.bind(this), 500);
+    $(window).on("scroll", throttledCallback);
+  },
+
+  fetchMoreTournaments: function (e) {
+    if ($(window).scrollTop() === $(document).height() - $(window).height()) {
+      if (this.collection.page_number < this.collection.total_pages) {
+        this.collection.fetch({
+          data: { page: this.collection.page_number + 1 },
+          remove: false,
+          success: function () {
+            this.render();
+          }.bind(this)
+        });
+      }
+    }
   },
 
   removeIndexItemSubview: function (tournament) {
@@ -26,9 +47,5 @@ TournaGen.Views.TournamentsIndex = Backbone.CompositeView.extend({
     }
     this.attachSubviews();
     return this;
-  },
-
-  renderTournaments: function () {
-    this.collection.each(this.addIndexItemSubview.bind(this));
   }
 });
