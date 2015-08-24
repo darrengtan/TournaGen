@@ -222,7 +222,7 @@ Image.create!([
 ])
 
 Tournament.create!([
-  {author_id: 1, title: "1st Tournament Tutorial", description: "Welcome to the first tournament ever hosted on TournaGen! This is an example of a tournament starting from scratch. Take a look around!", max_teams: 32, results: "[[[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1]],[[2,1],[1,2]]]]", double_elim: false},
+  {author_id: 1, title: "1st Tournament Tutorial", description: "Welcome to the first tournament ever hosted on TournaGen! This is an example of a tournament starting from scratch. Take a look around!", max_teams: 16, results: "[[[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1]],[[2,1],[1,2]]]]", double_elim: false},
   {author_id: 2, title: "If You can Dodge a Wrench", description: "Welcome to the official dogeball tournament for TournaGen!", max_teams: 8, results: "[]", double_elim: false},
   {author_id: 1, title: "May Madness", description: "It's the 31st annual May Madness tournament! Live out your predictions for March Madness here. Disclaimer: None of these teams are actually the NCAA teams they're portraying.", max_teams: 64, results: "[]", double_elim: false}
 ])

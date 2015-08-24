@@ -22,7 +22,17 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
     "input input[type=text]": "search",
     "click a": "hideSearch",
     "click .transparent-background": "hideSearch",
-    "click .tournamentsIndex": "tournamentsIndex"
+    "click .tournamentsIndex": "tournamentsIndex",
+    "click .tutorial-button": "startTutorial"
+  },
+
+  startTutorial: function (e) {
+    e.preventDefault();
+    if (window.location !== "") {
+      Backbone.history.navigate("", { trigger: true });
+    }
+
+    introJs().setOption("disableInteraction", "false").start();
   },
 
   tournamentsIndex: function (e) {
@@ -65,7 +75,6 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
 
   renderResults: function () {
     if (this.$('input.form-control').val() === "") {
-      debugger;
       this.hideSearch();
     } else {
       if (this.teams.length !== 0) {

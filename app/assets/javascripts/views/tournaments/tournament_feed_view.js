@@ -1,6 +1,12 @@
 TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
   template: JST["tournaments/feed_index"],
 
+  attributes: {
+    "data-step": "3",
+    "data-intro": "This is your feed, which consists of tournaments you're following and hosting. If you want to check a tournament's progress, click the arrow next to the name. If you want more detailed information on a tournament, click the tournament title.",
+    "data-position": "left"
+  },
+
   initialize: function (options) {
     this.follows = options.follows;
     this.hosts = options.hosts;

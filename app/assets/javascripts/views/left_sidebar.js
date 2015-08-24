@@ -1,6 +1,12 @@
 TournaGen.Views.LeftSidebar = Backbone.View.extend({
   template: JST["left_sidebar"],
 
+  attributes: {
+    "data-step": "2",
+    "data-position": "right",
+    "data-intro": "This is the sidebar, where you can navigate through the app, create tournaments, and make your own team. Try out these options!"
+  },
+
   initialize: function (options) {
     this.teams = options.teams;
     this.tournaments = options.tournaments;

@@ -18,6 +18,7 @@
 //= require fetch_event
 //= require jquery.serializeJSON
 //= require jquery.bracket.min
+//= require intro.min
 //= require_tree ./utils
 //= require tourna_gen
 //= require_tree ../templates

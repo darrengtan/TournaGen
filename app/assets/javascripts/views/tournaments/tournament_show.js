@@ -1,6 +1,11 @@
 TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   template: JST["tournaments/show"],
 
+  attributes: {
+    // "data-step": "4",
+    // "data-intro": "This is an example of a tournament."
+  },
+
   initialize: function (options) {
     this.tournaments = options.tournaments;
     this.follows = this.model.follows();
@@ -11,12 +16,19 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.listenTo(this.registrations, "add remove", this.bracketView);
     this.registrations.each(this.addTeamName.bind(this));
     this.addNumFollows();
+    this.checkTutorial();
   },
 
   events: {
     "click .register-button": "registerAction",
     "click .edit-button": "editTournament",
     "click .delete-button": "deleteTournament"
+  },
+
+  checkTutorial: function () {
+    if (Backbone.history.getFragment() === "tournaments/1?multipage=true") {
+      introJs().goToStep("4").start();
+    }
   },
 
   addNumFollows: function () {
@@ -42,6 +54,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     } else {
       this.viewBracket();
     }
+
   },
 
   changeBracket: function () {
@@ -124,7 +137,6 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.checkTeamsLength();
 
     this.bracketView();
-
     return this;
   },
 
