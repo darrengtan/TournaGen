@@ -15,7 +15,7 @@ class Api::TournamentsController < ApplicationController
         follows: [:follower, :tournament]
       ).page(params[:page])
     elsif params[:search]
-      @tournaments = (params[:search] == "" ? [] : Tournament.search(params[:search])).page(params[:page])
+      @tournaments = Tournament.search(params[:search]).page(params[:page])
     else
       @tournaments = Tournament.inclusion.page(params[:page])
     end

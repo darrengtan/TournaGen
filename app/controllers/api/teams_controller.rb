@@ -1,7 +1,7 @@
 class Api::TeamsController < ApplicationController
   def index
     if params[:search]
-      @teams = (params[:search] == "" ? [] : Team.search(params[:search])).page(params[:page])
+      @teams = Team.search(params[:search]).page(params[:page])
     else
       @teams = Team.inclusion.page(params[:page])
     end

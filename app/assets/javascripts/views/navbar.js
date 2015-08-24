@@ -57,6 +57,7 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
 
   renderResults: function () {
     if (this.$('input.form-control').val() === "") {
+      debugger;
       this.hideSearch();
     } else {
       if (this.teams.length !== 0) {

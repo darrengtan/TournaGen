@@ -22,7 +22,6 @@ class Team < ActiveRecord::Base
   end
 
   def self.search(search_params)
-    return [] if search_params == ""
     search_term = "%#{search_params}%".downcase
     self.inclusion.where("LOWER(name) LIKE ?", search_term)
   end
