@@ -4,8 +4,7 @@ class Api::TournamentsController < ApplicationController
       @tournaments = Tournament.inclusion
                                .references(:follows)
                                .where(
-                                 "follows.follower_id = ? AND tournaments.author_id != ?",
-                                 current_user.id,
+                                 "follows.follower_id = ?",
                                  current_user.id
                                ).page(params[:page])
     elsif params[:type] == "host"
@@ -23,7 +22,7 @@ class Api::TournamentsController < ApplicationController
       format.html { render :index }
       format.json do
         render json: {
-          models: @tournaments,
+          models: @tournaments.as_json(methods: :completion),
           page_number: params[:page],
           total_pages: @tournaments.total_pages
         }
