@@ -4,6 +4,12 @@ TournaGen.Collections.Tournaments = Backbone.Collection.extend({
 
   comparator: "title",
 
+  parse: function (response) {
+    this.page_number = parseInt(response.page_number);
+    this.total_pages = parseInt(response.total_pages);
+    return response.models;
+  },
+
   getOrFetch: function (id) {
     var tournament = this.get(id);
     if (!tournament) {

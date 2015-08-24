@@ -7,17 +7,27 @@ class Api::TournamentsController < ApplicationController
                                  "follows.follower_id = ? AND tournaments.author_id != ?",
                                  current_user.id,
                                  current_user.id
-                               )
+                               ).page(params[:page])
     elsif params[:type] == "host"
       @tournaments = current_user.tournaments.includes(
         {registrations: [:team, :tournament]},
         :author,
         follows: [:follower, :tournament]
-      )
+      ).page(params[:page])
     elsif params[:search]
-      @tournaments = (params[:search] == "" ? [] : Tournament.search(params[:search]))
+      @tournaments = (params[:search] == "" ? [] : Tournament.search(params[:search])).page(params[:page])
     else
-      @tournaments = Tournament.inclusion
+      @tournaments = Tournament.inclusion.page(params[:page])
+    end
+    respond_to do |format|
+      format.html { render :index }
+      format.json do
+        render json: {
+          models: @tournaments,
+          page_number: params[:page],
+          total_pages: @tournaments.total_pages
+        }
+      end
     end
   end
 
