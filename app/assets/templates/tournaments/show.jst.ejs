@@ -1,13 +1,20 @@
+<div class="right-side">
+  <div class="num-follows-container"></div>
+  <% if (tournament.get("userTeam")) { %>
+    <button class="register-button btn btn-primary"><%= tournament.get("registered") ? "Unregister From " : "Register For " %>Tournament</button>
+    <br>
+  <% } %>
+
+  <% if (tournament.get("authorized")) { %>
+    <button class="edit-button btn btn-primary">Edit Tournament Details</button>
+  <% } %>
+</div>
 <a href="#tournaments">Back to Tournaments Index</a><br>
 <h2><%= tournament.escape("title") %></h2>
 
-<div class="num-follows-container"></div>
 
 <p>Hosted by <%= tournament.escape("host") %></p>
 
-<% if (tournament.get("authorized")) { %>
-  <button class="edit-button btn btn-primary">Edit Tournament Details</button>
-<% } %>
 
 <p>
   <strong>Description</strong>
@@ -15,17 +22,11 @@
   <%= tournament.escape("description") %>
 </p>
 
-<% if (tournament.get("userTeam")) { %>
-  <button class="register-button btn btn-primary">
-    <%= tournament.get("registered") ? "Unregister From " : "Register For " %>Tournament
-  </button>
-  <br><br>
-<% } %>
 
 <% if (tournament.get("authorized")) { %>
   <div class="alert alert-warning alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    You are the host of this tournament! To update the bracket, simply click the score area and input the score.
+    You are the host of this tournament!<br>To update the bracket, simply click the score area and input the score.
   </div>
 <% } %>
 

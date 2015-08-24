@@ -5,6 +5,16 @@
     </a>
   </summary>
   <div>
-    <%= tournament.escape("description") %>     
+    <%= tournament.escape("description") %>
+  </div>
+  <div class="progress">
+    <div
+      class="progress-bar <%= tournament.get("completion") === 100 ? "progress-bar-success" : "" %>"
+      role="progressbar" aria-valuenow="<%= tournament.get("completion") %>"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      style="min-width: 2em; width: 2%; width: <%= tournament.get("completion") %>%;">
+        <%= tournament.get("completion") %>%
+    </div>
   </div>
 </details>

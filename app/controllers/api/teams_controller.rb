@@ -6,10 +6,9 @@ class Api::TeamsController < ApplicationController
       @teams = Team.inclusion.page(params[:page])
     end
     respond_to do |format|
-      format.html { render :index }
       format.json do
         render json: {
-          models: @teams,
+          models: @teams.as_json(include: :image),
           page_number: params[:page],
           total_pages: @teams.total_pages
         }

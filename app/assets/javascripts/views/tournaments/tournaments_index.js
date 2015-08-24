@@ -10,6 +10,7 @@ TournaGen.Views.TournamentsIndex = Backbone.CompositeView.extend({
   },
 
   addIndexItemSubview: function (tournament) {
+    tournament.fetch();
     var view = new TournaGen.Views.TournamentsIndexItem({ model: tournament });
     this.addSubview("ul.tournaments-index", view);
   },

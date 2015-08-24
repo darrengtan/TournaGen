@@ -3,6 +3,8 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.router = options.router;
+    this.tournaments = options.tournaments;
+    this.teams = options.teams;
     this.tournaments = new TournaGen.Collections.Tournaments();
     this.teams = new TournaGen.Collections.Teams();
     this.listenTo(this.router, "route", this.handleRoute);
@@ -19,7 +21,13 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
     "click .log-out": "logOut",
     "input input[type=text]": "search",
     "click a": "hideSearch",
-    "click .transparent-background": "hideSearch"
+    "click .transparent-background": "hideSearch",
+    "click .tournamentsIndex": "tournamentsIndex"
+  },
+
+  tournamentsIndex: function (e) {
+    e.preventDefault();
+    Backbone.history.navigate("tournaments", { trigger: true });
   },
 
   handleKey: function (e) {

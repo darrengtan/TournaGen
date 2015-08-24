@@ -15,6 +15,23 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ div.right-side {
+   float: right;
+   text-align: right;
+ }
+
+ div.right-side button {
+   margin-top: 10px;
+ }
+
+ .register-button {
+   margin-right: -5px;
+ }
+
+ div.right-side button.follow-button {
+   margin-top: 0px;
+ }
+
  .loading{
     position:fixed;
     z-index:999;
@@ -25,18 +42,11 @@
     background: inherit;
 }
 
-html {
-  // background: -webkit-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* Chrome 10+, Saf5.1+ */
-  // background:    -moz-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* FF3.6+ */
-  // background:     -ms-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* IE10 */
-  // background:      -o-linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* Opera 11.10+ */
-  // background:         linear-gradient(90deg, #403B4A 10%, #E7E9BB 90%); /* W3C */
-}
-
 body {
   box-sizing: border-box;
   font-size: 16px;
-  background-image: url("http://nextlevelfitness.org/wp-content/uploads/revslider/The7-homepage/abstract-orange-background-23285-hd-wallpapers.jpg")
+  background-image: url("http://nextlevelfitness.org/wp-content/uploads/revslider/The7-homepage/abstract-orange-background-23285-hd-wallpapers.jpg");
+  background-attachment: fixed;
 }
 
 @for $i from 3 through 17 {
@@ -402,6 +412,10 @@ details div {
   height: 150px;
   text-align: left;
   word-wrap: break-word;
+}
+
+details div.progress {
+  padding-left: 0px;
 }
 
 details summary:hover {

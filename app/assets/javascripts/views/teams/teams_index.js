@@ -41,7 +41,6 @@ TournaGen.Views.TeamsIndex = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({ teams: this.collection }));
     if (this.collection.fetching) {
-      debugger;
       this.$("ul.teams-index").html(JST["loading_spinner"]());
       this.collection.fetching = false;
       return this;
