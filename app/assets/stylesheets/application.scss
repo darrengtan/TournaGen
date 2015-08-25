@@ -15,6 +15,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ul.dropdown-menu {
+  text-align: center;
+}
+
  .close {
    color: rgb(221, 170, 0);
    opacity: 1.0;
@@ -209,6 +213,8 @@ body {
   border-radius: 5px;
   z-index: 1;
   padding: 0 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 div.search-results .teams-results {
@@ -253,7 +259,7 @@ div.search-results a {
 }
 
 #main-content > div{
-  background: rgba(221, 170, 0, 0.74902);
+  background: rgba(221, 170, 0, 0.6);
   float: left;
   display: block;
   width: 70%;

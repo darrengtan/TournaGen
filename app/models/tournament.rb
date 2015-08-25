@@ -44,6 +44,7 @@ class Tournament < ActiveRecord::Base
   end
 
   def pair_matchups(seeds_arr)
+    registrations = self.class.includes(registrations: :team)
     pairs = [];
     until seeds_arr.empty?
       pairs << seeds_arr.shift(2)
@@ -51,7 +52,7 @@ class Tournament < ActiveRecord::Base
     pairs.map do |pair|
       pair.map do |seed|
         self.registered_teams[seed - 1] ?
-          "(#{seed}) #{self.registered_teams[seed - 1].name}" : "Team #{seed}"
+          "(#{seed}) #{self.registrations[seed - 1].team.name}" : "Team #{seed}"
       end
     end
   end

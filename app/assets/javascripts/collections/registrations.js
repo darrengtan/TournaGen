@@ -2,6 +2,8 @@ TournaGen.Collections.Registrations = Backbone.Collection.extend({
   url: "api/registrations",
   model: TournaGen.Models.Registration,
 
+  comparator: "id",
+
   getOrFetch: function (id) {
     var registration = this.get(id);
     if (!registration) {
