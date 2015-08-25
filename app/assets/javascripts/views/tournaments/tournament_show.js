@@ -16,7 +16,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   events: {
     "click .register-button": "registerAction",
     "click .edit-button": "editTournament",
-    "click .delete-button": "deleteTournament"
+    "click .delete-button": "deleteConfirmation"
   },
 
   addNumFollows: function () {
@@ -65,14 +65,14 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.$('.label').unbind().removeClass("editable");
   },
 
-  deleteTournament: function (e) {
+  deleteConfirmation: function (e) {
     e.preventDefault();
-    this.model.destroy({
-      success: function () {
-        this.remove();
-        Backbone.history.navigate("tournaments", { trigger: true });
-      }.bind(this)
+    var modal = new TournaGen.Views.TournamentDeleteConfirmation({
+      model: this.model
     });
+
+    $('body').append(modal.$el);
+    modal.render();
   },
 
   editTournament: function (e) {
