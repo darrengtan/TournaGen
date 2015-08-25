@@ -21,12 +21,24 @@
    margin: auto;
  }
 
+ .modal-content div.confirmation {
+   display: block;
+   text-align: center;
+   width: 15%;
+   margin: 0 auto;
+ }
+
+ .modal-content div.confirmation:after {
+   content: "";
+   display: block;
+   clear: both;
+ }
+
  .modal-content div.yes {
    display: block;
    float: left;
    padding-right: 10px;
    border-right: 1px solid #da0;
-   margin-left: 15px;
  }
 
  .modal-content div.no {
