@@ -1,5 +1,5 @@
 User.create!([
-  {email: "guest@aa.io", password_digest: "$2a$10$EO4r9eC8nTXRnRlwGBRgXOD0PHj9rtEFqX7bOFOZcdfUvzJlJ/ata", session_token: "VZTNkhqBq0_Sd5BKtBmWPw", username: "Guest"},
+  {email: "guest@aa.io", password_digest: "$2a$10$EO4r9eC8nTXRnRlwGBRgXOD0PHj9rtEFqX7bOFOZcdfUvzJlJ/ata", session_token: "pJzXiA76ZpCP0bRW0Y4LPw", username: "Guest"},
   {email: "lmb@aa.io", password_digest: "$2a$10$Cjtca8/cCt0hxltKO/ZOAOiuiilVFxR3oo0GkbgYB0oCIWCUOKoxS", session_token: "ObTYuEwHm3WVX3r1vNWJtA", username: "LiMuBai"},
   {email: "ysl@aa.io", password_digest: "$2a$10$1vKhDY792H0IqluE970yFeypGtufILNFvI78SXZP7odkW.9cHiaHW", session_token: "QbW0tLK6HiFVYTS0Wl3OYQ", username: "YuShuLien"},
   {email: "plf@aa.io", password_digest: "$2a$10$Es6Sfs7Env.hVv7kF8.yOuOC4ETGj8D11v00cPXPoLxGajeOyWvWO", session_token: "A9bdmFIijq87ega6hNJEAA", username: "PeteLaFleur"},
@@ -7,9 +7,9 @@ User.create!([
   {email: "patches@aa.io", password_digest: "$2a$10$edLni.UOZr5A7IQ7Nh39bOdgNuuEMEdv0fQ7ZduCz0ZafmxhTNNVy", session_token: "Aezm_x_YGTudRCjw9KreEg", username: "PatchesFanatic"},
   {email: "mml@aa.io", password_digest: "$2a$10$OUa9LfhJB.u2GsCRCS.Ni.sgqcM3dmS/rH6zfdDzREbGn0wPRMKOG", session_token: "WmVENd76dD9wyHZwDzFJqQ", username: "ManMythLegend"},
   {email: "chucknorris@aa.io", password_digest: "$2a$10$FMVeL0Sl.TFuRBXBdlt.jOor5j/eIuRMdQaPJSBmEA6.El/ttGkL6", session_token: "s5Eru33Pi2hYMIC7f6itow", username: "ChuckNorris"},
-  {email: "k@aa.io", password_digest: "$2a$10$n9690VMYwqDRD6m0nu08Gu56HUT4sbVAHhjfmJLj.KR2cAmmdlO16", session_token: "zmFDYrSO2qS93VW5jSy7Eg", username: "Kentucky"},
+  {email: "k@aa.io", password_digest: "$2a$10$n9690VMYwqDRD6m0nu08Gu56HUT4sbVAHhjfmJLj.KR2cAmmdlO16", session_token: "ul7kH_0uYKrH6AfvLxUPrg", username: "Kentucky"},
   {email: "v@aa.io", password_digest: "$2a$10$9j5GWudhQCUtTYFwg2w6wu0yNbLG17m9ik6VZxnVLbBaQRDQ5OW.i", session_token: "umkHgQWs0xB5R4vP0KP8ww", username: "Villanova"},
-  {email: "duke@aa.io", password_digest: "$2a$10$wj4h387o8ZekwniwyNEbMOHd0BYxYA1Cg.hl/r1Sl/5vnuWWy.7UW", session_token: "t1iWaT7DST7S0CiKvq_1WA", username: "Duke"},
+  {email: "duke@aa.io", password_digest: "$2a$10$wj4h387o8ZekwniwyNEbMOHd0BYxYA1Cg.hl/r1Sl/5vnuWWy.7UW", session_token: "s_I-XtQbdut-rU_dnz6FTw", username: "Duke"},
   {email: "w@aa.io", password_digest: "$2a$10$CQ4pUlzjXwINIu5TaR9PFelHDJb5lXKUsWWmN.S/xprpWa.7r/b7u", session_token: "2jcGojtBY0TktbK2t0Cmdw", username: "Wisconsin"},
   {email: "va@aa.io", password_digest: "$2a$10$T8vwgbM/nJn8cnnoOYKGxesD3WDC/ss6Gb5OOu.fX.glATbyazXq.", session_token: "eM4gjqnCsqt3S_b8N6ytNQ", username: "Virginia"},
   {email: "a@aa.io", password_digest: "$2a$10$qQjsMwEn6Un6v5JRM01Yde0Na5CSMr2calfTWFtb1fRYEhxDhNa4y", session_token: "E3diBrj7H6ZGuK9ysiYqqg", username: "Arizona"},
@@ -28,9 +28,9 @@ User.create!([
   {email: "wv@aa.io", password_digest: "$2a$10$gB7Kqrnlogzd86bofMiFou9/vHdaszbNU47MIwQuuBkmqM6H5FWK.", session_token: "ngBiCe1zTKwMWU2sU6HsAA", username: "WestVirginia"},
   {email: "uni@aa.io", password_digest: "$2a$10$Sq9ePN3/ip8EWpXI9YnuG.6/UPhrnebrRwJ280msxUZwT9nIzzm8G", session_token: "y3BqpSqhEgScvd_IBGZYjA", username: "UNIowa"},
   {email: "smu@aa.io", password_digest: "$2a$10$7DeTjYYQgYiRPeLfyYWnve1Y1hPPMj1y45J5mI822p4m/c4ZZteIm", session_token: "GV5d_0rEV2QgIjYJZaz47A", username: "SMUniversity"},
-  {email: "p@aa.io", password_digest: "$2a$10$rlv.jTBf.qeb3t9Ys7OiFeT3cJT3VUpL4YmR10XQFNNH1N0oAA8bG", session_token: "AIoAf9xiJAHhKVugBJCTNg", username: "Providence"},
+  {email: "p@aa.io", password_digest: "$2a$10$rlv.jTBf.qeb3t9Ys7OiFeT3cJT3VUpL4YmR10XQFNNH1N0oAA8bG", session_token: "z1fCKSvxx1D8RyZxBahl0w", username: "Providence"},
   {email: "bu@aa.io", password_digest: "$2a$10$BCto.i75bsIPF78Y09n0MeukhLMob17wd3DGyuBs07sHwAOid9o3e", session_token: "CbGCBxeXhrqqthDBNhABKA", username: "Butler"},
-  {email: "x@aa.io", password_digest: "$2a$10$Dvy3ZilXBkJGLrv4d/Dtb.4IpSyc3/Pzq6CrF7yQJYjqtbPLIoY/q", session_token: "l_QJeDJwbob8DDJEVb_rHg", username: "Xavier"},
+  {email: "x@aa.io", password_digest: "$2a$10$Dvy3ZilXBkJGLrv4d/Dtb.4IpSyc3/Pzq6CrF7yQJYjqtbPLIoY/q", session_token: "JlGc997yUNZJfvAY8w0o4Q", username: "Xavier"},
   {email: "ms@aa.io", password_digest: "$2a$10$HSVWey5It8bcIXg1XO2aBOBJDBONPRCEh5LgHIRCQeYFe5gMSHrYi", session_token: "v6Wvo5Oli3oR1nKa-dbftA", username: "MichiganSt"},
   {email: "ws@aa.io", password_digest: "$2a$10$HiC.9WhJ.VgkLN3ktnnQ4ONGTItwaCRBF08ARijwA.8dXnS2zcmI.", session_token: "iOQ9VE2qwusZ1uOHcbd6gg", username: "WichitaSt"},
   {email: "i@aa.io", password_digest: "$2a$10$Nmu4zbJJ8vFf.R3m0uCXg.TlyIb2dAiwydVLOFHdhBxNBv5YfzR32", session_token: "K4a5surnIRcnfugigtIg0Q", username: "Iowa"},
@@ -38,7 +38,7 @@ User.create!([
   {email: "c@aa.io", password_digest: "$2a$10$qWNWAvEOFCPxPHxPNwp4CuCmgy1p7uNMRn9qSiLykRnm.LmMJZzIu", session_token: "ENEtTSx7MMmrVN5BootNgQ", username: "Cincinnati"},
   {email: "or@aa.io", password_digest: "$2a$10$iWvake2oFD/bVSSOXBi0ie.vMUALqYd3IbzQJnOgrO..3p9InwPn6", session_token: "sneXrWv0wsR_cA3vPHNqOg", username: "Oregon"},
   {email: "ncstate@aa.io", password_digest: "$2a$10$a1DEuCaKFct4T7tvYjX43eg6Tu/75G95viemgc3FaTWn1dAGP4EeK", session_token: "dBxIop5QdgeEN9LA0LeKsw", username: "NCState"},
-  {email: "sds@aa.io", password_digest: "$2a$10$6rCbdJOZ5p.w2fIik.ZG4OpvaKhNluOktJmqPUvT4UY8Lo9ISOYxa", session_token: "6H65zN5jnD0CaoMinZ2Kfg", username: "SDState"},
+  {email: "sds@aa.io", password_digest: "$2a$10$6rCbdJOZ5p.w2fIik.ZG4OpvaKhNluOktJmqPUvT4UY8Lo9ISOYxa", session_token: "TfBFTgRWXGc06Twa7gD33g", username: "SDState"},
   {email: "sjny@aa.io", password_digest: "$2a$10$bqjxa4RjvK74JLGGkOyh8.mzDiOJAD3BEgnwA/JKgpLup/d6nIAUK", session_token: "rUazkGsr6034XZlubqcLcQ", username: "StJohns"},
   {email: "osu@aa.io", password_digest: "$2a$10$vhHsu7vqETBuHNGCtVFi2.XBf1FwrhVfc0tHW3ZUChR4JkkOmN5sW", session_token: "jx-iTHE9lMa_f-lBPYDuTA", username: "OSUniversity"},
   {email: "lsu@aa.io", password_digest: "$2a$10$hpf4FLxskTK.hX26Amkk1.YdT8lNxdyirlO.xPeb7rfFccEiKghP.", session_token: "0-5aGp7XRWWGpMobQ72VoA", username: "LSUniversity"},
@@ -48,8 +48,8 @@ User.create!([
   {email: "os@aa.io", password_digest: "$2a$10$4WZiozxe1.ErJ2JgxQv/Ou1uxbbcW8yM02MXa5wDSuByRSj4WqdGy", session_token: "Tu5mnTaXcPOyc0NU9o7Aog", username: "OhioSt"},
   {email: "ga@aa.io", password_digest: "$2a$10$I65ULkLzo.SgGJZ6po1HoOsQs7tHR.0WJNxPRhVPY4Ef.ssGXuOai", session_token: "3n5ZLacmQ4bKwIQ8roZCLw", username: "Georgia"},
   {email: "t@aa.io", password_digest: "$2a$10$f6zbYUTTdrGbiStq2OJGs.vq3Hhq9zP67jojzR1JJaR2dVIlJ9TRO", session_token: "Ics2rYDOXajuYcRuCMhc9w", username: "Texas"},
-  {email: "ucla@aa.io", password_digest: "$2a$10$ghuqB7HNNJVfRzWbkKtMD.5Fr96Omb10L/ziWYV7SxfuTLVYMFOoe", session_token: "AaGkEkXVlQLe14PdRclyKQ", username: "UCLA"},
-  {email: "ol@aa.io", password_digest: "$2a$10$Dnjw8VmBK9OZLl2EJP1qV.vSsesRx3rQLDNBZio3UvQbcEtEKOvRC", session_token: "Kn5j3DWmDKt06lOfeE8zAw", username: "OleMiss"},
+  {email: "ucla@aa.io", password_digest: "$2a$10$ghuqB7HNNJVfRzWbkKtMD.5Fr96Omb10L/ziWYV7SxfuTLVYMFOoe", session_token: "yW0g0OPG28GRZHCQ3w6CeA", username: "UCLA"},
+  {email: "ol@aa.io", password_digest: "$2a$10$Dnjw8VmBK9OZLl2EJP1qV.vSsesRx3rQLDNBZio3UvQbcEtEKOvRC", session_token: "O9NM6QStI2mtyowb2e8YHA", username: "OleMiss"},
   {email: "byu@aa.io", password_digest: "$2a$10$Y3VokcnXaU9ccrBvigIty.1Tgf7rdUOCbvm9UiN8E59g3C/zwoUpy", session_token: "-zhpvWITAztDAuW8gmNcNg", username: "BYUniversity"},
   {email: "bst@aa.io", password_digest: "$2a$10$NI8cIpGF1eZainS09TZd3OXU9zOtPEFbrHOMQhd7SrPOuhWg1K97C", session_token: "SX3-5ymlReh8DjJuUDnIJQ", username: "BoiseSt"},
   {email: "day@aa.io", password_digest: "$2a$10$z9RFk6rPV99CCmNCvKjTfuKfathgG6cGn71vgDSTffm2S/AodW2ZC", session_token: "_VNdZppmcbWRsiAJaSDhNA", username: "Dayton"},
@@ -58,7 +58,7 @@ User.create!([
   {email: "woff@aa.io", password_digest: "$2a$10$HLgx3q94El0d88OflEpTh.sHJCbu5Og/s6S9HNn67koPhRFyCQ1Ae", session_token: "_R_3-z5O2gdyb9NI1cTEog", username: "Wofford"},
   {email: "sfa@aa.io", password_digest: "$2a$10$9xaUi9YBbfxpf7QV2npzuu5E2Cg3eTBwAv7gkOlMGpRZuxeZHvzKu", session_token: "bAWUQLLRv128ZhTww6nl9A", username: "SFAustin"},
   {email: "val@aa.io", password_digest: "$2a$10$KarY6HU2ZQqMNrP6K17Pde5h9iOHPkgHWkVpv35ny0AcLM6RSxT0.", session_token: "jq1L-N7HaEbiIVzVO6jGUA", username: "Valparaiso"},
-  {email: "h@aa.io", password_digest: "$2a$10$u2ux3CX2vwK.icSaF2ME1OkIDffWu47GMPCV6vHRI2dYY6bWNENAO", session_token: "2PyP6b8NfaEryyM-YkHTHA", username: "Harvard"},
+  {email: "h@aa.io", password_digest: "$2a$10$u2ux3CX2vwK.icSaF2ME1OkIDffWu47GMPCV6vHRI2dYY6bWNENAO", session_token: "cdq7kfIK4xh8xpxh6dh2WA", username: "Harvard"},
   {email: "ewa@aa.io", password_digest: "$2a$10$gy2bowOT8fo/.ReVaVectusbjHp4PCE1a65E2wH6MJfivc0tRfIVm", session_token: "58aP6tslxU_zLmpp9nElbg", username: "EasternWA"},
   {email: "uci@aa.io", password_digest: "$2a$10$63JcJfBNM24IbAPyH.x1IO4lkxppuN2fpemI4dknDLKYN48K5wO.m", session_token: "GZk7A3ZLwx-LV5Bi_2eTcg", username: "UCIrvine"},
   {email: "gs@aa.io", password_digest: "$2a$10$t5tlqHDq2EQK6rKd79EOyeUVSRDK/OVak5s78WU6xY.cVW5LMkX7y", session_token: "I8JBaEFSTR-J9AAtJQYOIg", username: "GeorgiaSt"},
@@ -222,9 +222,9 @@ Image.create!([
 ])
 
 Tournament.create!([
-  {author_id: 1, title: "1st Tournament Tutorial", description: "Welcome to the first tournament ever hosted on TournaGen! Since you are the host, you can change the scores however you like. Try it out!", max_teams: 16, results: "[[[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1]],[[2,1],[1,2]]]]", double_elim: false},
   {author_id: 2, title: "If You can Dodge a Wrench", description: "Welcome to the official dogeball tournament for TournaGen!", max_teams: 8, results: "[]", double_elim: false},
-  {author_id: 1, title: "May Madness", description: "It's the 31st annual May Madness tournament! Live out your predictions for March Madness here. Disclaimer: None of these teams are actually the NCAA teams they're portraying.", max_teams: 64, results: "[]", double_elim: false}
+  {author_id: 1, title: "May Madness", description: "It's the 31st annual May Madness tournament! Live out your predictions for March Madness here. Disclaimer: None of these teams are actually the NCAA teams they're portraying.", max_teams: 64, results: "[]", double_elim: false},
+  {author_id: 1, title: "1st Tournament Tutorial", description: "Welcome to the first tournament ever hosted on TournaGen! Since you are the host, you can change the scores however you like. You can also make your own team, register for this tournament, and watch the bracket update Team 16. Try it out!", max_teams: 16, results: "[[[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1]],[[2,1],[1,2]]]]", double_elim: false}
 ])
 
 Follow.create!([
@@ -304,7 +304,15 @@ Follow.create!([
   {tournament_id: 3, follower_id: 69},
   {tournament_id: 3, follower_id: 70},
   {tournament_id: 3, follower_id: 71},
-  {tournament_id: 3, follower_id: 72}
+  {tournament_id: 3, follower_id: 72},
+  {tournament_id: 1, follower_id: 9},
+  {tournament_id: 1, follower_id: 40},
+  {tournament_id: 1, follower_id: 50},
+  {tournament_id: 1, follower_id: 32},
+  {tournament_id: 1, follower_id: 60},
+  {tournament_id: 1, follower_id: 51},
+  {tournament_id: 1, follower_id: 11},
+  {tournament_id: 1, follower_id: 30}
 ])
 
 Registration.create!([
@@ -385,7 +393,15 @@ Registration.create!([
   {tournament_id: 3, team_id: 68},
   {tournament_id: 3, team_id: 69},
   {tournament_id: 3, team_id: 70},
-  {tournament_id: 3, team_id: 71}
+  {tournament_id: 3, team_id: 71},
+  {tournament_id: 1, team_id: 8},
+  {tournament_id: 1, team_id: 39},
+  {tournament_id: 1, team_id: 49},
+  {tournament_id: 1, team_id: 31},
+  {tournament_id: 1, team_id: 59},
+  {tournament_id: 1, team_id: 50},
+  {tournament_id: 1, team_id: 10},
+  {tournament_id: 1, team_id: 29}
 ])
 
 TeamMembership.create!([
