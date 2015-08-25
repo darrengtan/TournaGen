@@ -4,9 +4,11 @@
 
 # Description
 
-TournaGen is an app that allows users to create and update their own
+TournaGen is an app loosely based on the website Challonge that allows users to create and update their own
 tournaments, follow tournaments, and register for tournaments through a team
-they create. To create a tournament, click on the `Create New Tournament` link
+they create.
+
+To create a tournament, click on the `Create New Tournament` link
 in the sidebar and fill out the necessary details. From there, a bracket should
 be automatically created. To update the results of a matchup, click in the score
 area and type in the correct results.
