@@ -15,6 +15,7 @@
           <%= tournament.get("completion") %>%
       </div>
     </div><br><br>
+    <h3><a href="<%= "#tournaments/" + tournament.escape("id") %>"><%= tournament.escape("title") %></a></h3>
     <%= tournament.escape("description") %>
   </div>
 </details>

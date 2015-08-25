@@ -6,7 +6,7 @@
   </summary>
   <img src="<%= team.image().get("thumb_url") %>" alt="" />
   <div>
-    <h3><%= team.escape("name") %></h3>
+    <h3><a href="<%= "#teams/" + team.escape("id") %>"><%= team.escape("name") %></a></h3>
     <%= team.escape("description") %>
   </div>
 </details>

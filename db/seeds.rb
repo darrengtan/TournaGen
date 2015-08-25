@@ -1,12 +1,12 @@
 User.create!([
-  {email: "guest@aa.io", password_digest: "$2a$10$EO4r9eC8nTXRnRlwGBRgXOD0PHj9rtEFqX7bOFOZcdfUvzJlJ/ata", session_token: "pJzXiA76ZpCP0bRW0Y4LPw", username: "Guest"},
-  {email: "lmb@aa.io", password_digest: "$2a$10$Cjtca8/cCt0hxltKO/ZOAOiuiilVFxR3oo0GkbgYB0oCIWCUOKoxS", session_token: "ObTYuEwHm3WVX3r1vNWJtA", username: "LiMuBai"},
+  {email: "guest@aa.io", password_digest: "$2a$10$EO4r9eC8nTXRnRlwGBRgXOD0PHj9rtEFqX7bOFOZcdfUvzJlJ/ata", session_token: "OGi22X9u7BTj34YvKdDP6g", username: "Guest"},
+  {email: "lmb@aa.io", password_digest: "$2a$10$Cjtca8/cCt0hxltKO/ZOAOiuiilVFxR3oo0GkbgYB0oCIWCUOKoxS", session_token: "Er-87fpxJqW0_5gIIRQdTQ", username: "LiMuBai"},
   {email: "ysl@aa.io", password_digest: "$2a$10$1vKhDY792H0IqluE970yFeypGtufILNFvI78SXZP7odkW.9cHiaHW", session_token: "QbW0tLK6HiFVYTS0Wl3OYQ", username: "YuShuLien"},
   {email: "plf@aa.io", password_digest: "$2a$10$Es6Sfs7Env.hVv7kF8.yOuOC4ETGj8D11v00cPXPoLxGajeOyWvWO", session_token: "A9bdmFIijq87ega6hNJEAA", username: "PeteLaFleur"},
   {email: "wg@aa.io", password_digest: "$2a$10$3nZ6OVXkH21zIOUADnIWvukQSU0pUbx0iyr.EYjmGnBUsgA96lmfm", session_token: "E41LEUXgcK8OyymU3EXWpQ", username: "WhiteGoodman"},
   {email: "patches@aa.io", password_digest: "$2a$10$edLni.UOZr5A7IQ7Nh39bOdgNuuEMEdv0fQ7ZduCz0ZafmxhTNNVy", session_token: "Aezm_x_YGTudRCjw9KreEg", username: "PatchesFanatic"},
-  {email: "mml@aa.io", password_digest: "$2a$10$OUa9LfhJB.u2GsCRCS.Ni.sgqcM3dmS/rH6zfdDzREbGn0wPRMKOG", session_token: "WmVENd76dD9wyHZwDzFJqQ", username: "ManMythLegend"},
   {email: "chucknorris@aa.io", password_digest: "$2a$10$FMVeL0Sl.TFuRBXBdlt.jOor5j/eIuRMdQaPJSBmEA6.El/ttGkL6", session_token: "s5Eru33Pi2hYMIC7f6itow", username: "ChuckNorris"},
+  {email: "mml@aa.io", password_digest: "$2a$10$OUa9LfhJB.u2GsCRCS.Ni.sgqcM3dmS/rH6zfdDzREbGn0wPRMKOG", session_token: "dAYvIPqVnUJmNhpVTlPgNg", username: "ManMythLegend"},
   {email: "k@aa.io", password_digest: "$2a$10$n9690VMYwqDRD6m0nu08Gu56HUT4sbVAHhjfmJLj.KR2cAmmdlO16", session_token: "ul7kH_0uYKrH6AfvLxUPrg", username: "Kentucky"},
   {email: "v@aa.io", password_digest: "$2a$10$9j5GWudhQCUtTYFwg2w6wu0yNbLG17m9ik6VZxnVLbBaQRDQ5OW.i", session_token: "umkHgQWs0xB5R4vP0KP8ww", username: "Villanova"},
   {email: "duke@aa.io", password_digest: "$2a$10$wj4h387o8ZekwniwyNEbMOHd0BYxYA1Cg.hl/r1Sl/5vnuWWy.7UW", session_token: "s_I-XtQbdut-rU_dnz6FTw", username: "Duke"},
@@ -16,7 +16,7 @@ User.create!([
   {email: "g@aa.io", password_digest: "$2a$10$U9/dDQMRJ1prYBUWJ9zsFO42DJvd0CMG6BfEBtjmVSy/KtLAEivE2", session_token: "oeCihGImIlWFdnD1u38JBg", username: "Gonzaga"},
   {email: "ka@aa.io", password_digest: "$2a$10$0erljmJt94G8N.m7pBbHyepDMIKDN3aMijOJtCepr1Mm4vft6d5Jy", session_token: "ac6Pp16gEsCeb8zWh_tDGg", username: "Kansas"},
   {email: "is@aa.io", password_digest: "$2a$10$iEsiOxdnHw0HK14oxBO/kuIEeJk90om.xl7GugyN6.tosiMSYzvGy", session_token: "po5cF5O-94J7j_ZMEfUT6Q", username: "IowaState"},
-  {email: "b@aa.io", password_digest: "$2a$10$eOmSlYcWljPV9KINyenId.LSNt/IqFWSnyoTQIs2o86ITLuBYlOUa", session_token: "k_8zmCeagjUiP2Pwh4MgRw", username: "Baylor"},
+  {email: "b@aa.io", password_digest: "$2a$10$eOmSlYcWljPV9KINyenId.LSNt/IqFWSnyoTQIs2o86ITLuBYlOUa", session_token: "17g1AJq7XI_04j0cQzYB5Q", username: "Baylor"},
   {email: "o@aa.io", password_digest: "$2a$10$P/WhU7yZX3WBYS8Jm/P96eIMemznIOFgA1tATNM6Qswa4kgsbu4CO", session_token: "R3-sk7LGpG28RPGGi7rUBw", username: "Oklahoma"},
   {email: "nd@aa.io", password_digest: "$2a$10$Y3Hq.YYPaQFv5Oojm/hLPu1BwPs4fb0VglU9V48ywy/Em6YW5jAw.", session_token: "uQb549WCm4KGHUplSYKMOw", username: "NotreDame"},
   {email: "nc@aa.io", password_digest: "$2a$10$wxu7eF802B4eBehQXkO8i.N9LGCZlz6eyy1xNqB3jkPHVUEUoh9Im", session_token: "pqZ5PXwbPixRxLSO6tp2Rg", username: "NorthCarolina"},
@@ -70,7 +70,15 @@ User.create!([
   {email: "ts@aa.io", password_digest: "$2a$10$smYGex.7fMGfTZh4gbwrw.r4wZHkDlL3DR0vmrJyCozq1NtSLyM1a", session_token: "9qqbf1NzwOAJLKzEPbD2nw", username: "TexasSouthern"},
   {email: "ndsu", password_digest: "$2a$10$IcVs16xHegZIk5o6dkFtqOHTgoUbplpxzEzOoRT866qKGtNOs8dg.", session_token: "puNcIuVFIkCpMSx0L59DTQ", username: "NDSU"},
   {email: "laf@aa.io", password_digest: "$2a$10$jEsf1fOovj5PU.UG/eUus.fY3Wf/5EhtxzunPmgVLS61zu7nraX6S", session_token: "riHWd0e_pg5znPm1U6aAEQ", username: "Lafayette"},
-  {email: "cc@aa.io", password_digest: "$2a$10$ejajGgZ4ZLFQ9MIU5j/ccOPRT0hBKkb8RJvvO8tYVBldkrd8fkMzu", session_token: "CdvJtnf4U1iYYfQTxdsjLw", username: "CoastalCarolina"}
+  {email: "cc@aa.io", password_digest: "$2a$10$ejajGgZ4ZLFQ9MIU5j/ccOPRT0hBKkb8RJvvO8tYVBldkrd8fkMzu", session_token: "CdvJtnf4U1iYYfQTxdsjLw", username: "CoastalCarolina"},
+  {email: "end@aa.io", password_digest: "$2a$10$hUyBYPuWP0LGHehUjU8oheXIuPCelicgDqSL6e/sX/0fjrKwdGTZa", session_token: "SftRmjDd-JUq-JJk5jPRpA", username: "Endline"},
+  {email: "cb@aa.io", password_digest: "$2a$10$Q5P0/Vh5FvqQU.eoEEOPyOMfDFz0Ak4LE48GcedryMf3pgiIz3dTS", session_token: "Pww7qek48Ux9D6eeNCi4Qg", username: "CityBeach"},
+  {email: "tremors@aa.io", password_digest: "$2a$10$LUgogRRU52wqN/TLFmN51uPKl9ARwundQON/LpklbqspRW8N/5b.W", session_token: "ibCXghT7aH3IiHZfBk28FQ", username: "Tremors"},
+  {email: "synergy@aa.io", password_digest: "$2a$10$0BNpglsnPdHB/B8EtJATMe2yQqTiPDibcQDYLJiWu5QuXQG9zEmTS", session_token: "DEeT_hlWt46xMLHDamkd_Q", username: "Synergy"},
+  {email: "vibe@aa.io", password_digest: "$2a$10$sGG04tp.mKPOqxhEuRfIm.qeyXo8/T/MeGZdqbT4OUWpQYUmo6Luq", session_token: "7gdBoV7Nb-Lfhzm3yOq91g", username: "Vibe"},
+  {email: "650@aa.io", password_digest: "$2a$10$btu1kUuxAR4.by0H/SmJg.iios9v85NB4yXHWb8ZWFsosAykebjva", session_token: "rKj53mXEAgxl7zjdy7tBEw", username: "650Extreme"},
+  {email: "slainte@aa.io", password_digest: "$2a$10$eC0UYeciRrBxylT0nyLs/.T9xMTwY.KF2UTt/6EByuQ2IU26aKcz.", session_token: "AC3VeomkIsGtfEhcyRQikQ", username: "Slainte 12-1"},
+  {email: "rr@aa.io", password_digest: "$2a$10$7X3jikkIZ27IE8NnqEtK4O7ERCW03soa1Vd8Azs4hepWe1iJ2sL8S", session_token: "T8dVtFSZCUGYjbFowf1dTQ", username: "RedRock"}
 ])
 
 Team.create!([
@@ -144,7 +152,15 @@ Team.create!([
   {owner_id: 69, name: "Texas Southern", description: ""},
   {owner_id: 70, name: "North Dakota St.", description: ""},
   {owner_id: 71, name: "Lafayette", description: ""},
-  {owner_id: 72, name: "Coastal Caro.", description: ""}
+  {owner_id: 72, name: "Coastal Caro.", description: ""},
+  {owner_id: 73, name: "Endline 12-1", description: ""},
+  {owner_id: 74, name: "City Beach 12-1", description: ""},
+  {owner_id: 75, name: "Tremors 12-1", description: ""},
+  {owner_id: 76, name: "Synergy 12-2", description: ""},
+  {owner_id: 77, name: "Vibe 12-1", description: ""},
+  {owner_id: 78, name: "650 Extreme 12-2", description: ""},
+  {owner_id: 79, name: "Slainte 12-1", description: ""},
+  {owner_id: 80, name: "Red Rock 12-1", description: ""}
 ])
 
 Image.create!([
@@ -218,13 +234,22 @@ Image.create!([
   {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440316988/p7zwypkufr1mee7vizvu.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440316988/p7zwypkufr1mee7vizvu.png", imageable_id: 68, imageable_type: "Team"},
   {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440317061/wrgpablozphjxdphay2d.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440317061/wrgpablozphjxdphay2d.png", imageable_id: 69, imageable_type: "Team"},
   {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440317158/iklxvjxjlv2mmdnjlcxu.jpg", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440317158/iklxvjxjlv2mmdnjlcxu.jpg", imageable_id: 70, imageable_type: "Team"},
-  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440317232/wx3iq3w70kuaknl0eak5.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440317232/wx3iq3w70kuaknl0eak5.png", imageable_id: 71, imageable_type: "Team"}
+  {url: "http://res.cloudinary.com/dlrvqt6fn/image/upload/v1440317232/wx3iq3w70kuaknl0eak5.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440317232/wx3iq3w70kuaknl0eak5.png", imageable_id: 71, imageable_type: "Team"},
+  {url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440114607/red_circle_tfcx2x.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440114607/red_circle_tfcx2x.png", imageable_id: 72, imageable_type: "Team"},
+  {url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440114607/red_circle_tfcx2x.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440114607/red_circle_tfcx2x.png", imageable_id: 73, imageable_type: "Team"},
+  {url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440114607/red_circle_tfcx2x.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440114607/red_circle_tfcx2x.png", imageable_id: 74, imageable_type: "Team"},
+  {url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440114607/red_circle_tfcx2x.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440114607/red_circle_tfcx2x.png", imageable_id: 75, imageable_type: "Team"},
+  {url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440114607/red_circle_tfcx2x.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440114607/red_circle_tfcx2x.png", imageable_id: 76, imageable_type: "Team"},
+  {url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440114607/red_circle_tfcx2x.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440114607/red_circle_tfcx2x.png", imageable_id: 77, imageable_type: "Team"},
+  {url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440114607/red_circle_tfcx2x.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440114607/red_circle_tfcx2x.png", imageable_id: 78, imageable_type: "Team"},
+  {url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/v1440114607/red_circle_tfcx2x.png", thumb_url: "https://res.cloudinary.com/dlrvqt6fn/image/upload/c_scale,h_150,w_150/v1440114607/red_circle_tfcx2x.png", imageable_id: 79, imageable_type: "Team"}
 ])
 
 Tournament.create!([
-  {author_id: 2, title: "If You can Dodge a Wrench", description: "Welcome to the official dogeball tournament for TournaGen!", max_teams: 8, results: "[]", double_elim: false},
+  {author_id: 1, title: "1st Tournament Tutorial", description: "Welcome to the first tournament ever hosted on TournaGen! Since you are the host, you can change the scores however you like. You can also make your own team, register for this tournament, and watch the bracket update Team 16. Try it out!", max_teams: 16, results: "[[[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1]],[[2,1],[1,2]]]]", double_elim: false},
+  {author_id: 2, title: "If You can Dodge a Wrench", description: "Welcome to the official dogeball tournament for TournaGen!", max_teams: 8, results: "[[[[3,0],[2,3],[3,2],[3,1]],[[3,1],[null,null]],[[null,null],[null,null]]]]", double_elim: false},
   {author_id: 1, title: "May Madness", description: "It's the 31st annual May Madness tournament! Live out your predictions for March Madness here. Disclaimer: None of these teams are actually the NCAA teams they're portraying.", max_teams: 64, results: "[]", double_elim: false},
-  {author_id: 1, title: "1st Tournament Tutorial", description: "Welcome to the first tournament ever hosted on TournaGen! Since you are the host, you can change the scores however you like. You can also make your own team, register for this tournament, and watch the bracket update Team 16. Try it out!", max_teams: 16, results: "[[[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1],[2,1],[2,1]],[[2,1],[2,1]],[[2,1],[1,2]]]]", double_elim: false}
+  {author_id: 7, title: "Girls 12s VBall Tourney", description: "The finals for the NCVA Girls 12s Volleyball Tournament has arrived. Watch as these amazing girls compete to see who is the best 12s team in the Bay Area!", max_teams: 8, results: "[[[[2,1],[2,1],[2,0],[1,2]],[[null,null],[null,null]],[[null,null]]],[[[null,null],[null,null]],[[null,null],[null,null]],[[null,null]],[[null,null]]],[[[null,null],[null,null]]]]", double_elim: true}
 ])
 
 Follow.create!([
@@ -312,7 +337,16 @@ Follow.create!([
   {tournament_id: 1, follower_id: 60},
   {tournament_id: 1, follower_id: 51},
   {tournament_id: 1, follower_id: 11},
-  {tournament_id: 1, follower_id: 30}
+  {tournament_id: 1, follower_id: 30},
+  {tournament_id: 2, follower_id: 18},
+  {tournament_id: 4, follower_id: 73},
+  {tournament_id: 4, follower_id: 74},
+  {tournament_id: 4, follower_id: 75},
+  {tournament_id: 4, follower_id: 76},
+  {tournament_id: 4, follower_id: 77},
+  {tournament_id: 4, follower_id: 78},
+  {tournament_id: 4, follower_id: 79},
+  {tournament_id: 4, follower_id: 80}
 ])
 
 Registration.create!([
@@ -401,7 +435,16 @@ Registration.create!([
   {tournament_id: 1, team_id: 59},
   {tournament_id: 1, team_id: 50},
   {tournament_id: 1, team_id: 10},
-  {tournament_id: 1, team_id: 29}
+  {tournament_id: 1, team_id: 29},
+  {tournament_id: 2, team_id: 17},
+  {tournament_id: 4, team_id: 72},
+  {tournament_id: 4, team_id: 73},
+  {tournament_id: 4, team_id: 74},
+  {tournament_id: 4, team_id: 75},
+  {tournament_id: 4, team_id: 76},
+  {tournament_id: 4, team_id: 77},
+  {tournament_id: 4, team_id: 78},
+  {tournament_id: 4, team_id: 79}
 ])
 
 TeamMembership.create!([

@@ -1,11 +1,6 @@
 TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   template: JST["tournaments/show"],
 
-  attributes: {
-    // "data-step": "4",
-    // "data-intro": "This is an example of a tournament."
-  },
-
   initialize: function (options) {
     this.tournaments = options.tournaments;
     this.follows = this.model.follows();

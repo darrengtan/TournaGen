@@ -61,10 +61,10 @@ class Tournament < ActiveRecord::Base
     rounds = Math.log2(self.max_teams).ceil
     if self.double_elim
       case rounds
-      when 2
-        rounds * 2 + 1
-      when 6 || 7
-        rounds * 2 + 3
+      when 2 then rounds * 2 + 1
+      when 3 then rounds * 2 + 1
+      when 6 then rounds * 2 + 3
+      when 7 then rounds * 2 + 3
       else
         rounds * 2 + 2
       end
