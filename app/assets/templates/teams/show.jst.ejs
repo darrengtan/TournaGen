@@ -20,7 +20,7 @@
   <p>
     <strong>Description</strong>
     <br>
-    <%= team.escape("description") %>
+    <%= team.escape("description") === "" ? "(None)" : team.escape("description") %>
   </p>
 </div>
 
