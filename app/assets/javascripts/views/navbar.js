@@ -32,7 +32,7 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
       Backbone.history.navigate("", { trigger: true });
     }
 
-    introJs().start();
+    introJs().setOption("showStepNumbers", false).start();
   },
 
   tournamentsIndex: function (e) {
