@@ -119,7 +119,7 @@ div.jQBracket .team.tie div.score {
     color: #00f
 }
 div.jQBracket .team.highlightWinner {
-    background-color: #da0;
+    background-color: rgb(177, 99, 163);
     color: #000
 }
 div.jQBracket .team.highlightLoser {
@@ -205,8 +205,8 @@ div.jQBracket .bubble.fourth:after {
     border-right: 6px solid #678
 }
 div.jQBracket .highlightWinner .bubble {
-    background-color: #da0;
-    color: #960
+    background-color: rgb(177, 99, 163);
+    color: rgb(92, 48, 84);
 }
 div.jQBracket .highlightWinner .bubble:after {
     border-right-color: #da0

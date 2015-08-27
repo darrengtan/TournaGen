@@ -15,6 +15,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ div.score.editable > input {
+   width: 26px;
+ }
+
  .inner-content {
    left: 0;
    right: 0;
