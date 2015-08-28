@@ -57,12 +57,6 @@ TournaGen.Views.TeamShow = Backbone.CompositeView.extend({
     var modal = new TournaGen.Views.TeamDeleteConfirmation({ model: this.model });
     $('body').append(modal.$el);
     modal.render();
-    // this.model.destroy({
-    //   success: function () {
-    //     this.remove();
-    //     window.location = "";
-    //   }.bind(this)
-    // });
   },
 
   joinAction: function (e) {
