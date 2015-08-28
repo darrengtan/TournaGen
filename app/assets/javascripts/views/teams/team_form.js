@@ -45,6 +45,7 @@ TournaGen.Views.TeamForm = Backbone.View.extend({
       }.bind(this),
 
       error: function (team, error) {
+        team.fetch();
         var $errorsList = $("<ul>");
         error.responseJSON.forEach(function (error) {
           var $errorItem = $("<li>");

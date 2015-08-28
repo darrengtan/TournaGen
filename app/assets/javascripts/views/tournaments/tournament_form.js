@@ -44,6 +44,7 @@ TournaGen.Views.TournamentForm = Backbone.View.extend({
       }.bind(this),
 
       error: function (tournament, error) {
+        tournament.fetch();
         var $errorsList = $("<ul>");
         error.responseJSON.forEach(function (error) {
           var $errorItem = $("<li>");
