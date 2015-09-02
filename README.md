@@ -1,3 +1,5 @@
+![TournaGen Screenshot](tournagen_example.png)
+
 [TournaGen Link][link]
 
 [link]: http://www.tournagen.xyz
