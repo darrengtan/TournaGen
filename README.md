@@ -15,6 +15,8 @@ in the sidebar and fill out the necessary details. From there, a bracket should
 be automatically created. To update the results of a matchup, click in the score
 area and type in the correct results.
 
+![Tournament Creation](tournagen.gif)
+
 ## Languages
 
 * Ruby
