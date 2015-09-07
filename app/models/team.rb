@@ -11,7 +11,7 @@ class Team < ActiveRecord::Base
 
   max_paginates_per 20
 
-  def self.inclusion
+  def self.inclusion # prevent n + 1 queries with this
     self.includes(
       :captain,
       {registrations: [:team, :tournament]},
@@ -21,12 +21,12 @@ class Team < ActiveRecord::Base
     ).order(:name)
   end
 
-  def self.search(search_params)
+  def self.search(search_params) # search results for teams
     search_term = "%#{search_params}%".downcase
     self.inclusion.where("LOWER(name) LIKE ?", search_term)
   end
 
-  def ensure_team_membership
+  def ensure_team_membership # make team owner member of team
     if self.team_memberships.find_by_user_id(self.captain.id).nil?
       TeamMembership.create!(user_id: self.captain.id, team_id: self.id)
     end
