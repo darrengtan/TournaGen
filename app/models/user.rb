@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :team_memberships, dependent: :destroy
   has_many :registered_teams, through: :team_memberships, source: :team
 
-  def self.find_by_credentials(credential, password)
+  def self.find_by_credentials(credential, password) # for new session
     if credential.include?("@")
       user = User.find_by_email(credential)
     else
@@ -24,23 +24,23 @@ class User < ActiveRecord::Base
     user && user.is_password?(password) ? user : nil
   end
 
-  def reset_token!
+  def reset_token! # reset session token for log in and log out
     self.session_token = SecureRandom.urlsafe_base64(16)
     self.save!
     self.session_token
   end
 
-  def password=(password)
+  def password=(password) # encrypt password
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def is_password?(password)
+  def is_password?(password) # check password
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
   protected
-  def ensure_session_token
+  def ensure_session_token # generate session token for new user
     self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
 end
