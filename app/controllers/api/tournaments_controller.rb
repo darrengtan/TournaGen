@@ -1,5 +1,5 @@
 class Api::TournamentsController < ApplicationController
-  def index
+  def index # allow infinite scrolling with kaminari
     if params[:type] == "follow"
       @tournaments = Tournament.inclusion
                                .references(:follows)
@@ -21,6 +21,7 @@ class Api::TournamentsController < ApplicationController
     respond_to do |format|
       format.html { render :index }
       format.json do
+        # include completion for backbone collection
         render json: {
           models: @tournaments.as_json(methods: :completion),
           page_number: params[:page],
