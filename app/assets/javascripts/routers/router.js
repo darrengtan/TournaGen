@@ -7,6 +7,7 @@ TournaGen.Routers.Router = Backbone.Router.extend({
     this.teams = options.teams;
     this.followTournaments = new TournaGen.Collections.Tournaments();
     this.hostTournaments = new TournaGen.Collections.Tournaments();
+    // listen to collection fetch to show loading spinner while fetching
     this.tournaments.collectionFetchListen();
     this.teams.collectionFetchListen();
     this.followTournaments.collectionFetchListen();
@@ -70,7 +71,7 @@ TournaGen.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  _swapView: function (view) {
+  _swapView: function (view) { // prevent zombie views using composite views
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);

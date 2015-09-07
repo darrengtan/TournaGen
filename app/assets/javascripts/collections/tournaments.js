@@ -4,7 +4,7 @@ TournaGen.Collections.Tournaments = Backbone.Collection.extend({
 
   comparator: "title",
 
-  parse: function (response) {
+  parse: function (response) { // parse page number to only show subselection
     this.page_number = parseInt(response.page_number);
     this.total_pages = parseInt(response.total_pages);
     return response.models;
@@ -29,13 +29,13 @@ TournaGen.Collections.Tournaments = Backbone.Collection.extend({
     return tournament;
   },
 
-  collectionFetchListen: function () {
+  collectionFetchListen: function () { // listen to collection fetch event
     this.on("fetch", function () {
       this.fetching = true;
     }.bind(this));
   },
 
-  tournamentFetchListen: function (tournament) {
+  tournamentFetchListen: function (tournament) { // listen to model fetch event
     tournament.listenTo(tournament, "fetch", function () {
       this.fetching = true;
     }.bind(tournament));
