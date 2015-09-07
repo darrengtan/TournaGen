@@ -27,7 +27,7 @@ class Tournament < ActiveRecord::Base
     JSON.parse(self.results)
   end
 
-  def seed_teams
+  def seed_teams # algorithm to generate starting matchups
     seeds = [1]
     num_rounds = Math.log2(self.max_teams).to_i + 1
     round = 1
@@ -43,7 +43,7 @@ class Tournament < ActiveRecord::Base
     self.pair_matchups(seeds)
   end
 
-  def pair_matchups(seeds_arr)
+  def pair_matchups(seeds_arr) # team names for seeds
     registrations = self.class.includes(registrations: :team)
     pairs = [];
     until seeds_arr.empty?
@@ -57,7 +57,7 @@ class Tournament < ActiveRecord::Base
     end
   end
 
-  def num_rounds
+  def num_rounds # for css purposes
     rounds = Math.log2(self.max_teams).ceil
     if self.double_elim
       case rounds
@@ -73,7 +73,7 @@ class Tournament < ActiveRecord::Base
     end
   end
 
-  def completion
+  def completion # calculate % completion for progress bar
     results = self.parse_results.flatten
     return 0 if results.empty?
     total = results.length
