@@ -1,6 +1,7 @@
 TournaGen.Models.Team = Backbone.Model.extend({
   urlRoot: "api/teams",
 
+  // parse json api to backbone collections/models
   parse: function (response) {
     if (response.image) {
       this.image().set(response.image, { parse: true });
@@ -20,6 +21,7 @@ TournaGen.Models.Team = Backbone.Model.extend({
     return response;
   },
 
+  // create backbone model/collection for team img, regs, and tms
   image: function () {
     if (!this._image) {
       this._image = new TournaGen.Models.Image({ team: this });

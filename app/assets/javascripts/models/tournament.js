@@ -5,6 +5,7 @@ TournaGen.Models.Tournament = Backbone.Model.extend({
     return this.follows().length;
   },
 
+  // parse json api to backbone collections/models
   parse: function (response) {
     if (response.follows) {
       this.follows().set(response.follows, { parse: true });
@@ -19,6 +20,7 @@ TournaGen.Models.Tournament = Backbone.Model.extend({
     return response;
   },
 
+  // backbone collections for tournament follows and registrations
   follows: function () {
     if (!this._follows) {
       this._follows = new TournaGen.Collections.Follows([], { tournament: this });
