@@ -2,6 +2,7 @@ TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
   template: JST["tournaments/feed_index"],
 
   attributes: {
+    // intro.Js attributes
     "data-step": "3",
     "data-intro": "This is your feed, which consists of tournaments you're following and hosting. If you want to check a tournament's progress, click the arrow next to the name. If you want more detailed information on a tournament, click the tournament title.",
     "data-position": "left"
@@ -49,6 +50,7 @@ TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
   },
 
   renderTournaments: function () {
+    // display none if no index items
     var noViews1 = $("<li>");
     noViews1.addClass("list-group-item").html("None");
     var noViews2 = $("<li>");

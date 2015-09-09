@@ -7,6 +7,7 @@ TournaGen.Views.TournamentDeleteConfirmation = Backbone.View.extend({
 
   events: {
     "click .yes-button": "deleteTournament",
+    // events to exit out of modal
     "click .no-button": "removeModal",
     "click .modal-background": "remove",
     "click .close": "removeModal"
