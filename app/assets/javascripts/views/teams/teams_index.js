@@ -14,17 +14,18 @@ TournaGen.Views.TeamsIndex = Backbone.CompositeView.extend({
     this.addSubview("ul.teams-index", view);
   },
 
-  listenForScroll: function () {
+  listenForScroll: function () { // add more teams once window at bottom of page
     $(window).off("scroll");
     var throttledCallback = _.throttle(this.fetchMoreTeams.bind(this), 500);
     $(window).on("scroll", throttledCallback);
   },
 
-  fetchMoreTeams: function (e) {
+  fetchMoreTeams: function (e) { // get next subcollection of teams
     if ($(window).scrollTop() === $(document).height() - $(window).height()) {
       if (this.collection.page_number < this.collection.total_pages) {
         this.collection.fetch({
           data: { page: this.collection.page_number + 1 },
+          // don't remove previous collection
           remove: false,
           success: function () {
             this.render();
@@ -40,6 +41,7 @@ TournaGen.Views.TeamsIndex = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({ teams: this.collection }));
+    // loading spinner while fetching
     if (this.collection.fetching) {
       this.$("ul.teams-index").html(JST["loading_spinner"]());
       this.collection.fetching = false;
