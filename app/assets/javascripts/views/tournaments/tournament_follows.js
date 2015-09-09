@@ -24,6 +24,7 @@ TournaGen.Views.TournamentFollows = Backbone.View.extend({
     follow.save({}, {
       success: function (foll) {
         this.collection.add(foll);
+        // change model attributes to update status
         this.$(".follow-button").html("Unfollow");
         this.model.set("following", true);
         this.model.set("followId", foll.get("id"));
@@ -36,6 +37,7 @@ TournaGen.Views.TournamentFollows = Backbone.View.extend({
     follow.destroy({
       success: function () {
         this.collection.remove(follow);
+        // change model attributes to update status
         $(".follow-button").html("Follow");
         this.model.set("following", false);
       }.bind(this)

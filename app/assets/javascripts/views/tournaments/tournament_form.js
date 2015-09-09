@@ -34,17 +34,21 @@ TournaGen.Views.TournamentForm = Backbone.View.extend({
 
   submit: function (e) {
     e.preventDefault();
+    // set model attrs to form values
     var attrs = $(e.currentTarget).serializeJSON().tournament;
     this.model.set(attrs);
     this.model.save({}, {
       success: function () {
+        // navigate to tournament show on success
         this.collection.add(this.model, { merge: true });
         Backbone.history.navigate("tournaments/" + this.model.escape("id"), { trigger: true });
         this.remove();
       }.bind(this),
 
       error: function (tournament, error) {
+        // fetch to regrab proper values
         tournament.fetch();
+        // show an errors list
         var $errorsList = $("<ul>");
         error.responseJSON.forEach(function (error) {
           var $errorItem = $("<li>");
