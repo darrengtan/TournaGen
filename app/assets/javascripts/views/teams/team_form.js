@@ -17,7 +17,7 @@ TournaGen.Views.TeamForm = Backbone.View.extend({
     }
   },
 
-  onRender: function () {
+  onRender: function () { // user can type team name without clicking on field
     this.$('.name-field').focus();
   },
 
@@ -34,25 +34,29 @@ TournaGen.Views.TeamForm = Backbone.View.extend({
 
   submit: function (e) {
     e.preventDefault();
+    // set model attrs to form values
     var attrs = $(e.currentTarget).serializeJSON().team;
     this.model.set(attrs);
     this.model.save({}, {
       success: function () {
         this.collection.add(this.model, { merge: true });
+        // refresh page to update sidebar
         location.reload(true);
         Backbone.history.navigate("teams/" + this.model.escape("id"), { trigger: true });
         this.remove();
       }.bind(this),
 
       error: function (team, error) {
+        // fetch to regrab proper team details
         team.fetch();
+        // state what fields are missing
         var $errorsList = $("<ul>");
         error.responseJSON.forEach(function (error) {
           var $errorItem = $("<li>");
           $errorItem.html(error);
           $errorsList.append($errorItem);
         });
-
+        // display error list
         this.$(".errors").removeClass("empty").html($errorsList);
       }.bind(this)
     });
