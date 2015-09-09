@@ -1,6 +1,7 @@
 TournaGen.Views.LeftSidebar = Backbone.View.extend({
   template: JST["left_sidebar"],
 
+  // intro.Js attributes
   attributes: {
     "data-step": "2",
     "data-position": "right",

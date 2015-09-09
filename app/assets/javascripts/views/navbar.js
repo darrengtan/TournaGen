@@ -51,6 +51,7 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
     this.$el.find("." + routeName).addClass("active");
   },
 
+  // hide list if empty
   hideSearch: function () {
     this.$('.teams-results').addClass("empty");
     this.$('.tournaments-results').addClass("empty");
@@ -77,6 +78,7 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
     if (this.$('input.form-control').val() === "") {
       this.hideSearch();
     } else {
+      // check each collection lengths to see if empty
       if (this.teams.length !== 0) {
         this.$('.teams-results').removeClass("empty");
       } else {
@@ -109,6 +111,7 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
     this.removeModelSubview("ul.tournaments-results", tournament);
   },
 
+  // fetch teams and tournaments matching search value
   search: function (e) {
     e.preventDefault();
     var search = this.$("input.form-control").val();
