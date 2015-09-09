@@ -19,6 +19,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     "click .delete-button": "deleteConfirmation"
   },
 
+  // add numFollows subview that updates itself on its own
   addNumFollows: function () {
     var view = new TournaGen.Views.TournamentFollows({
       model: this.model,
@@ -34,6 +35,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.addSubview("ul.teams-index", view);
   },
 
+  // check if current user created tournament
   bracketView: function () {
     if (!this.model.get("max_teams")) {
       return this;
@@ -45,6 +47,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
 
   },
 
+  // user can update bracket
   changeBracket: function () {
     this.$('#bracket-container .bracket-body').empty();
     var data = {
@@ -57,10 +60,12 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
       save: this.saveResults.bind(this)
     });
 
+    // press double elimination button if doubleElim
     if (this.model.get("isDoubleElim")) {
       this.$('.doubleElimination').trigger("click");
     }
 
+    // user can't change name of team
     this.$('.jQBracket').addClass("total-" + this.model.get("numRounds"));
     this.$('.label').unbind().removeClass("editable");
   },
@@ -76,6 +81,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   editTournament: function (e) {
+    // edit tournament details
     e.preventDefault();
     var modal = new TournaGen.Views.TournamentForm({
       model: this.model,
@@ -90,6 +96,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     this.removeModelSubview("ul.teams-index", registration);
   },
 
+  // perform opposite action based on user registered to tournament
   registerAction: function (e) {
     e.preventDefault();
     if (!this.model.get("registered")) {
@@ -106,6 +113,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     registration.save({}, {
       success: function (regist) {
         this.registrations.add(regist);
+        // update html and model for quick visual change
         $(".register-button").html("Unregister From Tournament");
         this.model.set("registered", true);
         this.model.set("registrationId", regist.get("id"));
@@ -116,6 +124,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({ tournament: this.model }));
+    // show loading spinner while fetching
     if (this.model.fetching) {
       this.$el.html(JST["loading_spinner"]());
       this.model.fetching = false;
@@ -127,6 +136,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     return this;
   },
 
+  // display none if no teams registered
   checkTeamsLength: function () {
     if (this.registrations.length === 0) {
       var noViews = $("<li>");
@@ -153,6 +163,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     });
   },
 
+  // user can see but not edit tournament bracket
   viewBracket: function () {
     this.$('#bracket-container .bracket-body').empty();
     var data = {
