@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe TeamsController, type: :controller do
+RSpec.describe Api::TeamsController, type: :controller do
 
 end

@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe TeamMembershipsController, type: :controller do
+RSpec.describe Api::TeamMembershipsController, type: :controller do
 
 end
