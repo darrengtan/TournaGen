@@ -15,6 +15,7 @@ RSpec.describe Tournament, type: :model do
     expect(Tournament.new).to be_invalid
     expect(Tournament.new(title: "testing")).to be_invalid
     expect(Tournament.new(max_teams: 4)).to be_invalid
+    # requires author_id
     expect(Tournament.new(title: "testing", max_teams: 4)).to be_invalid
   end
 
