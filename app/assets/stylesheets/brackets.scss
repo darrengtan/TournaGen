@@ -1,4 +1,5 @@
 /* jQuery Bracket | Copyright (c) Teijo Laine 2011-2013 | Licenced under the MIT licence */
+// changed some css to fit my desires
 
 div.jQBracket {
     font-family: Arial;
@@ -295,4 +296,15 @@ div.jQBracket.rl .highlightWinner .bubble:after {
 }
 div.jQBracket.rl .highlightLoser .bubble:after {
     border-left-color: #ccc
+}
+
+// -----------------brand new css----------------------------------------------
+
+div.score.editable > input {
+  width: 26px;
+  text-align: center;
+}
+
+@for $i from 3 through 17 {
+  #main-content div.jQBracket.total-#{$i}[style] { width: ((150px * $i) + 80) !important; }
 }

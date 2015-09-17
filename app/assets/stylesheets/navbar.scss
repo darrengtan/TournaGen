@@ -1,0 +1,112 @@
+#navbar .navbar.navbar-default{
+  background: rgb(13, 0, 32);
+  color: rgb(221, 170, 0);
+  border-radius: 0px;
+  border-color: rgb(13, 0, 32);
+  font-size: 16px;
+}
+
+#navbar a {
+  color: #da0;
+  background: rgb(13, 0, 32);
+}
+
+#navbar a.navbar-brand {
+  font-size: 24px;
+}
+
+#navbar li a {
+  position: relative;
+  color: #da0;
+  text-decoration: none;
+}
+
+#navbar li a:hover {
+  color: rgb(221, 170, 0);
+}
+
+#navbar li a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(221, 170, 0);
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#navbar li a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+#navbar li.active a {
+  position: relative;
+  color: #da0;
+  text-decoration: none;
+}
+
+#navbar li.active a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #da0;
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+#navbar li a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+#navbar ul {
+  background: rgb(13, 0, 32);
+}
+
+#navbar li.divider {
+  background-color: rgb(221, 170, 0);
+}
+
+#navbar li:hover {
+  border-color: rgb(221, 170, 0);
+}
+
+#navbar div.search-results {
+  position: absolute;
+  top: 50px;
+  right: 110px;
+  background: rgb(13, 0, 32);
+  border-radius: 5px;
+  z-index: 1;
+  padding: 0 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+div.search-results .teams-results {
+  float: left;
+  text-align: center;
+  margin-right: 3px;
+}
+
+div.search-results .tournaments-results {
+  float: left;
+  text-align: center;
+  margin-left: 3px;
+}
+
+div.search-results a {
+  margin: 0 auto;
+}

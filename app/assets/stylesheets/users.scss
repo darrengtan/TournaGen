@@ -1,3 +1,63 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user-session-container {
+  z-index: 1001;
+  position: absolute;
+  top: 15%;
+  left: 40%;
+  background: rgb(13, 0, 32);
+  color: rgb(221, 170, 0);
+  padding: 1pc;
+  border: 2px solid;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center
+}
+
+.user-session-container div {
+  width: 250px;
+}
+
+.user-session-container input {
+  color: black;
+}
+
+.user-session-container a {
+  position: relative;
+  color: rgb(221, 170, 0);
+  text-decoration: none;
+}
+
+.user-session-container a:hover {
+  color: rgb(221, 170, 0);
+}
+
+.user-session-container a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(221, 170, 0);
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.user-session-container a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.user-session-container .guest-login {
+  float: left;
+  margin-right: 10px;
+  width: auto;
+}
+
+.user-session-container .new-user {
+  float: left;
+  width: auto;
+}
