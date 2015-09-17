@@ -23,7 +23,7 @@ class Api::TournamentsController < ApplicationController
       format.json do
         # include completion for backbone collection
         render json: {
-          models: @tournaments.as_json(methods: :completion),
+          models: @tournaments.as_json(methods: [:completion, :seeds]),
           page_number: params[:page],
           total_pages: @tournaments.total_pages
         }

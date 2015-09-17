@@ -30,4 +30,4 @@ json.follows do
 end
 
 
-json.seeds tournament.seed_teams
+json.seeds tournament.seeds

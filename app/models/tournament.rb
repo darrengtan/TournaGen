@@ -27,7 +27,7 @@ class Tournament < ActiveRecord::Base
     JSON.parse(self.results)
   end
 
-  def seed_teams # algorithm to generate starting matchups
+  def seeds # algorithm to generate starting matchups
     seeds = [1]
     num_rounds = Math.log2(self.max_teams).to_i + 1
     round = 1

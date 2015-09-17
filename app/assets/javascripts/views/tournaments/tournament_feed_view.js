@@ -19,7 +19,7 @@ TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
     this.listenTo(this.hosts, "remove", this.removeHostIndexItemSubview);
   },
 
-  addTournamentCarouselItemSubview: function (tournament) {
+  addCarouselItemSubview: function (tournament) {
     var view = new TournaGen.Views.CarouselItem({ model: tournament });
     this.addSubview(".carousel-inner", view);
   },
