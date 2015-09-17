@@ -60,16 +60,25 @@ TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
     noViews1.addClass("list-group-item").html("None");
     var noViews2 = $("<li>");
     noViews2.addClass("list-group-item").html("None");
+
     if (this.follows.length === 0) {
       this.$('ul.follow-tournaments-index').html(noViews1);
     } else {
-      this.follows.each(this.addFollowIndexItemSubview.bind(this));
+      this.follows.each(function (tournament) {
+        this.addFollowIndexItemSubview(tournament);
+        this.addCarouselItemSubview(tournament);
+      }.bind(this));
     }
 
     if (this.hosts.length === 0) {
       this.$('ul.host-tournaments-index').html(noViews2);
     } else {
-      this.hosts.each(this.addHostIndexItemSubview.bind(this));
+      this.hosts.each(function (tournament) {
+        this.addHostIndexItemSubview(tournament);
+        this.addCarouselItemSubview(tournament);
+      }.bind(this));
     }
+
+    $(this.$('.item')[0]).addClass('active');
   }
 });

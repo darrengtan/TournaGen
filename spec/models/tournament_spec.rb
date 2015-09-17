@@ -26,7 +26,7 @@ RSpec.describe Tournament, type: :model do
       ["Team 2", "Team 7"],
       ["Team 3", "Team 6"]
     ]
-    expect(tournament.seed_teams).to eq(matchups)
+    expect(tournament.seeds).to eq(matchups)
   end
 
   it "parses results" do
