@@ -1,3 +1,21 @@
-// Place all the styles related to the Teams controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+details img {
+  float: left;
+}
+
+div.team-associations {
+  margin-top: 10px;
+  width: 100%;
+  display: block;
+  float: left;
+}
+
+div.team-details {
+  width: 60%;
+  display: block;
+  float: right;
+}
+
+div.team-profile {
+  display: block;
+  float: left;
+}

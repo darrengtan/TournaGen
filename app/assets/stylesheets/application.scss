@@ -25,38 +25,6 @@ ul.dropdown-menu {
   text-align: center;
 }
 
- .close {
-   color: rgb(221, 170, 0);
-   opacity: 1.0;
- }
-
- .close:hover {
-   color: rgb(221, 170, 0);
- }
-
-button.tutorial-button {
-  margin-top: 8px;
-  margin-left: 10px;
-}
-
- div.team-associations {
-   margin-top: 10px;
-   width: 100%;
-   display: block;
-   float: left;
- }
-
- div.team-details {
-   width: 60%;
-   display: block;
-   float: right;
- }
-
- div.team-profile {
-   display: block;
-   float: left;
- }
-
  div.alert.alert-warning.alert-dismissible {
    width: 70%;
  }
@@ -69,11 +37,6 @@ button.tutorial-button {
 
  div.right-side button {
    margin-top: 10px;
- }
-
- .register-button {
-   margin-right: -5px;
-   width: 207px;
  }
 
  div.right-side button.follow-button {
@@ -134,10 +97,6 @@ div#main-content div#bracket-container {
   width: 49%;
   margin: 0 3px;
   text-align: center;
-}
-
-select {
-  color: black;
 }
 
 a {
@@ -211,10 +170,6 @@ details {
   overflow: hidden;
 }
 
-details img {
-  float: left;
-}
-
 details div {
   width: 65%;
   float: left;
@@ -227,35 +182,8 @@ details div {
   word-wrap: break-word;
 }
 
-details div.progress {
-  padding-left: 0px;
-  margin: 0px;
-  border-left: 0px;
-}
-
-details div.progress .progress-bar {
-  margin-left: 0px;
-  border-left: 0px;
-  padding-left: 0px;
-}
-
 details summary:hover {
   cursor: pointer;
-}
-
-.following details div {
-  width: 90%;
-  height: auto;
-}
-
-.host details div {
-  width: 90%;
-  height: auto;
-}
-
-.tournaments-index details div {
-  width: 90%;
-  height: auto;
 }
 
 details summary:focus {

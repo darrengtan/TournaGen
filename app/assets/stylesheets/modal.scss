@@ -88,3 +88,16 @@
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
+
+.close {
+  color: rgb(221, 170, 0);
+  opacity: 1.0;
+}
+
+.close:hover {
+  color: rgb(221, 170, 0);
+}
+
+select {
+  color: black;
+}

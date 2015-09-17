@@ -1,3 +1,31 @@
-// Place all the styles related to the Tournaments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+details div.progress {
+  padding-left: 0px;
+  margin: 0px;
+  border-left: 0px;
+}
+
+details div.progress .progress-bar {
+  margin-left: 0px;
+  border-left: 0px;
+  padding-left: 0px;
+}
+
+.tournaments-index details div {
+  width: 90%;
+  height: auto;
+}
+
+.register-button {
+  margin-right: -5px;
+  width: 207px;
+}
+
+.following details div {
+  width: 90%;
+  height: auto;
+}
+
+.host details div {
+  width: 90%;
+  height: auto;
+}
