@@ -1,33 +1,23 @@
 class Api::TournamentsController < ApplicationController
   def index # allow infinite scrolling with kaminari
+    @page_number = params[:page]
     if params[:type] == "follow"
       @tournaments = Tournament.inclusion
                                .references(:follows)
                                .where(
                                  "follows.follower_id = ?",
                                  current_user.id
-                               ).page(params[:page])
+                               ).page(@page_number)
     elsif params[:type] == "host"
       @tournaments = current_user.tournaments.includes(
         {registrations: [:team, :tournament]},
         :author,
         follows: [:follower, :tournament]
-      ).page(params[:page])
+      ).page(@page_number)
     elsif params[:search]
-      @tournaments = Tournament.search(params[:search]).page(params[:page])
+      @tournaments = Tournament.search(params[:search]).page(@page_number)
     else
-      @tournaments = Tournament.inclusion.page(params[:page])
-    end
-    respond_to do |format|
-      format.html { render :index }
-      format.json do
-        # include completion for backbone collection
-        # render json: {
-        #   models: @tournaments.as_json(methods: [:completion, :seeds, :num_rounds]),
-        #   page_number: params[:page],
-        #   total_pages: @tournaments.total_pages
-        # }
-      end
+      @tournaments = Tournament.inclusion.page(@page_number)
     end
   end
 

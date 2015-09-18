@@ -1,18 +1,10 @@
 class Api::TeamsController < ApplicationController
   def index
+    @page_number = params[:page]
     if params[:search]
-      @teams = Team.search(params[:search]).page(params[:page])
+      @teams = Team.search(params[:search]).page(@page_number)
     else
-      @teams = Team.inclusion.page(params[:page])
-    end
-    respond_to do |format|
-      format.json do
-        render json: {
-          models: @teams.as_json(include: :image),
-          page_number: params[:page],
-          total_pages: @teams.total_pages
-        }
-      end
+      @teams = Team.inclusion.page(@page_number)
     end
   end
 
