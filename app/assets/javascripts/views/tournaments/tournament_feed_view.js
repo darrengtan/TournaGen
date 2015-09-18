@@ -13,9 +13,11 @@ TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
     this.hosts = options.hosts;
     this.listenTo(this.follows, "sync", this.render);
     this.listenTo(this.follows, "add", this.addFollowIndexItemSubview);
+    this.listenTo(this.follows, "add", this.addCarouselItemSubview);
     this.listenTo(this.follows, "remove", this.removeFollowIndexItemSubview);
     this.listenTo(this.hosts, "sync", this.render);
     this.listenTo(this.hosts, "add", this.addHostIndexItemSubview);
+    this.listenTo(this.hosts, "add", this.addCarouselItemSubview);
     this.listenTo(this.hosts, "remove", this.removeHostIndexItemSubview);
   },
 
@@ -65,7 +67,7 @@ TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
       this.$('ul.follow-tournaments-index').html(noViews1);
     } else {
       this.follows.each(function (tournament) {
-        this.addFollowIndexItemSubview(tournament);
+        // this.addFollowIndexItemSubview(tournament);
         this.addCarouselItemSubview(tournament);
       }.bind(this));
     }
@@ -74,7 +76,7 @@ TournaGen.Views.TournamentFeedView = Backbone.CompositeView.extend({
       this.$('ul.host-tournaments-index').html(noViews2);
     } else {
       this.hosts.each(function (tournament) {
-        this.addHostIndexItemSubview(tournament);
+        // this.addHostIndexItemSubview(tournament);
         this.addCarouselItemSubview(tournament);
       }.bind(this));
     }

@@ -3,7 +3,7 @@ TournaGen.Views.CarouselItem = Backbone.View.extend({
   className: "item",
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.viewBracket);
+    this.listenTo(this.model, "sync", this.render);
   },
 
   render: function () {
@@ -16,7 +16,7 @@ TournaGen.Views.CarouselItem = Backbone.View.extend({
     this.$('#bracket-container .bracket-body').empty();
     var data = {
       teams : this.model.get("seeds"),
-      results : this.model.get("results")
+      results : JSON.parse(this.model.get("results"))
     };
 
     this.$('#bracket-container .bracket-body').bracket({
