@@ -44,7 +44,6 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     } else {
       this.viewBracket();
     }
-
   },
 
   // user can update bracket
