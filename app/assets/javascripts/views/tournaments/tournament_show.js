@@ -66,7 +66,7 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
     }
 
     // user can't change name of team
-    this.$('.jQBracket').addClass("total-" + this.model.get("numRounds"));
+    this.$('.jQBracket').addClass("total-" + this.model.get("num_rounds"));
     this.$('.label').unbind().removeClass("editable");
   },
 
@@ -175,6 +175,6 @@ TournaGen.Views.TournamentShow = Backbone.CompositeView.extend({
       init: data
     });
 
-    this.$('.jQBracket').addClass("total-" + this.model.get("numRounds"));
+    this.$('.jQBracket').addClass("total-" + this.model.get("num_rounds"));
   }
 });

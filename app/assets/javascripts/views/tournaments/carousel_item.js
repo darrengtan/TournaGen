@@ -23,6 +23,6 @@ TournaGen.Views.CarouselItem = Backbone.View.extend({
       init: data
     });
 
-    this.$('.jQBracket').addClass("total-" + this.model.get("numRounds"));
+    this.$('.jQBracket').addClass("total-" + this.model.get("num_rounds"));
   }
 });

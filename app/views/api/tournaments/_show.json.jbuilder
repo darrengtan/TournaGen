@@ -1,6 +1,6 @@
 json.extract! tournament, :id, :title, :description, :max_teams, :updated_at
 json.isDoubleElim tournament.double_elim
-json.numRounds tournament.num_rounds
+json.num_rounds tournament.num_rounds
 json.completion tournament.completion
 json.results tournament.parse_results
 json.host tournament.author.username
