@@ -8,6 +8,7 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
     this.tournaments = new TournaGen.Collections.Tournaments();
     this.teams = new TournaGen.Collections.Teams();
     this.listenTo(this.router, "route", this.handleRoute);
+    // search event listeners
     this.listenTo(this.teams, "sync", this.renderResults);
     this.listenTo(this.tournaments, "sync", this.renderResults);
     this.listenTo(this.teams, "add", this.addTeamName);
@@ -75,21 +76,17 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
   },
 
   renderResults: function () {
-    if (this.$('input.form-control').val().length < 3) {
-      this.hideSearch();
+    // check each collection lengths to see if empty
+    if (this.teams.length !== 0) {
+      this.$('.teams-results').removeClass("empty");
     } else {
-      // check each collection lengths to see if empty
-      if (this.teams.length !== 0) {
-        this.$('.teams-results').removeClass("empty");
-      } else {
-        this.$('.teams-results').addClass("empty");
-      }
+      this.$('.teams-results').addClass("empty");
+    }
 
-      if (this.tournaments.length !== 0) {
-        this.$('.tournaments-results').removeClass("empty");
-      } else {
-        this.$('.tournaments-results').addClass("empty");
-      }
+    if (this.tournaments.length !== 0) {
+      this.$('.tournaments-results').removeClass("empty");
+    } else {
+      this.$('.tournaments-results').addClass("empty");
     }
   },
 
