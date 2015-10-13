@@ -55,7 +55,7 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
   hideSearch: function () {
     this.$('.teams-results').addClass("empty");
     this.$('.tournaments-results').addClass("empty");
-    this.$('input.form-control').val("");
+    // this.$('input.form-control').val("");
   },
 
   logOut: function (e) {
@@ -75,7 +75,7 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
   },
 
   renderResults: function () {
-    if (this.$('input.form-control').val() === "") {
+    if (this.$('input.form-control').val().length < 3) {
       this.hideSearch();
     } else {
       // check each collection lengths to see if empty
@@ -115,7 +115,11 @@ TournaGen.Views.Navbar = Backbone.CompositeView.extend({
   search: function (e) {
     e.preventDefault();
     var search = this.$("input.form-control").val();
-    this.teams.fetch({ data: { search: search }});
-    this.tournaments.fetch({ data: { search: search }});
+    if (search.length >= 3) {
+      this.teams.fetch({ data: { search: search }});
+      this.tournaments.fetch({ data: { search: search }});
+    } else {
+      this.hideSearch();
+    }
   }
 });

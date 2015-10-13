@@ -4,7 +4,7 @@ $(function ($) {
     this.$items = $(".items img");
     this.activeIdx = 0;
 
-    $('div.items img:first-child').addClass('active');
+    $('div.items div.carousel-item:first-child').addClass('active');
     this.$el.on("click", ".slide-left", this.slide.bind(this, 1));
     this.$el.on("click", ".slide-right", this.slide.bind(this, -1));
   };

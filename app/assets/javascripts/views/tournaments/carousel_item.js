@@ -1,6 +1,6 @@
 TournaGen.Views.CarouselItem = Backbone.View.extend({
   template: JST["tournaments/carousel_item"],
-  className: "item",
+  className: "carousel-item",
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
