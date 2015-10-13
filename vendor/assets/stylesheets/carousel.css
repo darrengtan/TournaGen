@@ -1,0 +1,30 @@
+div.carousel {
+  width: 200px;
+  height: 300px;
+}
+
+div.carousel-items {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+div.carousel-items > .bracket-container {
+  display: none;
+}
+
+div.carousel-items > .bracket-container.active {
+  display: block;
+  position: absolute;
+  left: 0%;
+  transition: left 0.5s;
+}
+
+div.carousel-items > .bracket-container.active.right {
+  left: 100%;
+}
+
+div.carousel-items > .bracket-container.active.left {
+  left: -100%;
+}

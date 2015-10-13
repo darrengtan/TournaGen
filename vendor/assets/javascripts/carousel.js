@@ -1,10 +1,10 @@
 $(function ($) {
   $.Carousel = function (el) {
     this.$el = $(el);
-    this.$items = $(".items img");
+    this.$items = $("div.carousel-item .bracket-container");
     this.activeIdx = 0;
 
-    $('div.items div.carousel-item:first-child').addClass('active');
+    $('div.carousel-item div.bracket-container:first-child').addClass('active');
     this.$el.on("click", ".slide-left", this.slide.bind(this, 1));
     this.$el.on("click", ".slide-right", this.slide.bind(this, -1));
   };
